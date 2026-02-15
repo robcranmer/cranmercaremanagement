@@ -13,7 +13,6 @@
       --deep:#0b1b4a;
       --text:#0f172a;
       --muted:#475569;
-      --white:#ffffff;
       --shadow: 0 16px 44px rgba(15, 23, 42, 0.16);
       --shadow2: 0 10px 26px rgba(15, 23, 42, 0.12);
       --r:22px;
@@ -47,16 +46,17 @@
     }
     .topbar .container{
       display:flex;
-      justify-content:space-between;
+      justify-content:flex-end;
       align-items:center;
       gap:12px;
       padding:10px 0;
       flex-wrap:wrap;
       font-size:15px;
-      font-weight:700;
+      font-weight:800;
     }
     .topbar a{ text-decoration:none; color:#fff; font-weight:900; }
     .topbar a:hover{ text-decoration:underline; }
+    .topbar .sep{ opacity:0.8; }
 
     /* Floating contact button */
     .float-contact{
@@ -71,8 +71,9 @@
       text-decoration:none;
       font-weight:900;
       box-shadow: var(--shadow);
+      transition: transform 180ms ease, filter 180ms ease;
     }
-    .float-contact:hover{ filter:brightness(0.97); }
+    .float-contact:hover{ transform: translateY(-2px); filter:brightness(0.98); }
     .float-contact:focus{ outline:3px solid rgba(233,30,99,0.30); outline-offset:3px; }
 
     /* Header */
@@ -84,21 +85,27 @@
       gap:14px;
       flex-wrap:wrap;
     }
+
+    /* Logo on white background */
     .logo-link{
       display:inline-flex;
       align-items:center;
       text-decoration:none;
       padding:10px 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(233,30,99,0.14), rgba(30,58,138,0.12));
-      border:1px solid rgba(255,255,255,0.35);
+      border-radius: 18px;
+      background:#fff;
+      border:1px solid rgba(15,23,42,0.10);
       box-shadow: var(--shadow2);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .logo-link:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(15, 23, 42, 0.16);
     }
     .logo{
       width:190px;
       height:auto;
       display:block;
-      filter: drop-shadow(0 10px 18px rgba(2, 6, 23, 0.18));
     }
 
     .nav{
@@ -114,22 +121,32 @@
       letter-spacing:0.2px;
       padding:10px 12px;
       border-radius:999px;
-      background: rgba(255,255,255,0.62);
+      background: rgba(255,255,255,0.70);
       border:1px solid rgba(15,23,42,0.08);
       box-shadow: var(--shadow2);
+      transition: transform 160ms ease, box-shadow 160ms ease;
     }
-    .nav a:hover{ transform: translateY(-1px); transition: 0.15s ease; }
+    .nav a:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(15, 23, 42, 0.16);
+    }
 
     /* Bubble sections */
     section{ padding:18px 0; }
     .bubble-wrap{
-      padding:20px;
+      padding:22px;
       border-radius: calc(var(--r) + 10px);
       box-shadow: var(--shadow);
       border:1px solid rgba(255,255,255,0.28);
       overflow:hidden;
       position:relative;
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
+    .bubble-wrap:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+    }
+
     .bubble-wrap:before,
     .bubble-wrap:after{
       content:"";
@@ -141,50 +158,50 @@
     .bubble-wrap:before{
       width:240px; height:240px;
       left:-100px; top:-100px;
-      background: radial-gradient(circle at 30% 30%, rgba(233,30,99,0.40), rgba(233,30,99,0) 70%);
+      background: radial-gradient(circle at 30% 30%, rgba(233,30,99,0.42), rgba(233,30,99,0) 70%);
     }
     .bubble-wrap:after{
       width:300px; height:300px;
       right:-130px; bottom:-140px;
-      background: radial-gradient(circle at 30% 30%, rgba(30,58,138,0.38), rgba(30,58,138,0) 70%);
+      background: radial-gradient(circle at 30% 30%, rgba(30,58,138,0.40), rgba(30,58,138,0) 70%);
     }
 
     .theme-pinkblue{ background: linear-gradient(135deg, rgba(233,30,99,0.18), rgba(30,58,138,0.14)); }
     .theme-blue{ background: linear-gradient(135deg, rgba(30,58,138,0.20), rgba(11,27,74,0.10)); }
     .theme-pink{ background: linear-gradient(135deg, rgba(233,30,99,0.20), rgba(255,255,255,0.08)); }
 
-    /* Headings */
+    /* Headings (bigger) */
     .kicker{
       display:inline-block;
-      padding:6px 10px;
+      padding:7px 12px;
       border-radius:999px;
-      font-size:12px;
+      font-size:13px;
       font-weight:900;
-      letter-spacing:0.7px;
+      letter-spacing:0.8px;
       text-transform:uppercase;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       border:1px solid rgba(15,23,42,0.08);
       box-shadow: var(--shadow2);
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
     .h1{
-      font-size:36px;
-      line-height:1.12;
+      font-size:44px;
+      line-height:1.05;
       letter-spacing:0.2px;
-      margin:0 0 10px;
+      margin:0 0 12px;
       color: var(--deep);
       font-weight:900;
     }
     .h2{
-      font-size:26px;
-      margin:0 0 10px;
+      font-size:34px;
+      margin:0 0 12px;
       color: var(--deep);
       font-weight:900;
     }
     .lead{
       margin:0 0 14px;
       color: var(--muted);
-      font-size:17px;
+      font-size:18px;
       max-width: 980px;
       font-weight:700;
     }
@@ -204,21 +221,25 @@
       border:1px solid rgba(255,255,255,0.40);
       box-shadow: var(--shadow2);
       background:#fff;
-      min-height: 310px;
+      min-height: 320px;
+      transition: transform 180ms ease;
     }
-    .image-card img{ width:100%; height:100%; min-height:310px; object-fit:cover; display:block; }
+    .bubble-wrap:hover .image-card{ transform: scale(1.01); }
+    .image-card img{ width:100%; height:100%; min-height:320px; object-fit:cover; display:block; }
 
     /* Chips */
     .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
     .chip{
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       border:1px solid rgba(15,23,42,0.08);
       border-radius:999px;
-      padding:8px 10px;
-      font-size:14px;
+      padding:9px 11px;
+      font-size:15px;
       font-weight:900;
       box-shadow: var(--shadow2);
+      transition: transform 160ms ease;
     }
+    .chip:hover{ transform: translateY(-2px); }
 
     /* Grids */
     .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
@@ -226,14 +247,19 @@
     @media (max-width: 980px){ .grid-3{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } }
 
     .card{
-      background: rgba(255,255,255,0.74);
+      background: rgba(255,255,255,0.76);
       border:1px solid rgba(15,23,42,0.08);
       border-radius: var(--r);
       padding:16px;
       box-shadow: var(--shadow2);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .card h4{ margin:0 0 8px; font-size:17px; font-weight:900; color: var(--deep); }
-    .card p{ margin:0; color:var(--muted); font-weight:700; font-size:16px; }
+    .card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+    }
+    .card h4{ margin:0 0 8px; font-size:19px; font-weight:900; color: var(--deep); }
+    .card p{ margin:0; color:var(--muted); font-weight:700; font-size:17px; }
 
     /* Links list */
     .links{
@@ -241,7 +267,7 @@
       padding-left:18px;
       color: var(--muted);
       font-weight:700;
-      font-size:16px;
+      font-size:17px;
     }
     .links li{ margin:8px 0; }
     .links a{
@@ -254,7 +280,7 @@
     /* Meet the team */
     .team-row{ display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; }
     .avatar{
-      width:110px; height:110px; border-radius:999px; overflow:hidden; flex:0 0 auto;
+      width:112px; height:112px; border-radius:999px; overflow:hidden; flex:0 0 auto;
       border:3px solid rgba(233,30,99,0.35);
       box-shadow: var(--shadow2);
       background:#fff;
@@ -265,6 +291,7 @@
       object-fit:cover;
       object-position: 50% 18%;
       display:block;
+      transform: scale(1.03);
     }
     .team-text{ flex:1 1 320px; min-width:260px; }
     .role{
@@ -276,19 +303,24 @@
       padding:6px 10px;
       border-radius:999px;
       margin-bottom:10px;
-      font-size:12px;
-      letter-spacing:0.7px;
+      font-size:13px;
+      letter-spacing:0.8px;
       text-transform:uppercase;
     }
 
     /* Testimonials bubbles */
     .speech{
       position:relative;
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.80);
       border:1px solid rgba(15,23,42,0.08);
       border-radius: 22px;
       padding:16px;
       box-shadow: var(--shadow2);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .speech:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
     }
     .speech:after{
       content:"";
@@ -297,13 +329,13 @@
       left:26px;
       width:18px;
       height:18px;
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.80);
       border-left:1px solid rgba(15,23,42,0.08);
       border-bottom:1px solid rgba(15,23,42,0.08);
       transform: rotate(45deg);
     }
-    .speech p{ margin:0 0 10px; color: var(--text); font-weight:800; font-size:16px; }
-    .speech .who{ margin:0; color: var(--muted); font-size:14px; font-weight:900; }
+    .speech p{ margin:0 0 10px; color: var(--text); font-weight:800; font-size:17px; }
+    .speech .who{ margin:0; color: var(--muted); font-size:15px; font-weight:900; }
 
     /* Contact section */
     .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch; }
@@ -312,48 +344,58 @@
     .contact-pill{
       display:flex; gap:10px; align-items:center; padding:14px;
       border-radius: var(--r);
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       border:1px solid rgba(15,23,42,0.08);
       box-shadow: var(--shadow2);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .contact-pill:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
     }
     .emoji{
       font-size:22px;
-      width:34px; height:34px;
+      width:36px; height:36px;
       display:flex; align-items:center; justify-content:center;
       border-radius:12px;
       background: linear-gradient(135deg, rgba(233,30,99,0.18), rgba(30,58,138,0.14));
       border:1px solid rgba(15,23,42,0.06);
     }
     .contact-pill .label{
-      font-size:12px; font-weight:900; letter-spacing:0.8px; text-transform:uppercase;
+      font-size:13px; font-weight:900; letter-spacing:0.8px; text-transform:uppercase;
       color: var(--muted); margin:0;
     }
-    .contact-pill .value{ margin:2px 0 0; font-weight:900; font-size:17px; }
+    .contact-pill .value{ margin:2px 0 0; font-weight:900; font-size:18px; }
     .contact-pill a{ text-decoration:none; border-bottom:2px solid rgba(30,58,138,0.28); }
     .contact-pill a:hover{ border-bottom-color: rgba(233,30,99,0.55); }
 
     form{
-      background: rgba(255,255,255,0.74);
+      background: rgba(255,255,255,0.76);
       border:1px solid rgba(15,23,42,0.08);
       border-radius: var(--r);
       padding:16px;
       box-shadow: var(--shadow2);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    form:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
     }
     label{
       display:block;
       font-weight:900;
       margin:10px 0 6px;
       color: var(--deep);
-      font-size:14px;
+      font-size:15px;
     }
     input, textarea{
       width:100%;
       border-radius: 14px;
       border:1px solid rgba(15,23,42,0.14);
       padding:12px 12px;
-      font-size:16px;
+      font-size:17px;
       font-family: inherit;
-      background: rgba(255,255,255,0.90);
+      background: rgba(255,255,255,0.92);
       outline:none;
     }
     input:focus, textarea:focus{
@@ -370,50 +412,44 @@
       border-radius: 16px;
       padding:12px 14px;
       font-weight:900;
-      font-size:16px;
+      font-size:17px;
       color:#fff;
       background: linear-gradient(135deg, var(--pink), var(--blue));
       box-shadow: var(--shadow2);
+      transition: transform 160ms ease, filter 160ms ease;
     }
-    .btn:hover{ filter:brightness(0.97); }
+    .btn:hover{ transform: translateY(-2px); filter:brightness(0.98); }
 
     .note{
       margin:10px 0 0;
       color: var(--muted);
-      font-size:14px;
+      font-size:15px;
       font-weight:700;
     }
 
-    /* CQC badge (clickable) */
-    .cqc-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:12px;
-    }
+    /* CQC badge */
+    .cqc-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:12px; }
     .cqc-card{
       display:flex;
       align-items:center;
       gap:12px;
       padding:12px 14px;
       border-radius: var(--r);
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       border:1px solid rgba(15,23,42,0.08);
       box-shadow: var(--shadow2);
       text-decoration:none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
     }
-    .cqc-card:hover{ transform: translateY(-1px); transition: 0.15s ease; }
-    .cqc-card img{
-      width:92px;
-      height:auto;
-      display:block;
-      border-radius: 14px;
+    .cqc-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
     }
-    .cqc-title{ margin:0; font-weight:900; color: var(--deep); font-size:15px; }
-    .cqc-sub{ margin:4px 0 0; font-weight:700; color: var(--muted); font-size:13px; }
+    .cqc-card img{ width:96px; height:auto; display:block; border-radius: 14px; }
+    .cqc-title{ margin:0; font-weight:900; color: var(--deep); font-size:16px; }
+    .cqc-sub{ margin:4px 0 0; font-weight:700; color: var(--muted); font-size:14px; }
 
-    /* Partner buttons */
+    /* Partners */
     .partner-btn{
       display:flex;
       justify-content:space-between;
@@ -422,21 +458,18 @@
       padding:14px;
       border-radius: var(--r);
       text-decoration:none;
-      background: rgba(255,255,255,0.74);
+      background: rgba(255,255,255,0.76);
       border:1px solid rgba(15,23,42,0.08);
       box-shadow: var(--shadow2);
       font-weight:900;
+      transition: transform 160ms ease, box-shadow 160ms ease;
     }
-    .partner-btn span{
-      font-weight:900;
-      color: var(--deep);
+    .partner-btn span{ font-weight:900; color: var(--deep); font-size:17px; }
+    .partner-btn em{ font-style:normal; font-weight:900; color: var(--pink); }
+    .partner-btn:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
     }
-    .partner-btn em{
-      font-style:normal;
-      font-weight:900;
-      color: var(--pink);
-    }
-    .partner-btn:hover{ transform: translateY(-1px); transition: 0.15s ease; }
 
     footer{
       margin-top:18px;
@@ -447,12 +480,12 @@
     }
     footer .container{
       display:flex;
-      justify-content:space-between;
+      justify-content:center;
       align-items:center;
-      gap:10px;
+      gap:12px;
       flex-wrap:wrap;
       font-size:15px;
-      font-weight:700;
+      font-weight:800;
     }
     footer a{ color:#fff; text-decoration:none; font-weight:900; }
     footer a:hover{ text-decoration:underline; }
@@ -464,11 +497,12 @@
 
   <a class="float-contact" href="#contact" aria-label="Go to Contact section">Contact us</a>
 
-  <!-- Top bar -->
+  <!-- Top bar: email + phone together -->
   <div class="topbar">
     <div class="container">
-      <div>📧 <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></div>
-      <div>📞 <a href="tel:+441274449277">01274 449277</a></div>
+      <span>📧 <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></span>
+      <span class="sep">•</span>
+      <span>📞 <a href="tel:+441274449277">01274 449277</a></span>
     </div>
   </div>
 
@@ -476,7 +510,6 @@
   <header>
     <div class="container">
       <div class="header-row">
-        <!-- Logo only, clickable to top -->
         <a class="logo-link" href="#top" aria-label="Back to top">
           <img class="logo" src="logo.png" alt="Cranmer Care Management Ltd logo" />
         </a>
@@ -517,7 +550,6 @@
               <span class="chip">🔧 Turnaround support</span>
             </div>
 
-            <!-- CQC -->
             <div class="cqc-row" aria-label="CQC link">
               <a class="cqc-card" href="https://www.cqc.org.uk/" target="_blank" rel="noopener" aria-label="Visit the CQC website">
                 <img src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/NCF-CQC-Policies.webp" alt="CQC policies" loading="lazy" />
@@ -549,7 +581,7 @@
         <h2 class="h2">Practical support that makes services better</h2>
         <p class="lead">
           We help you get organised, improve day-to-day standards, and build confidence across your team.
-          No fluff. Just clear support that helps you move forward.
+          Clear support that helps you move forward.
         </p>
 
         <div class="grid-3">
@@ -576,9 +608,7 @@
       <div class="bubble-wrap theme-pink">
         <span class="kicker">Services</span>
         <h2 class="h2">How we can help</h2>
-        <p class="lead">
-          One-off support or a full improvement plan. On-site or remote.
-        </p>
+        <p class="lead">One-off support or a full improvement plan. On-site or remote.</p>
 
         <div class="grid-3">
           <div class="card">
@@ -622,7 +652,7 @@
 
         <div class="grid-2">
           <div class="card">
-            <h4><strong>Work alongside trusted organisations</strong></h4>
+            <h4><strong>Worked alongside</strong></h4>
             <ul class="links">
               <li><a href="https://vitalityliving.uk/" target="_blank" rel="noopener">Vitality Living Ltd</a></li>
               <li><a href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener">Bradford District Care NHS Foundation Trust</a></li>
@@ -683,9 +713,7 @@
       <div class="bubble-wrap theme-pink">
         <span class="kicker">Partners</span>
         <h2 class="h2">Partners we work with</h2>
-        <p class="lead">
-          Links to organisations we work alongside.
-        </p>
+        <p class="lead">Links to organisations we work alongside.</p>
 
         <div class="grid-3">
           <a class="partner-btn" href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener">
@@ -747,9 +775,7 @@
       <div class="bubble-wrap theme-blue">
         <span class="kicker">Contact</span>
         <h2 class="h2">Let’s talk</h2>
-        <p class="lead">
-          Tell us what you need help with and we’ll get back to you.
-        </p>
+        <p class="lead">Tell us what you need help with and we’ll get back to you.</p>
 
         <div class="contact-grid">
           <div>
@@ -757,7 +783,7 @@
               <div class="emoji" aria-hidden="true">📧</div>
               <div>
                 <p class="label">Email</p>
-                <p class="value"><a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></p>
+                <p class="value"><a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></p>
               </div>
             </div>
 
@@ -774,9 +800,8 @@
             <p class="note">If your message is urgent, please call us.</p>
           </div>
 
-          <!-- Simple form that opens email app -->
-          <form action="mailto:info@cranmercare.co.uk" method="post" enctype="text/plain">
-            <h3 style="margin:0 0 6px; color:var(--deep); font-size:20px; font-weight:900;">Contact form</h3>
+          <form action="mailto:support@cranmercare.co.uk" method="post" enctype="text/plain">
+            <h3 style="margin:0 0 6px; color:var(--deep); font-size:24px; font-weight:900;">Contact form</h3>
 
             <label for="name">Your name</label>
             <input id="name" name="Name" type="text" placeholder="Your name" required />
@@ -791,7 +816,7 @@
             <textarea id="message" name="Message" placeholder="Tell us what you need..." required></textarea>
 
             <button class="btn" type="submit">Send message</button>
-            <p class="note">If the button doesn’t work on your device, email us directly at info@cranmercare.co.uk.</p>
+            <p class="note">If the button doesn’t work on your device, email us directly at support@cranmercare.co.uk.</p>
           </form>
         </div>
       </div>
@@ -801,12 +826,10 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="small">© <span id="year"></span> Cranmer Care Management Ltd</div>
-      <div class="small">
-        📧 <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a>
-        &nbsp; • &nbsp;
-        📞 <a href="tel:+441274449277">01274 449277</a>
-      </div>
+      <span class="small">© <span id="year"></span> Cranmer Care Management Ltd</span>
+      <span class="small">📧 <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></span>
+      <span class="small">•</span>
+      <span class="small">📞 <a href="tel:+441274449277">01274 449277</a></span>
     </div>
   </footer>
 

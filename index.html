@@ -16,9 +16,12 @@
       --pink:#e91e63;
       --blue:#1e3a8a;
       --deep:#0b1b4a;
+      --ink:#0f172a;
 
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
       --shadow2: 0 12px 34px rgba(15, 23, 42, 0.14);
+      --shadow3: 0 10px 26px rgba(15, 23, 42, 0.12);
+
       --r:24px;
     }
 
@@ -33,6 +36,7 @@
         linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%);
       line-height:1.55;
       overflow-x:hidden;
+      color: var(--ink);
     }
     a{color:inherit}
     .container{ width:min(1180px, 92vw); margin:0 auto; }
@@ -41,7 +45,7 @@
     .topbar{
       position:sticky;
       top:0;
-      z-index:60;
+      z-index:80;
       backdrop-filter: blur(10px);
       background: rgba(11, 27, 74, 0.90);
       color:#fff;
@@ -66,7 +70,7 @@
       position:fixed;
       right:16px;
       bottom:16px;
-      z-index:70;
+      z-index:90;
       background: linear-gradient(135deg, var(--pink), var(--blue));
       color:#fff;
       border-radius:999px;
@@ -79,7 +83,7 @@
     .float-contact:hover{ transform: translateY(-2px); filter:brightness(0.98); }
 
     /* Header */
-    header{ padding:16px 0 10px; }
+    header{ padding:14px 0 10px; }
     .header-row{
       display:flex;
       justify-content:space-between;
@@ -87,6 +91,7 @@
       gap:14px;
       flex-wrap:wrap;
     }
+
     .logo-link{
       display:inline-flex;
       align-items:center;
@@ -101,6 +106,7 @@
     .logo-link:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
     .logo{ width:190px; height:auto; display:block; }
 
+    /* Desktop nav */
     .nav{
       display:flex;
       gap:10px;
@@ -119,6 +125,77 @@
       transition: transform 160ms ease, box-shadow 160ms ease;
     }
     .nav a:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
+
+    /* Mobile burger */
+    .menu-btn{
+      display:none;
+      align-items:center;
+      gap:10px;
+      border:none;
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.80);
+      border:1px solid rgba(15,23,42,0.10);
+      box-shadow: var(--shadow2);
+      font-weight:900;
+    }
+    .menu-icon{
+      width:18px; height:14px; position:relative; display:inline-block;
+    }
+    .menu-icon span{
+      position:absolute; left:0; right:0;
+      height:2px; border-radius:999px;
+      background: rgba(11,27,74,0.92);
+      transition: transform 180ms ease, top 180ms ease, opacity 160ms ease;
+    }
+    .menu-icon span:nth-child(1){ top:0; }
+    .menu-icon span:nth-child(2){ top:6px; }
+    .menu-icon span:nth-child(3){ top:12px; }
+    body.nav-open .menu-icon span:nth-child(1){ top:6px; transform: rotate(45deg); }
+    body.nav-open .menu-icon span:nth-child(2){ opacity:0; }
+    body.nav-open .menu-icon span:nth-child(3){ top:6px; transform: rotate(-45deg); }
+
+    .mobile-nav{
+      display:none;
+      position:sticky;
+      top:54px; /* sits under topbar */
+      z-index:75;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(15,23,42,0.10);
+    }
+    .mobile-nav .container{
+      padding:10px 0 14px;
+    }
+    .mobile-nav a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      text-decoration:none;
+      font-weight:900;
+      padding:12px 14px;
+      border-radius: 16px;
+      margin-top:10px;
+      border:1px solid rgba(15,23,42,0.10);
+      box-shadow: var(--shadow3);
+      background:
+        radial-gradient(240px 120px at 10% 20%, rgba(233,30,99,0.20), transparent 60%),
+        radial-gradient(260px 130px at 90% 30%, rgba(30,58,138,0.18), transparent 60%),
+        rgba(255,255,255,0.85);
+    }
+    .mobile-nav a:active{ transform: translateY(1px); }
+    .mobile-nav .chev{ opacity:0.8; }
+
+    /* Show mobile controls, hide desktop nav */
+    @media (max-width: 860px){
+      .nav{ display:none; }
+      .menu-btn{ display:inline-flex; }
+      body.nav-open .mobile-nav{ display:block; }
+      .logo{ width:170px; }
+      .float-contact{ right:12px; bottom:12px; padding:11px 14px; }
+    }
 
     /* Sections */
     section{ padding:18px 0; }
@@ -192,7 +269,7 @@
       gap:14px;
       align-items:stretch;
     }
-    @media (max-width: 940px){ .hero-grid{ grid-template-columns:1fr; } }
+    @media (max-width: 940px){ .hero-grid{ grid-template-columns:1fr; } .h1{ font-size:40px; } .h2{ font-size:34px; } }
 
     .image-card{
       border-radius: var(--r);
@@ -225,18 +302,31 @@
     .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
     @media (max-width: 980px){ .grid-3{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } }
 
+    /* More visually appealing section lists (not plain white boxes) */
     .card{
-      background: linear-gradient(135deg, rgba(30,58,138,0.32), rgba(233,30,99,0.26));
-      border:1px solid rgba(255,255,255,0.26);
+      position:relative;
       border-radius: var(--r);
       padding:16px;
       box-shadow: var(--shadow2);
-      backdrop-filter: blur(8px);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,0.26);
+      overflow:hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+      background:
+        radial-gradient(220px 140px at 20% 20%, rgba(233,30,99,0.22), transparent 60%),
+        radial-gradient(260px 160px at 90% 30%, rgba(30,58,138,0.20), transparent 60%),
+        rgba(255,255,255,0.10);
     }
-    .card:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
-    .card h4{ margin:0 0 8px; font-size:20px; font-weight:900; color:#fff; }
-    .card p{ margin:0; font-weight:700; font-size:17px; color: rgba(255,255,255,0.92); }
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      pointer-events:none;
+    }
+    .card:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.02); }
+    .card h4{ margin:0 0 8px; font-size:20px; font-weight:900; color:#fff; position:relative; }
+    .card p{ margin:0; font-weight:700; font-size:17px; color: rgba(255,255,255,0.92); position:relative; }
 
     .links{
       margin:10px 0 0;
@@ -244,6 +334,7 @@
       font-weight:800;
       font-size:17px;
       color: rgba(255,255,255,0.92);
+      position:relative;
     }
     .links li{ margin:8px 0; }
     .links a{ font-weight:900; text-decoration:none; border-bottom:2px solid rgba(255,255,255,0.55); }
@@ -316,13 +407,16 @@
       padding:14px;
       border-radius: var(--r);
       text-decoration:none;
-      background: linear-gradient(135deg, rgba(233,30,99,0.28), rgba(30,58,138,0.26));
+      background:
+        radial-gradient(240px 140px at 20% 20%, rgba(233,30,99,0.22), transparent 60%),
+        radial-gradient(280px 160px at 90% 30%, rgba(30,58,138,0.18), transparent 60%),
+        rgba(255,255,255,0.14);
       border:1px solid rgba(255,255,255,0.26);
       box-shadow: var(--shadow2);
       font-weight:900;
       transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
       color:#fff;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
     .partner-btn:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.02); }
     .partner-btn span{ font-size:18px; }
@@ -446,14 +540,23 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
       font-size:15px;
       font-weight:800;
+      text-align:center;
     }
     footer a{ color:#fff; text-decoration:none; font-weight:900; }
     footer a:hover{ text-decoration:underline; }
     .small{ color: rgba(255,255,255,0.92); }
+
+    /* Better spacing on small screens */
+    @media (max-width: 540px){
+      .h1{ font-size:36px; }
+      .lead{ font-size:18px; }
+      .bubble-wrap{ padding:18px; }
+      .cqc-card img{ width:88px; }
+    }
 
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
@@ -479,6 +582,15 @@
           <img class="logo" src="logo.png" alt="Cranmer Care Management Ltd logo" />
         </a>
 
+        <!-- Mobile burger -->
+        <button class="menu-btn" id="menuBtn" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
+          <span class="menu-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          Menu
+        </button>
+
+        <!-- Desktop nav -->
         <nav class="nav" aria-label="Site">
           <a href="#whatwedo">What we do</a>
           <a href="#services">Services</a>
@@ -491,6 +603,19 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile nav panel -->
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile menu">
+    <div class="container">
+      <a href="#whatwedo" class="mnav-link">What we do <span class="chev">›</span></a>
+      <a href="#services" class="mnav-link">Services <span class="chev">›</span></a>
+      <a href="#trackrecord" class="mnav-link">Track record <span class="chev">›</span></a>
+      <a href="#team" class="mnav-link">Meet the team <span class="chev">›</span></a>
+      <a href="#partners" class="mnav-link">Partners <span class="chev">›</span></a>
+      <a href="#testimonials" class="mnav-link">Testimonials <span class="chev">›</span></a>
+      <a href="#contact" class="mnav-link">Contact <span class="chev">›</span></a>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section>
@@ -703,10 +828,10 @@
         <div class="grid-3">
           <div class="speech">
             <p>
-              “Cranmer Care Management supported us with service set-up, tender writing, and local authority support.
+              “Cranmer Care Management Ltd supported us with service set-up, tender writing, and local authority support.
               The approach was professional, organised, and made a real difference.”
             </p>
-            <p class="who">Mr I Ali, Director, Vitality Living</p>
+            <p class="who">Care Director, Local Provider</p>
           </div>
 
           <div class="speech">
@@ -750,6 +875,30 @@
                 <p class="value"><a href="tel:+441274449277">01274 449277</a></p>
               </div>
             </div>
+
+            <div style="height:10px"></div>
+
+            <!-- Added: Registered business address -->
+            <div class="contact-pill">
+              <div class="emoji" aria-hidden="true">📍</div>
+              <div>
+                <p class="label">Registered business address</p>
+                <p class="value" style="font-size:17px; margin-top:2px;">
+                  18 Regent Street, Wakefield, WF4 6EP
+                </p>
+              </div>
+            </div>
+
+            <div style="height:10px"></div>
+
+            <!-- Added: Company number -->
+            <div class="contact-pill">
+              <div class="emoji" aria-hidden="true">🏢</div>
+              <div>
+                <p class="label">Company number</p>
+                <p class="value">15610739</p>
+              </div>
+            </div>
           </div>
 
           <form action="mailto:support@cranmercare.co.uk" method="post" enctype="text/plain">
@@ -780,14 +929,49 @@
   <footer>
     <div class="container">
       <span class="small">© <span id="year"></span> Cranmer Care Management Ltd</span>
-      <span class="small">📧 <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></span>
-      <span class="small">•</span>
-      <span class="small">📞 <a href="tel:+441274449277">01274 449277</a></span>
+      <span class="small">• Registered office: 18 Regent Street, Wakefield, WF4 6EP</span>
+      <span class="small">• Company No: 15610739</span>
+      <span class="small">• 📧 <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></span>
+      <span class="small">• 📞 <a href="tel:+441274449277">01274 449277</a></span>
     </div>
   </footer>
 
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+    function openNav(){
+      document.body.classList.add("nav-open");
+      menuBtn.setAttribute("aria-expanded", "true");
+    }
+
+    menuBtn?.addEventListener("click", () => {
+      const isOpen = document.body.classList.contains("nav-open");
+      if (isOpen) closeNav(); else openNav();
+    });
+
+    // Close menu when a mobile link is clicked
+    mobileNav?.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => closeNav());
+    });
+
+    // Close menu with Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+
+    // Close menu if resizing up to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) closeNav();
+    });
   </script>
 </body>
 </html>

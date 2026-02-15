@@ -9,15 +9,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <meta name="description" content="Cranmer Care Management Ltd — helping care providers improve quality, compliance and outcomes across all care settings." />
+  <meta name="description" content="Cranmer Care Management Ltd — helping care providers improve quality, compliance and outcomes across all care settings, including mental health." />
 
   <style>
     :root{
       --pink:#e91e63;
       --blue:#1e3a8a;
       --deep:#0b1b4a;
-      --text:#0f172a;
-      --muted:#475569;
 
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
       --shadow2: 0 12px 34px rgba(15, 23, 42, 0.14);
@@ -29,7 +27,6 @@
     body{
       margin:0;
       font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
-      color:var(--text);
       background:
         radial-gradient(900px 480px at 15% 10%, rgba(233,30,99,0.24), transparent 60%),
         radial-gradient(900px 480px at 85% 20%, rgba(30,58,138,0.24), transparent 60%),
@@ -62,9 +59,9 @@
     }
     .topbar a{ text-decoration:none; color:#fff; font-weight:900; }
     .topbar a:hover{ text-decoration:underline; }
-    .topbar .sep{ opacity:0.85; }
+    .sep{ opacity:0.85; }
 
-    /* Floating contact button */
+    /* Floating contact */
     .float-contact{
       position:fixed;
       right:16px;
@@ -80,7 +77,6 @@
       transition: transform 180ms ease, filter 180ms ease;
     }
     .float-contact:hover{ transform: translateY(-2px); filter:brightness(0.98); }
-    .float-contact:focus{ outline:3px solid rgba(233,30,99,0.30); outline-offset:3px; }
 
     /* Header */
     header{ padding:16px 0 10px; }
@@ -97,20 +93,13 @@
       text-decoration:none;
       padding:10px 14px;
       border-radius: 18px;
-      background:#fff; /* white logo background */
+      background:#fff;
       border:1px solid rgba(15,23,42,0.10);
       box-shadow: var(--shadow2);
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .logo-link:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18);
-    }
-    .logo{
-      width:190px;
-      height:auto;
-      display:block;
-    }
+    .logo-link:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
+    .logo{ width:190px; height:auto; display:block; }
 
     .nav{
       display:flex;
@@ -122,7 +111,6 @@
       text-decoration:none;
       font-weight:900;
       font-size:14px;
-      letter-spacing:0.2px;
       padding:10px 12px;
       border-radius:999px;
       background: rgba(255,255,255,0.70);
@@ -130,12 +118,9 @@
       box-shadow: var(--shadow2);
       transition: transform 160ms ease, box-shadow 160ms ease;
     }
-    .nav a:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18);
-    }
+    .nav a:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
 
-    /* Section bubbles */
+    /* Sections */
     section{ padding:18px 0; }
     .bubble-wrap{
       padding:22px;
@@ -146,12 +131,8 @@
       position:relative;
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .bubble-wrap:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.20);
-    }
-    .bubble-wrap:before,
-    .bubble-wrap:after{
+    .bubble-wrap:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.20); }
+    .bubble-wrap:before, .bubble-wrap:after{
       content:"";
       position:absolute;
       border-radius:999px;
@@ -159,30 +140,18 @@
       pointer-events:none;
     }
     .bubble-wrap:before{
-      width:260px; height:260px;
-      left:-115px; top:-115px;
+      width:260px; height:260px; left:-115px; top:-115px;
       background: radial-gradient(circle at 30% 30%, rgba(233,30,99,0.55), rgba(233,30,99,0) 70%);
     }
     .bubble-wrap:after{
-      width:320px; height:320px;
-      right:-140px; bottom:-150px;
+      width:320px; height:320px; right:-140px; bottom:-150px;
       background: radial-gradient(circle at 30% 30%, rgba(30,58,138,0.55), rgba(30,58,138,0) 70%);
     }
 
-    /* Stronger pink/blue section backgrounds (no white bubbles) */
-    .theme-pinkblue{
-      background: linear-gradient(135deg, rgba(233,30,99,0.38), rgba(30,58,138,0.30));
-    }
-    .theme-blue{
-      background: linear-gradient(135deg, rgba(30,58,138,0.62), rgba(11,27,74,0.50));
-      color:#fff;
-    }
-    .theme-pink{
-      background: linear-gradient(135deg, rgba(233,30,99,0.55), rgba(244,114,182,0.42));
-      color:#fff;
-    }
+    .theme-pinkblue{ background: linear-gradient(135deg, rgba(233,30,99,0.38), rgba(30,58,138,0.30)); }
+    .theme-blue{ background: linear-gradient(135deg, rgba(30,58,138,0.62), rgba(11,27,74,0.50)); color:#fff; }
+    .theme-pink{ background: linear-gradient(135deg, rgba(233,30,99,0.55), rgba(244,114,182,0.42)); color:#fff; }
 
-    /* Headings (bigger) */
     .kicker{
       display:inline-block;
       padding:7px 12px;
@@ -197,40 +166,26 @@
       margin-bottom:12px;
       color: var(--deep);
     }
-    .theme-blue .kicker,
-    .theme-pink .kicker{
+    .theme-blue .kicker, .theme-pink .kicker{
       background: rgba(255,255,255,0.22);
       color:#fff;
       border-color: rgba(255,255,255,0.24);
     }
 
-    .h1{
-      font-size:46px;
-      line-height:1.05;
-      margin:0 0 12px;
-      font-weight:900;
-    }
-    .h2{
-      font-size:36px;
-      margin:0 0 12px;
-      font-weight:900;
-    }
+    .h1{ font-size:48px; line-height:1.03; margin:0 0 12px; font-weight:900; }
+    .h2{ font-size:38px; margin:0 0 12px; font-weight:900; }
     .theme-pinkblue .h1, .theme-pinkblue .h2{ color: var(--deep); }
-    .theme-blue .h2, .theme-blue .h1,
-    .theme-pink .h2, .theme-pink .h1{ color:#fff; }
+    .theme-blue .h1, .theme-blue .h2, .theme-pink .h1, .theme-pink .h2{ color:#fff; }
 
     .lead{
       margin:0 0 14px;
-      font-size:18px;
+      font-size:19px;
       max-width: 980px;
       font-weight:700;
       color: rgba(15,23,42,0.92);
     }
-    .theme-blue .lead, .theme-pink .lead{
-      color: rgba(255,255,255,0.92);
-    }
+    .theme-blue .lead, .theme-pink .lead{ color: rgba(255,255,255,0.92); }
 
-    /* Hero */
     .hero-grid{
       display:grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -251,7 +206,6 @@
     .bubble-wrap:hover .image-card{ transform: scale(1.01); }
     .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; display:block; }
 
-    /* Chips */
     .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
     .chip{
       border-radius:999px;
@@ -267,12 +221,10 @@
     }
     .chip:hover{ transform: translateY(-2px); filter:brightness(1.02); }
 
-    /* Grids */
     .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
     .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
     @media (max-width: 980px){ .grid-3{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } }
 
-    /* Inner bubbles (cards) now pink/blue, not white */
     .card{
       background: linear-gradient(135deg, rgba(30,58,138,0.32), rgba(233,30,99,0.26));
       border:1px solid rgba(255,255,255,0.26);
@@ -282,24 +234,10 @@
       backdrop-filter: blur(8px);
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .card:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-    }
-    .card h4{
-      margin:0 0 8px;
-      font-size:20px;
-      font-weight:900;
-      color:#fff;
-    }
-    .card p{
-      margin:0;
-      font-weight:700;
-      font-size:17px;
-      color: rgba(255,255,255,0.92);
-    }
+    .card:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
+    .card h4{ margin:0 0 8px; font-size:20px; font-weight:900; color:#fff; }
+    .card p{ margin:0; font-weight:700; font-size:17px; color: rgba(255,255,255,0.92); }
 
-    /* Lists / links */
     .links{
       margin:10px 0 0;
       padding-left:18px;
@@ -308,19 +246,12 @@
       color: rgba(255,255,255,0.92);
     }
     .links li{ margin:8px 0; }
-    .links a{
-      font-weight:900;
-      text-decoration:none;
-      border-bottom:2px solid rgba(255,255,255,0.55);
-    }
+    .links a{ font-weight:900; text-decoration:none; border-bottom:2px solid rgba(255,255,255,0.55); }
     .links a:hover{ border-bottom-color: rgba(255,255,255,0.9); }
 
-    /* CQC */
     .cqc-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:12px; }
     .cqc-card{
-      display:flex;
-      align-items:center;
-      gap:12px;
+      display:flex; align-items:center; gap:12px;
       padding:12px 14px;
       border-radius: var(--r);
       background: rgba(255,255,255,0.16);
@@ -331,16 +262,11 @@
       color:#fff;
       backdrop-filter: blur(8px);
     }
-    .cqc-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-      filter:brightness(1.02);
-    }
-    .cqc-card img{ width:100px; height:auto; display:block; border-radius: 14px; }
+    .cqc-card:hover{ transform: translateY(-2px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.02); }
+    .cqc-card img{ width:100px; border-radius:14px; display:block; }
     .cqc-title{ margin:0; font-weight:900; font-size:16px; }
     .cqc-sub{ margin:4px 0 0; font-weight:800; font-size:14px; opacity:0.95; }
 
-    /* Meet the team */
     .team-row{ display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; }
     .avatar{
       width:120px; height:120px;
@@ -373,8 +299,15 @@
       border:1px solid rgba(255,255,255,0.26);
       backdrop-filter: blur(8px);
     }
+    .qual-list{
+      margin:10px 0 0;
+      padding-left:20px;
+      font-weight:800;
+      color: rgba(255,255,255,0.92);
+      font-size:17px;
+    }
+    .qual-list li{ margin:8px 0; }
 
-    /* Partners */
     .partner-btn{
       display:flex;
       justify-content:space-between;
@@ -391,15 +324,10 @@
       color:#fff;
       backdrop-filter: blur(8px);
     }
-    .partner-btn:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-      filter:brightness(1.02);
-    }
+    .partner-btn:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.02); }
     .partner-btn span{ font-size:18px; }
     .partner-btn em{ font-style:normal; font-weight:900; opacity:0.95; }
 
-    /* Testimonials */
     .speech{
       position:relative;
       background: linear-gradient(135deg, rgba(233,30,99,0.32), rgba(30,58,138,0.28));
@@ -411,10 +339,7 @@
       color:#fff;
       backdrop-filter: blur(8px);
     }
-    .speech:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-    }
+    .speech:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
     .speech:after{
       content:"";
       position:absolute;
@@ -430,7 +355,6 @@
     .speech p{ margin:0 0 10px; font-weight:800; font-size:17px; }
     .speech .who{ margin:0; font-size:15px; font-weight:900; opacity:0.95; }
 
-    /* Contact */
     .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch; }
     @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
 
@@ -444,10 +368,7 @@
       color:#fff;
       backdrop-filter: blur(8px);
     }
-    .contact-pill:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-    }
+    .contact-pill:hover{ transform: translateY(-2px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
     .emoji{
       font-size:22px;
       width:38px; height:38px;
@@ -456,11 +377,15 @@
       background: rgba(255,255,255,0.18);
       border:1px solid rgba(255,255,255,0.26);
     }
-    .contact-pill .label{
-      font-size:13px; font-weight:900; letter-spacing:0.8px; text-transform:uppercase;
-      margin:0; opacity:0.95;
+    .label{
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:0.8px;
+      text-transform:uppercase;
+      margin:0;
+      opacity:0.95;
     }
-    .contact-pill .value{ margin:2px 0 0; font-weight:900; font-size:18px; }
+    .value{ margin:2px 0 0; font-weight:900; font-size:18px; }
     .contact-pill a{ text-decoration:none; border-bottom:2px solid rgba(255,255,255,0.55); }
     .contact-pill a:hover{ border-bottom-color: rgba(255,255,255,0.92); }
 
@@ -474,16 +399,8 @@
       color:#fff;
       backdrop-filter: blur(10px);
     }
-    form:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
-    }
-    label{
-      display:block;
-      font-weight:900;
-      margin:10px 0 6px;
-      font-size:15px;
-    }
+    form:hover{ transform: translateY(-2px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
+    label.formlabel{ display:block; font-weight:900; margin:10px 0 6px; font-size:15px; }
     input, textarea{
       width:100%;
       border-radius: 14px;
@@ -538,7 +455,6 @@
     footer a:hover{ text-decoration:underline; }
     .small{ color: rgba(255,255,255,0.92); }
 
-    /* Reduce motion for accessibility */
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
     }
@@ -548,7 +464,6 @@
 <body id="top">
   <a class="float-contact" href="#contact" aria-label="Go to Contact section">Contact us</a>
 
-  <!-- Top bar -->
   <div class="topbar">
     <div class="container">
       <span>📧 <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></span>
@@ -557,7 +472,6 @@
     </div>
   </div>
 
-  <!-- Header -->
   <header>
     <div class="container">
       <div class="header-row">
@@ -589,12 +503,14 @@
             <p class="lead">
               Cranmer Care Management Ltd supports <strong>all care providers</strong> including services for
               <strong>older people</strong>, <strong>dementia</strong>, <strong>learning disabilities</strong>,
-              supported living, and community services. We help you improve quality, strengthen your service, and feel confident for inspection.
+              supported living, and <strong>mental health</strong> services. We help you strengthen quality, improve outcomes,
+              and feel confident for inspection.
             </p>
 
             <div class="chips" aria-label="Highlights">
               <span class="chip">✅ Quality improvement</span>
               <span class="chip">📋 Mock inspections</span>
+              <span class="chip">🧠 Mental health support</span>
               <span class="chip">🧩 Service set-up</span>
               <span class="chip">📝 Tender writing</span>
               <span class="chip">👥 Recruitment & HR</span>
@@ -631,22 +547,23 @@
         <span class="kicker">What we do</span>
         <h2 class="h2">Practical support that makes services better</h2>
         <p class="lead">
-          We help you get organised, improve day-to-day standards, and build confidence across your team.
-          Clear support that helps you move forward.
+          We help providers get organised, improve day-to-day standards, and build confidence across teams. This includes
+          support for <strong>mental health services</strong> as well as older people’s care, dementia, learning disabilities,
+          supported living and wider community care.
         </p>
 
         <div class="grid-3">
           <div class="card">
             <h4>Quality & compliance</h4>
-            <p>Audits, policies, training, evidence, and getting ready for inspection.</p>
+            <p>Audits, policies, training, evidence, and getting ready for inspection (including mental health services).</p>
           </div>
           <div class="card">
             <h4>Clinical governance</h4>
-            <p>Simple systems to track issues, learn, and keep improving.</p>
+            <p>Simple systems to track issues, learn, and keep improving across all care types, including mental health.</p>
           </div>
           <div class="card">
             <h4>Workforce support</h4>
-            <p>Recruitment and HR support to build and keep a strong team.</p>
+            <p>Recruitment and HR support to build and keep a strong team across care and mental health services.</p>
           </div>
         </div>
       </div>
@@ -659,33 +576,18 @@
       <div class="bubble-wrap theme-pink">
         <span class="kicker">Services</span>
         <h2 class="h2">How we can help</h2>
-        <p class="lead">One-off support or a full improvement plan. On-site or remote.</p>
+        <p class="lead">
+          One-off support or a full improvement plan. On-site or remote — across all care types including
+          <strong>mental health</strong>, older people, dementia and learning disabilities.
+        </p>
 
         <div class="grid-3">
-          <div class="card">
-            <h4>Mock inspection</h4>
-            <p>A realistic review with clear actions to improve.</p>
-          </div>
-          <div class="card">
-            <h4>Turnaround management</h4>
-            <p>Extra support when a service needs rapid improvement.</p>
-          </div>
-          <div class="card">
-            <h4>Action planning</h4>
-            <p>Simple plans your team can follow and deliver.</p>
-          </div>
-          <div class="card">
-            <h4>Service set-up</h4>
-            <p>Support to set up services properly, from policies to readiness.</p>
-          </div>
-          <div class="card">
-            <h4>Tender writing</h4>
-            <p>Support with tenders and bids to help you win the right contracts.</p>
-          </div>
-          <div class="card">
-            <h4>Recruitment & HR</h4>
-            <p>Hiring, onboarding, HR basics, supervision and retention support.</p>
-          </div>
+          <div class="card"><h4>Mock inspection</h4><p>A realistic review with clear actions to improve (including mental health services).</p></div>
+          <div class="card"><h4>Turnaround management</h4><p>Extra support when a service needs rapid improvement in care or mental health settings.</p></div>
+          <div class="card"><h4>Action planning</h4><p>Simple plans your team can follow and deliver across care and mental health services.</p></div>
+          <div class="card"><h4>Service set-up</h4><p>Support to set up services properly, from policies to readiness for care and mental health provision.</p></div>
+          <div class="card"><h4>Tender writing</h4><p>Support with tenders and bids to help you win the right contracts, including mental health-related tenders.</p></div>
+          <div class="card"><h4>Recruitment & HR</h4><p>Hiring, onboarding, HR basics, supervision and retention support across care and mental health services.</p></div>
         </div>
       </div>
     </div>
@@ -696,9 +598,9 @@
     <div class="container">
       <div class="bubble-wrap theme-pinkblue">
         <span class="kicker">Track record</span>
-        <h2 class="h2">Experience supporting providers across Bradford and Yorkshire</h2>
+        <h2 class="h2">Experience supporting providers across Yorkshire and Northern England</h2>
         <p class="lead">
-          Support with service improvement, local authority support, and quality systems.
+          Support with service improvement, local authority support, quality systems, and <strong>mental health</strong> services.
         </p>
 
         <div class="grid-2">
@@ -713,9 +615,7 @@
 
           <div class="card">
             <h4>What you can expect</h4>
-            <p>
-              Clear actions, good structure, and support that helps your team deliver improvements.
-            </p>
+            <p>Clear actions, good structure, and support that helps your team deliver improvements across care and mental health services.</p>
           </div>
         </div>
       </div>
@@ -740,18 +640,23 @@
 
           <div style="flex:1 1 320px; min-width:260px;">
             <span class="role">Managing Director</span>
+
             <p class="lead" style="margin-bottom:10px;">
-              Robert leads Cranmer Care Management Ltd with one focus: helping providers improve and achieve their goals.
+              Robert leads Cranmer Care Management Ltd with a focus on helping providers achieve their goals through clear planning,
+              quality improvement, and practical support. He works with services across older people’s care, dementia, learning disabilities,
+              supported living, and <strong>mental health services</strong>, helping teams build confidence, improve outcomes, and stay ready for inspection.
             </p>
-            <div class="chips">
-              <span class="chip">✅ Improvement planning</span>
-              <span class="chip">📋 Inspection readiness</span>
-              <span class="chip">🧩 Service set-up</span>
-              <span class="chip">📝 Tender support</span>
-            </div>
+
+            <h3 style="margin:12px 0 6px; font-size:22px; font-weight:900;">Qualifications</h3>
+            <ul class="qual-list">
+              <li>Adult Nursing (BSc)</li>
+              <li>Diploma of Higher Education in Health and Social Care</li>
+              <li>Level 5 Leadership &amp; Management (Health and Social Care)</li>
+              <li>Level 7 in Strategic Management &amp; Leadership</li>
+              <li>CIPD Level 5 Associate Diploma in People Management</li>
+            </ul>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -801,12 +706,12 @@
               “Cranmer Care Management supported us with service set-up, tender writing, and local authority support.
               The approach was professional, organised, and made a real difference.”
             </p>
-            <p class="who">Isfand Ali, Director, Vitality Living</p>
+            <p class="who">Mr I Ali, Director, Vitality Living</p>
           </div>
 
           <div class="speech">
-            <p>“Straightforward support that helped us get organised and improve quickly.”</p>
-            <p class="who">Registered Manager</p>
+            <p>“Straightforward support that helped us get organised and improve quickly after a poor inspection.”</p>
+            <p class="who">Claire, Registered Manager</p>
           </div>
 
           <div class="speech">
@@ -847,20 +752,19 @@
             </div>
           </div>
 
-          <!-- Form opens email client -->
           <form action="mailto:support@cranmercare.co.uk" method="post" enctype="text/plain">
             <h3 style="margin:0 0 6px; font-size:24px; font-weight:900;">Contact form</h3>
 
-            <label for="name">Your name</label>
+            <label class="formlabel" for="name">Your name</label>
             <input id="name" name="Name" type="text" placeholder="Your name" required />
 
-            <label for="email">Your email</label>
+            <label class="formlabel" for="email">Your email</label>
             <input id="email" name="Email" type="email" placeholder="your@email.com" required />
 
-            <label for="phone">Your phone (optional)</label>
+            <label class="formlabel" for="phone">Your phone (optional)</label>
             <input id="phone" name="Phone" type="tel" placeholder="Your phone number" />
 
-            <label for="message">How can we help?</label>
+            <label class="formlabel" for="message">How can we help?</label>
             <textarea id="message" name="Message" placeholder="Tell us what you need..." required></textarea>
 
             <button class="btn" type="submit">Send message</button>
@@ -873,7 +777,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <span class="small">© <span id="year"></span> Cranmer Care Management Ltd</span>

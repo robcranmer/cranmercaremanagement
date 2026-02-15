@@ -16,7 +16,7 @@
       --pink:#e91e63;
       --blue:#1e3a8a;
       --deep:#0b1b4a;      /* navy */
-      --ink:#0f172a;       /* body text */
+      --ink:#0f172a;       /* default body text */
 
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
       --shadow2: 0 12px 34px rgba(15, 23, 42, 0.14);
@@ -61,7 +61,8 @@
       font-size:15px;
       font-weight:800;
     }
-    .topbar a{ text-decoration:none; color:#fff; font-weight:900; }
+    .topbar, .topbar *{ color:#fff; }
+    .topbar a{ text-decoration:none; font-weight:900; }
     .topbar a:hover{ text-decoration:underline; }
     .sep{ opacity:0.85; }
 
@@ -79,6 +80,7 @@
       font-weight:950;
       box-shadow: var(--shadow);
       transition: transform 180ms ease, filter 180ms ease;
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
     .float-contact:hover{ transform: translateY(-2px); filter:brightness(0.98); }
 
@@ -121,7 +123,7 @@
       border-radius:999px;
       border:1px solid rgba(255,255,255,0.22);
       box-shadow: var(--shadow3);
-      color:#fff; /* keep header nav text white */
+      color:#fff;
       background:
         radial-gradient(220px 120px at 20% 30%, rgba(233,30,99,0.55), transparent 62%),
         radial-gradient(240px 140px at 85% 30%, rgba(30,58,138,0.55), transparent 62%),
@@ -131,7 +133,7 @@
       position:relative;
       overflow:hidden;
       white-space:nowrap;
-      text-shadow: 0 8px 18px rgba(0,0,0,0.22); /* readability */
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
     .nav a:before{
       content:"";
@@ -259,41 +261,72 @@
       background: radial-gradient(circle at 30% 30%, rgba(30,58,138,0.55), rgba(30,58,138,0) 70%);
     }
 
-    /* Theme wrappers */
+    /* ✅ Themes */
     .theme-blue{
       background: linear-gradient(135deg, rgba(30,58,138,0.70), rgba(11,27,74,0.58));
       color:#fff;
     }
+
+    /* ✅ UPDATED: darker pink sections for better white-text contrast */
     .theme-pink{
-      background: linear-gradient(135deg, rgba(233,30,99,0.60), rgba(244,114,182,0.46));
+      background:
+        radial-gradient(900px 520px at 15% 18%, rgba(233,30,99,0.60), transparent 62%),
+        radial-gradient(900px 520px at 85% 22%, rgba(30,58,138,0.38), transparent 64%),
+        linear-gradient(135deg, rgba(140, 0, 60, 0.92), rgba(11, 27, 74, 0.62));
       color:#fff;
     }
+
     .theme-pinkblue{
       background: linear-gradient(135deg, rgba(233,30,99,0.38), rgba(30,58,138,0.30));
       color: var(--deep);
     }
 
-    /* ✅ Readability rules for dark sections (blue/pink) */
-    .theme-blue .kicker,
-    .theme-pink .kicker{
-      background: rgba(255,255,255,0.20);
-      border-color: rgba(255,255,255,0.24);
-      color: rgba(255,255,255,0.98);
+    /* ✅ Readability rules for dark sections */
+    .theme-blue *, .theme-pink *{
+      color: rgba(255,255,255,0.94);
     }
     .theme-blue .h1, .theme-blue .h2,
     .theme-pink .h1, .theme-pink .h2{
       color: rgba(255,255,255,0.98);
-      text-shadow: 0 10px 24px rgba(0,0,0,0.22);
+      text-shadow: 0 10px 24px rgba(0,0,0,0.24);
     }
     .theme-blue .lead, .theme-pink .lead{
       color: rgba(255,255,255,0.92);
       text-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
-    .theme-blue .card h4, .theme-pink .card h4{ color: rgba(255,255,255,0.98); }
-    .theme-blue .card p,  .theme-pink .card p,
-    .theme-blue .mini,    .theme-pink .mini,
-    .theme-blue .feature p, .theme-pink .feature p{
-      color: rgba(255,255,255,0.92);
+
+    .kicker{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:0.9px;
+      text-transform:uppercase;
+      background: rgba(255,255,255,0.78);
+      border:1px solid rgba(255,255,255,0.34);
+      box-shadow: var(--shadow2);
+      margin-bottom:12px;
+      color: var(--deep);
+      position:relative;
+    }
+    .theme-blue .kicker, .theme-pink .kicker{
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.98);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .h1{ font-size:48px; line-height:1.03; margin:0 0 12px; font-weight:950; color: var(--deep); }
+    .h2{ font-size:38px; margin:0 0 12px; font-weight:950; color: var(--deep); }
+    .theme-pinkblue .h1, .theme-pinkblue .h2{ color: var(--deep); }
+
+    .lead{
+      margin:0 0 14px;
+      font-size:19px;
+      max-width: 980px;
+      font-weight:750;
+      color: rgba(15,23,42,0.92);
     }
 
     /* Colourful hero */
@@ -313,36 +346,8 @@
       opacity:0.9;
       pointer-events:none;
     }
-
-    .kicker{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:950;
-      letter-spacing:0.9px;
-      text-transform:uppercase;
-      background: rgba(255,255,255,0.78);
-      border:1px solid rgba(255,255,255,0.34);
-      box-shadow: var(--shadow2);
-      margin-bottom:12px;
-      color: var(--deep);
-      position:relative;
-    }
-
-    .h1{ font-size:48px; line-height:1.03; margin:0 0 12px; font-weight:950; color: var(--deep); }
-    .h2{ font-size:38px; margin:0 0 12px; font-weight:950; color: var(--deep); }
     .theme-hero .h1{ color: rgba(11,27,74,0.98); text-shadow: 0 10px 30px rgba(15,23,42,0.10); }
-    .theme-pinkblue .h1, .theme-pinkblue .h2{ color: var(--deep); }
-
-    .lead{
-      margin:0 0 14px;
-      font-size:19px;
-      max-width: 980px;
-      font-weight:750;
-      color: rgba(15,23,42,0.92);
-    }
-    .theme-hero .lead{ color: rgba(11,27,74,0.92); }
+    .theme-hero .lead{ color: rgba(11,27,74,0.92); text-shadow:none; }
 
     .hero-grid{
       display:grid;
@@ -432,7 +437,23 @@
     .card h4{ margin:0 0 8px; font-size:20px; font-weight:950; color: var(--deep); position:relative; }
     .card p{ margin:0; font-weight:750; font-size:17px; color: rgba(11,27,74,0.90); position:relative; }
 
-    /* In dark sections, the overrides above set card text to white */
+    /* ✅ In darker sections, make cards slightly deeper so white text pops */
+    .theme-pink .card, .theme-blue .card{
+      background:
+        radial-gradient(260px 170px at 20% 20%, rgba(233,30,99,0.24), transparent 60%),
+        radial-gradient(320px 190px at 90% 30%, rgba(30,58,138,0.22), transparent 60%),
+        rgba(11,27,74,0.22);
+      border-color: rgba(255,255,255,0.22);
+    }
+    .theme-pink .card:before, .theme-blue .card:before{
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+    }
+    .theme-pink .card h4, .theme-blue .card h4,
+    .theme-pink .card p,  .theme-blue .card p{
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.20);
+    }
+
     .mini{
       margin:10px 0 0;
       padding-left:18px;
@@ -442,8 +463,12 @@
       position:relative;
     }
     .mini li{ margin:8px 0; }
+    .theme-pink .mini, .theme-blue .mini{
+      color: rgba(255,255,255,0.92);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
 
-    /* Highlight / feature card */
+    /* Feature card */
     .feature{
       background:
         radial-gradient(520px 240px at 15% 20%, rgba(233,30,99,0.28), transparent 62%),
@@ -472,6 +497,28 @@
       color: var(--deep);
     }
 
+    /* ✅ Darker feature blocks inside pink sections (incl. Tender Writing) */
+    .theme-pink .feature{
+      background:
+        radial-gradient(520px 240px at 15% 20%, rgba(233,30,99,0.55), transparent 62%),
+        radial-gradient(540px 260px at 85% 30%, rgba(30,58,138,0.34), transparent 62%),
+        linear-gradient(135deg, rgba(140, 0, 60, 0.88), rgba(11, 27, 74, 0.62));
+      border-color: rgba(255,255,255,0.22);
+      color:#fff;
+    }
+    .theme-pink .feature h3,
+    .theme-pink .feature p,
+    .theme-pink .feature .tag{
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
+    }
+    .theme-pink .feature .tag{
+      background: rgba(11,27,74,0.32);
+      border-color: rgba(255,255,255,0.20);
+      box-shadow: var(--shadow3);
+    }
+
+    /* CQC cards */
     .cqc-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:12px; }
     .cqc-card{
       display:flex; align-items:center; gap:12px;
@@ -485,14 +532,15 @@
       box-shadow: var(--shadow2);
       text-decoration:none;
       transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
-      color: inherit;
       backdrop-filter: blur(10px);
+      color: inherit;
     }
     .cqc-card:hover{ transform: translateY(-2px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.02); }
     .cqc-card img{ width:100px; border-radius:14px; display:block; }
     .cqc-title{ margin:0; font-weight:950; font-size:16px; }
     .cqc-sub{ margin:4px 0 0; font-weight:850; font-size:14px; opacity:0.95; }
 
+    /* Team */
     .team-row{ display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; }
     .avatar{
       width:120px; height:120px;
@@ -536,6 +584,7 @@
     .qual-list li{ margin:8px 0; }
     .theme-blue .qual-list{ color: rgba(255,255,255,0.92); }
 
+    /* Partners buttons */
     .partner-btn{
       display:flex;
       justify-content:space-between;
@@ -552,13 +601,23 @@
       box-shadow: var(--shadow2);
       font-weight:950;
       transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
-      color: inherit;
       backdrop-filter: blur(12px);
+      color: inherit;
     }
     .partner-btn:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.02); }
     .partner-btn span{ font-size:18px; }
     .partner-btn em{ font-style:normal; font-weight:950; opacity:0.95; }
 
+    /* ✅ Make partner buttons inside pink section deeper too */
+    .theme-pink .partner-btn{
+      background:
+        radial-gradient(260px 160px at 20% 20%, rgba(233,30,99,0.30), transparent 60%),
+        radial-gradient(320px 180px at 90% 30%, rgba(30,58,138,0.26), transparent 60%),
+        rgba(11,27,74,0.22);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* Testimonials speech */
     .speech{
       position:relative;
       background: linear-gradient(135deg, rgba(233,30,99,0.28), rgba(30,58,138,0.22));
@@ -586,6 +645,7 @@
     .speech p{ margin:0 0 10px; font-weight:850; font-size:17px; color: rgba(11,27,74,0.92); }
     .speech .who{ margin:0; font-size:15px; font-weight:950; opacity:0.95; color: rgba(11,27,74,0.92); }
 
+    /* Contact */
     .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch; }
     @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
 
@@ -671,7 +731,7 @@
     footer{
       margin-top:18px;
       background: rgba(11, 27, 74, 0.92);
-      color:#fff; /* ✅ footer text white */
+      color:#fff;
       border-top:1px solid rgba(255,255,255,0.12);
       padding:16px 0;
     }
@@ -685,7 +745,8 @@
       font-weight:850;
       text-align:center;
     }
-    footer a{ color:#fff; text-decoration:none; font-weight:950; border-bottom:2px solid rgba(255,255,255,0.35); }
+    footer, footer *{ color:#fff; }
+    footer a{ text-decoration:none; font-weight:950; border-bottom:2px solid rgba(255,255,255,0.35); }
     footer a:hover{ text-decoration:none; border-bottom-color: rgba(255,255,255,0.90); }
     .small{ color: rgba(255,255,255,0.92); }
 
@@ -900,7 +961,7 @@
           <div style="height:12px"></div>
 
           <div class="grid-2" style="margin-top:6px;">
-            <div class="card" style="background: radial-gradient(260px 160px at 20% 20%, rgba(233,30,99,0.28), transparent 60%), radial-gradient(320px 180px at 90% 30%, rgba(30,58,138,0.24), transparent 60%), rgba(255,255,255,0.12);">
+            <div class="card" style="background: radial-gradient(260px 160px at 20% 20%, rgba(233,30,99,0.28), transparent 60%), radial-gradient(320px 180px at 90% 30%, rgba(30,58,138,0.24), transparent 60%), rgba(11,27,74,0.22);">
               <h4>Benefits</h4>
               <ul class="mini">
                 <li><strong>Clarity and scoring focus:</strong> answers mapped to the question and evaluation criteria.</li>
@@ -910,7 +971,7 @@
               </ul>
             </div>
 
-            <div class="card" style="background: radial-gradient(260px 160px at 20% 20%, rgba(30,58,138,0.28), transparent 60%), radial-gradient(320px 180px at 90% 30%, rgba(233,30,99,0.24), transparent 60%), rgba(255,255,255,0.12);">
+            <div class="card" style="background: radial-gradient(260px 160px at 20% 20%, rgba(30,58,138,0.28), transparent 60%), radial-gradient(320px 180px at 90% 30%, rgba(233,30,99,0.24), transparent 60%), rgba(11,27,74,0.22);">
               <h4>Pricing approach</h4>
               <p style="margin-bottom:10px;">
                 We keep pricing <strong>competitive</strong> with flexible options that match the level of support you need.
@@ -1088,7 +1149,7 @@
               supported living, and <strong>mental health services</strong>, helping teams build confidence, improve outcomes, and stay ready for inspection.
             </p>
 
-            <h3 style="margin:12px 0 6px; font-size:22px; font-weight:950; color: rgba(255,255,255,0.98); text-shadow: 0 10px 24px rgba(0,0,0,0.22);">Qualifications</h3>
+            <h3 style="margin:12px 0 6px; font-size:22px; font-weight:950;">Qualifications</h3>
             <ul class="qual-list">
               <li>Adult Nursing (BSc)</li>
               <li>Diploma of Higher Education in Health and Social Care</li>

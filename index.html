@@ -1,69 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cranmer Care Management Ltd</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #ffffff;
-            text-align: center;
-            color: #1e3a8a;
-        }
-        header {
-            padding: 40px 20px;
-        }
-        h1 {
-            color: #e91e63; /* Pink for Cranmer */
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #1e3a8a; /* Blue */
-            font-weight: 500;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .services {
-            background-color: #f5f7ff;
-        }
-        footer {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cranmer Care Management Ltd</title>
+  <meta name="description" content="Cranmer Care Management Ltd — professional care management and consultancy services." />
+
+  <style>
+    :root{
+      --pink:#e91e63;
+      --blue:#1e3a8a;
+      --text:#0f172a;
+      --muted:#475569;
+      --panel:#f6f8ff;
+      --border:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{
+      width:min(1100px, 92vw);
+      margin:0 auto;
+    }
+
+    /* Top bar */
+    .topbar{
+      background:var(--blue);
+      color:#fff;
+      font-size:14px;
+    }
+    .topbar .container{
+      display:flex;
+      gap:14px;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 0;
+      flex-wrap:wrap;
+    }
+    .topbar a{color:#fff; text-decoration:none}
+    .topbar a:hover{text-decoration:underline}
+
+    /* Header */
+    header{
+      padding:34px 0 14px;
+      border-bottom:1px solid var(--border);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .brand img{
+      width:170px;
+      height:auto;
+      display:block;
+    }
+    .brand h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:0.5px;
+      color:var(--pink);
+    }
+    .brand .sub{
+      margin:4px 0 0;
+      color:var(--blue);
+      font-weight:700;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      font-size:14px;
+    }
+    .brand .est{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Hero */
+    .hero{
+      padding:28px 0 34px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      .brand img{width:150px}
+    }
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+    }
+    .hero h2{
+      margin:0 0 10px;
+      font-size:28px;
+      color:var(--blue);
+    }
+    .hero p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      background:#fff;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--text);
+    }
+
+    /* Sections */
+    section{
+      padding:26px 0;
+    }
+    section h3{
+      margin:0 0 12px;
+      color:var(--blue);
+      font-size:22px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    @media (max-width: 900px){
+      .grid3{grid-template-columns:1fr}
+    }
+    .service{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+      background:#fff;
+    }
+    .service h4{
+      margin:0 0 8px;
+      font-size:16px;
+      color:var(--text);
+    }
+    .service p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* Contact */
+    .contact{
+      background:var(--panel);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .contact-box{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    @media (max-width: 860px){
+      .contact-box{grid-template-columns:1fr}
+    }
+    .contact-item{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+    }
+    .label{
+      font-size:12px;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .value{
+      font-size:18px;
+      font-weight:700;
+      color:var(--text);
+    }
+    .value a{
+      text-decoration:none;
+    }
+    .value a:hover{
+      text-decoration:underline;
+      color:var(--pink);
+    }
+
+    /* Footer */
+    footer{
+      padding:18px 0;
+      color:#fff;
+      background:var(--blue);
+      font-size:14px;
+    }
+    footer .container{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .small{
+      color:rgba(255,255,255,0.9);
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Top contact strip -->
+  <div class="topbar">
+    <div class="container">
+      <div>
+        Email: <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a>
+      </div>
+      <div>
+        Telephone: <a href="tel:+441274449277">01274 449277</a>
+      </div>
+    </div>
+  </div>
 
-<header>
-    <h1>CRANMER</h1>
-    <h2>Care Management Ltd</h2>
-    <p>Est 2024</p>
-</header>
+  <!-- Header / Branding -->
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="logo.png" alt="Cranmer Care Management Ltd logo" />
+        <div>
+          <h1>CRANMER</h1>
+          <div class="sub">Care Management Ltd</div>
+          <div class="est">Est 2024</div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<section>
-    <h2>Professional Care Management Services</h2>
-    <p>
-        Cranmer Care Management Ltd provides high-quality, professional care management 
-        and consultancy services across Yorkshire and the UK. 
-        We are committed to delivering compassionate, compliant, and person-centred care solutions.
-    </p>
-</section>
+  <!-- Hero -->
+  <main>
+    <div class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h2>Professional Care Management & Consultancy</h2>
+          <p>
+            Cranmer Care Management Ltd supports individuals, families, and organisations with
+            person-centred care management, service oversight, and compliance-focused consultancy.
+          </p>
+          <div class="pill-row" aria-label="Key services">
+            <div class="pill">Care Management</div>
+            <div class="pill">Consultancy</div>
+            <div class="pill">Compliance Support</div>
+            <div class="pill">Service Improvement</div>
+          </div>
+        </div>
 
-<section class="services">
-    <h2>Our Services</h2>
-    <p>Care Management • Consultancy • Compliance Support • Service Development</p>
-</section>
+        <div class="card">
+          <h3 style="margin-top:0;">Contact</h3>
+          <p style="margin:0 0 10px;">Get in touch for a confidential conversation.</p>
+          <p style="margin:0;">
+            <strong>Email:</strong>
+            <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a><br />
+            <strong>Telephone:</strong>
+            <a href="tel:+441274449277">01274 449277</a>
+          </p>
+        </div>
+      </div>
+    </div>
 
-<footer>
-    <p>© 2024 Cranmer Care Management Ltd. All Rights Reserved.</p>
-</footer>
+    <!-- Services -->
+    <section>
+      <div class="container">
+        <h3>Services</h3>
+        <div class="grid3">
+          <div class="service">
+            <h4>Care Management</h4>
+            <p>Co-ordinated, person-centred support planning and oversight tailored to individual needs.</p>
+          </div>
+          <div class="service">
+            <h4>Care Consultancy</h4>
+            <p>Guidance for providers and organisations across quality, governance, and operational delivery.</p>
+          </div>
+          <div class="service">
+            <h4>Compliance Support</h4>
+            <p>Practical support to strengthen policies, evidence, and readiness for inspections and audits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Contact section -->
+    <section class="contact">
+      <div class="container">
+        <h3>Contact Us</h3>
+        <div class="contact-box">
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Telephone</div>
+            <div class="value"><a href="tel:+441274449277">01274 449277</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="small">© <span id="year"></span> Cranmer Care Management Ltd. All rights reserved.</div>
+      <div class="small">Email: info@cranmercare.co.uk • Tel: 01274 449277</div>
+    </div>
+  </footer>
+
+  <script>
+    // Update year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

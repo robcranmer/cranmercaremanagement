@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cranmer Care Management Ltd</title>
-  <meta name="description" content="Cranmer Care Management Ltd — care management, clinical governance, supported living and mental health quality improvement." />
+  <meta name="description" content="Cranmer Care Management Ltd — care management, supported living and mental health improvement." />
 
   <style>
     :root{
       --pink:#e91e63;
       --blue:#1e3a8a;
-      --navy:#0b1b4a;
+      --deep:#0b1b4a;
       --text:#0f172a;
       --muted:#475569;
-      --border:#e5e7eb;
       --white:#ffffff;
-      --shadow: 0 12px 36px rgba(15, 23, 42, 0.10);
-      --radius:18px;
+      --border:rgba(255,255,255,0.22);
+      --shadow: 0 16px 44px rgba(15, 23, 42, 0.16);
+      --shadow2: 0 10px 26px rgba(15, 23, 42, 0.12);
+      --r:22px;
     }
 
     *{box-sizing:border-box}
@@ -25,388 +26,465 @@
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
       color:var(--text);
-      background:var(--white);
+      background:
+        radial-gradient(900px 480px at 15% 10%, rgba(233,30,99,0.18), transparent 60%),
+        radial-gradient(900px 480px at 85% 20%, rgba(30,58,138,0.18), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%);
       line-height:1.55;
+      overflow-x:hidden;
     }
     a{color:inherit}
-    .container{ width:min(1120px, 92vw); margin:0 auto; }
+    .container{ width:min(1160px, 92vw); margin:0 auto; }
 
-    /* Top Contact Bar */
+    /* Sticky top strip */
     .topbar{
       position:sticky;
       top:0;
-      z-index:50;
-      background:linear-gradient(90deg, var(--blue), var(--navy));
+      z-index:60;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 27, 74, 0.86);
       color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.15);
+      border-bottom:1px solid rgba(255,255,255,0.12);
     }
     .topbar .container{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:14px;
+      align-items:center;
+      gap:12px;
       padding:10px 0;
       flex-wrap:wrap;
       font-size:14px;
     }
-    .topbar a{ text-decoration:none; color:#fff; }
+    .topbar a{ text-decoration:none; color:#fff; font-weight:800; }
     .topbar a:hover{ text-decoration:underline; }
 
-    /* Floating Contact Button */
+    /* Floating contact button */
     .float-contact{
       position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:60;
-      background:var(--pink);
+      right:16px;
+      bottom:16px;
+      z-index:70;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
       color:#fff;
-      border:none;
       border-radius:999px;
       padding:12px 16px;
-      box-shadow: var(--shadow);
       text-decoration:none;
-      font-weight:700;
-      letter-spacing:0.2px;
+      font-weight:900;
+      box-shadow: var(--shadow);
     }
-    .float-contact:hover{ filter:brightness(0.95); }
-    .float-contact:focus{ outline:3px solid rgba(233,30,99,0.25); outline-offset:3px; }
+    .float-contact:hover{ filter:brightness(0.97); }
+    .float-contact:focus{ outline:3px solid rgba(233,30,99,0.30); outline-offset:3px; }
 
-    /* Header / Brand */
+    /* Header */
     header{
-      padding:28px 0 18px;
-      border-bottom:1px solid var(--border);
-      background:#fff;
+      padding:18px 0 10px;
     }
-    .brand{
+    .header-row{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-    .brand-left{
-      display:flex;
       align-items:center;
-      gap:16px;
+      gap:14px;
       flex-wrap:wrap;
     }
-    .brand img{ width:180px; height:auto; display:block; }
-    .brand-title{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
+    .logo-link{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
     }
-    .brand-title .name{
-      margin:0;
-      font-size:34px;
-      letter-spacing:0.8px;
-      color:var(--pink);
+    .logo{
+      width:190px;
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 8px 18px rgba(2, 6, 23, 0.12));
     }
-    .brand-title .sub{
-      margin:0;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:0.9px;
-      color:var(--blue);
-      font-weight:800;
-    }
-    .brand-title .est{
-      margin:0;
-      font-size:14px;
-      color:var(--muted);
-    }
+
     .nav{
       display:flex;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
       align-items:center;
     }
     .nav a{
       text-decoration:none;
-      font-weight:700;
-      font-size:14px;
-      padding:9px 12px;
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:0.2px;
+      padding:10px 12px;
       border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--text);
-      background:#fff;
+      background: rgba(255,255,255,0.62);
+      border:1px solid rgba(15,23,42,0.08);
+      box-shadow: var(--shadow2);
     }
     .nav a:hover{
-      border-color: rgba(30,58,138,0.35);
-      box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+      transform: translateY(-1px);
+      transition: 0.15s ease;
     }
 
-    /* HERO */
-    .hero{
-      background: linear-gradient(180deg, rgba(30,58,138,0.08), rgba(233,30,99,0.06));
-      padding:22px 0 34px;
-      border-bottom:1px solid var(--border);
+    /* Bubble sections */
+    section{ padding:18px 0; }
+    .bubble-wrap{
+      padding:18px;
+      border-radius: calc(var(--r) + 10px);
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,0.28);
+      overflow:hidden;
+      position:relative;
     }
+
+    .bubble-wrap:before,
+    .bubble-wrap:after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      filter: blur(0px);
+      opacity:0.9;
+      pointer-events:none;
+    }
+    .bubble-wrap:before{
+      width:220px; height:220px;
+      left:-90px; top:-90px;
+      background: radial-gradient(circle at 30% 30%, rgba(233,30,99,0.35), rgba(233,30,99,0) 70%);
+    }
+    .bubble-wrap:after{
+      width:260px; height:260px;
+      right:-110px; bottom:-120px;
+      background: radial-gradient(circle at 30% 30%, rgba(30,58,138,0.35), rgba(30,58,138,0) 70%);
+    }
+
+    .theme-pinkblue{
+      background: linear-gradient(135deg, rgba(233,30,99,0.16), rgba(30,58,138,0.12));
+    }
+    .theme-blue{
+      background: linear-gradient(135deg, rgba(30,58,138,0.18), rgba(11,27,74,0.10));
+    }
+    .theme-pink{
+      background: linear-gradient(135deg, rgba(233,30,99,0.18), rgba(255,255,255,0.08));
+    }
+
+    /* Headings */
+    .kicker{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      background: rgba(255,255,255,0.68);
+      border:1px solid rgba(15,23,42,0.08);
+      box-shadow: var(--shadow2);
+      margin-bottom:10px;
+    }
+    h1,h2,h3{ margin:0; }
+    .h1{
+      font-size:34px;
+      line-height:1.15;
+      letter-spacing:0.2px;
+      margin:0 0 10px;
+      color: var(--deep);
+    }
+    .h2{
+      font-size:24px;
+      margin:0 0 10px;
+      color: var(--deep);
+      font-weight:900;
+    }
+    .lead{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size:16px;
+      max-width: 980px;
+    }
+
+    /* Hero layout */
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap:18px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:14px;
       align-items:stretch;
     }
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      .brand img{width:160px}
-    }
-    .hero-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    @media (max-width: 940px){ .hero-grid{ grid-template-columns:1fr; } }
+
+    .image-card{
+      border-radius: var(--r);
       overflow:hidden;
+      border:1px solid rgba(255,255,255,0.35);
+      box-shadow: var(--shadow2);
+      background:#fff;
+      min-height: 280px;
     }
-    .hero-image{
+    .image-card img{
       width:100%;
       height:100%;
-      min-height:260px;
+      min-height: 280px;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* Small chips */
+    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .chip{
+      background: rgba(255,255,255,0.70);
+      border:1px solid rgba(15,23,42,0.08);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+      font-weight:900;
+      box-shadow: var(--shadow2);
+    }
+
+    /* Cards grid */
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    @media (max-width: 980px){ .grid-3{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } }
+
+    .card{
+      background: rgba(255,255,255,0.72);
+      border:1px solid rgba(15,23,42,0.08);
+      border-radius: var(--r);
+      padding:16px;
+      box-shadow: var(--shadow2);
+    }
+    .card h4{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:900;
+      color: var(--deep);
+    }
+    .card p{ margin:0; color:var(--muted); }
+
+    /* Links list */
+    .links{
+      margin:10px 0 0;
+      padding-left:18px;
+      color: var(--muted);
+    }
+    .links li{ margin:8px 0; }
+    .links a{
+      font-weight:900;
+      text-decoration:none;
+      border-bottom:2px solid rgba(233,30,99,0.35);
+    }
+    .links a:hover{ border-bottom-color: rgba(30,58,138,0.55); }
+
+    /* Meet the team */
+    .team-row{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .avatar{
+      width:110px;
+      height:110px;
+      border-radius:999px;
+      overflow:hidden;
+      flex:0 0 auto;
+      border:3px solid rgba(233,30,99,0.35);
+      box-shadow: var(--shadow2);
       background:#fff;
     }
-    .hero-image img{
+    .avatar img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
     }
-    .hero-copy{
-      padding:18px;
+    .team-text{
+      flex:1 1 320px;
+      min-width: 260px;
     }
-    .hero h2{
-      margin:0 0 10px;
-      color:var(--blue);
-      font-size:30px;
-      line-height:1.15;
-    }
-    .hero p{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:16px;
-    }
-    .pill-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    .pill{
-      background:rgba(30,58,138,0.06);
-      border:1px solid rgba(30,58,138,0.18);
-      color:var(--blue);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-    }
-
-    /* Alternating Sections */
-    section{ padding:34px 0; }
-    .section-title{
-      margin:0 0 14px;
-      font-size:24px;
-      letter-spacing:0.2px;
-    }
-    .lead{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:16px;
-      max-width: 920px;
-    }
-
-    .theme-blue{
-      background: linear-gradient(180deg, var(--blue), var(--navy));
-      color:#fff;
-    }
-    .theme-blue .lead{ color: rgba(255,255,255,0.88); }
-    .theme-blue .section-title{ color:#fff; }
-    .theme-blue a{ color:#fff; }
-
-    .theme-pink{
-      background: linear-gradient(180deg, rgba(233,30,99,0.12), rgba(30,58,138,0.06));
-      border-top:1px solid var(--border);
-      border-bottom:1px solid var(--border);
-    }
-
-    /* Cards / grids */
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-    }
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    @media (max-width: 900px){
-      .grid-3, .grid-2{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: var(--shadow);
-    }
-    .theme-blue .card{
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.18);
-      box-shadow: none;
-    }
-    .card h4{ margin:0 0 8px; font-size:16px; }
-    .card p{ margin:0; color:var(--muted); }
-    .theme-blue .card p{ color: rgba(255,255,255,0.88); }
-
-    .linklist{
-      margin:10px 0 0;
-      padding-left:18px;
-    }
-    .linklist li{ margin:8px 0; }
-    .linklist a{
-      text-decoration:underline;
-      text-underline-offset: 3px;
-    }
-
-    /* Managing Director */
-    .md-grid{
-      display:grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 920px){
-      .md-grid{ grid-template-columns:1fr; }
-    }
-    .md-photo{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border:1px solid var(--border);
-      background:#fff;
-      box-shadow: var(--shadow);
-    }
-    .md-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .md-meta .role{
+    .role{
       display:inline-block;
-      font-size:12px;
       font-weight:900;
+      color: var(--pink);
+      background: rgba(233,30,99,0.10);
+      border:1px solid rgba(233,30,99,0.20);
+      padding:6px 10px;
+      border-radius:999px;
+      margin-bottom:10px;
+      font-size:12px;
+      letter-spacing:0.6px;
       text-transform:uppercase;
-      letter-spacing:0.9px;
-      color:var(--pink);
-      margin-bottom:8px;
     }
 
-    /* Testimonials (Speech bubbles) */
-    .bubble{
+    /* Testimonials bubbles */
+    .speech{
       position:relative;
+      background: rgba(255,255,255,0.75);
+      border:1px solid rgba(15,23,42,0.08);
+      border-radius: 22px;
       padding:16px;
-      border-radius: 18px;
-      border:1px solid var(--border);
-      background:#fff;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow2);
     }
-    .bubble:after{
+    .speech:after{
       content:"";
       position:absolute;
       bottom:-10px;
       left:26px;
       width:18px;
       height:18px;
-      background:#fff;
-      border-left:1px solid var(--border);
-      border-bottom:1px solid var(--border);
+      background: rgba(255,255,255,0.75);
+      border-left:1px solid rgba(15,23,42,0.08);
+      border-bottom:1px solid rgba(15,23,42,0.08);
       transform: rotate(45deg);
     }
-    .bubble .quote{
-      margin:0 0 10px;
-      color:var(--text);
-      font-size:15px;
+    .speech p{ margin:0 0 10px; color: var(--text); font-weight:700; }
+    .speech .who{ margin:0; color: var(--muted); font-size:13px; font-weight:900; }
+
+    /* Contact section */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
     }
-    .bubble .who{
+    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
+
+    .contact-pill{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:14px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,0.70);
+      border:1px solid rgba(15,23,42,0.08);
+      box-shadow: var(--shadow2);
+    }
+    .emoji{
+      font-size:22px;
+      width:32px;
+      height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background: linear-gradient(135deg, rgba(233,30,99,0.18), rgba(30,58,138,0.14));
+      border:1px solid rgba(15,23,42,0.06);
+    }
+    .contact-pill .label{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:0.8px;
+      text-transform:uppercase;
+      color: var(--muted);
       margin:0;
-      color:var(--muted);
+    }
+    .contact-pill .value{
+      margin:2px 0 0;
+      font-weight:900;
+      font-size:16px;
+    }
+    .contact-pill a{
+      text-decoration:none;
+      border-bottom:2px solid rgba(30,58,138,0.28);
+    }
+    .contact-pill a:hover{
+      border-bottom-color: rgba(233,30,99,0.55);
+    }
+
+    form{
+      background: rgba(255,255,255,0.72);
+      border:1px solid rgba(15,23,42,0.08);
+      border-radius: var(--r);
+      padding:16px;
+      box-shadow: var(--shadow2);
+    }
+    label{
+      display:block;
+      font-weight:900;
+      margin:10px 0 6px;
+      color: var(--deep);
+      font-size:13px;
+      letter-spacing:0.2px;
+    }
+    input, textarea{
+      width:100%;
+      border-radius: 14px;
+      border:1px solid rgba(15,23,42,0.14);
+      padding:12px 12px;
+      font-size:15px;
+      background: rgba(255,255,255,0.85);
+      outline:none;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(233,30,99,0.55);
+      box-shadow: 0 0 0 4px rgba(233,30,99,0.16);
+    }
+    textarea{ min-height:120px; resize:vertical; }
+
+    .btn{
+      margin-top:12px;
+      display:inline-block;
+      width:100%;
+      border:none;
+      cursor:pointer;
+      border-radius: 16px;
+      padding:12px 14px;
+      font-weight:900;
+      font-size:15px;
+      color:#fff;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      box-shadow: var(--shadow2);
+    }
+    .btn:hover{ filter:brightness(0.97); }
+
+    .note{
+      margin:10px 0 0;
+      color: var(--muted);
       font-size:13px;
       font-weight:700;
     }
 
-    /* Contact section */
-    .contact-box{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 860px){
-      .contact-box{ grid-template-columns:1fr; }
-    }
-    .contact-item{
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      background:#fff;
-      padding:16px;
-      box-shadow: var(--shadow);
-    }
-    .label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:0.8px;
-      color:var(--muted);
-      margin-bottom:6px;
-      font-weight:800;
-    }
-    .value{
-      font-size:18px;
-      font-weight:900;
-    }
-    .value a{ text-decoration:none; }
-    .value a:hover{ text-decoration:underline; color:var(--pink); }
-
-    /* Footer */
     footer{
-      background: linear-gradient(90deg, var(--navy), var(--blue));
+      margin-top:18px;
+      background: rgba(11, 27, 74, 0.92);
       color:#fff;
-      padding:18px 0;
       border-top:1px solid rgba(255,255,255,0.12);
+      padding:16px 0;
     }
     footer .container{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      flex-wrap:wrap;
       gap:10px;
+      flex-wrap:wrap;
       font-size:14px;
     }
-    .small{ color:rgba(255,255,255,0.9); }
+    footer a{ color:#fff; text-decoration:none; font-weight:900; }
+    footer a:hover{ text-decoration:underline; }
+    .small{ color: rgba(255,255,255,0.90); }
+
   </style>
 </head>
 
-<body>
+<body id="top">
 
-  <!-- Floating Contact -->
-  <a class="float-contact" href="#contact" aria-label="Jump to Contact Us">Contact us</a>
+  <a class="float-contact" href="#contact" aria-label="Go to Contact section">Contact us</a>
 
-  <!-- Top Contact Strip -->
+  <!-- Top bar -->
   <div class="topbar">
     <div class="container">
-      <div>Email: <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></div>
-      <div>Telephone: <a href="tel:+441274449277">01274 449277</a></div>
+      <div>📧 <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></div>
+      <div>📞 <a href="tel:+441274449277">01274 449277</a></div>
     </div>
   </div>
 
   <!-- Header -->
   <header>
     <div class="container">
-      <div class="brand">
-        <div class="brand-left">
-          <img src="logo.png" alt="Cranmer Care Management Ltd logo" />
-          <div class="brand-title">
-            <h1 class="name">CRANMER</h1>
-            <p class="sub">Care Management Ltd</p>
-            <p class="est">Est 2024</p>
-          </div>
-        </div>
+      <div class="header-row">
+        <!-- Logo only, clickable to top -->
+        <a class="logo-link" href="#top" aria-label="Back to top">
+          <img class="logo" src="logo.png" alt="Cranmer Care Management Ltd logo" />
+        </a>
 
-        <nav class="nav" aria-label="Primary">
-          <a href="#about">What we do</a>
+        <nav class="nav" aria-label="Site">
+          <a href="#whatwedo">What we do</a>
           <a href="#services">Services</a>
-          <a href="#governance">Clinical governance</a>
+          <a href="#story">Our story</a>
+          <a href="#team">Meet the team</a>
           <a href="#partners">Partners</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#contact">Contact</a>
@@ -415,267 +493,314 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <div class="hero" id="about">
+  <!-- HERO -->
+  <section>
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-card hero-image" aria-label="Care image">
-          <img
-            src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/care.jpg.webp"
-            alt="Care and support"
-            loading="eager"
-          />
-        </div>
+      <div class="bubble-wrap theme-pinkblue">
+        <div class="hero-grid">
+          <div>
+            <span class="kicker">Est 2024 • Yorkshire based</span>
+            <h1 class="h1">Making care services safer, stronger, and more organised</h1>
+            <p class="lead">
+              We help care providers and community organisations improve quality, support teams, and stay ready for inspection.
+              We work across supported living and mental health, with a friendly, practical approach.
+            </p>
 
-        <div class="hero-card hero-copy">
-          <h2>Care management, governance & quality improvement</h2>
-          <p>
-            Cranmer Care Management Ltd supports care providers and organisations to deliver safe,
-            effective and person-centred care. We specialise in clinical governance, supported living,
-            and mental health services — with practical, evidence-led support that strengthens compliance,
-            improves outcomes and prepares services for inspection.
-          </p>
+            <div class="chips" aria-label="Highlights">
+              <span class="chip">✅ Supported living</span>
+              <span class="chip">🧠 Mental health</span>
+              <span class="chip">📋 Mock inspections</span>
+              <span class="chip">🔧 Turnaround support</span>
+              <span class="chip">👥 Recruitment & HR</span>
+            </div>
 
-          <div class="pill-row" aria-label="Key areas">
-            <span class="pill">Supported living</span>
-            <span class="pill">Mental health</span>
-            <span class="pill">Clinical governance</span>
-            <span class="pill">Inspection readiness</span>
+            <p class="lead" style="margin-top:14px;">
+              Want a quick chat? Use the button on the right, or jump straight to <a href="#contact" style="font-weight:900;">Contact</a>.
+            </p>
           </div>
 
-          <p style="margin-top:14px;">
-            <strong>Based in Yorkshire</strong>, delivering improvement support across the region and beyond.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CQC Success / Track record -->
-  <section class="theme-blue" id="governance">
-    <div class="container">
-      <h3 class="section-title">CQC-focused improvement with a proven Yorkshire track record</h3>
-      <p class="lead">
-        We bring hands-on experience supporting services to achieve and sustain strong inspection outcomes.
-        Our approach is rooted in robust clinical governance, clear leadership, measurable action planning,
-        and practical support that improves quality on the ground.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <h4>Where we’ve supported quality and compliance</h4>
-          <p>
-            Our experience includes work alongside organisations and community partners across Bradford and Yorkshire,
-            including supported living and mental health settings. We understand the evidence CQC expects and how to
-            translate standards into day-to-day practice.
-          </p>
-          <ul class="linklist">
-            <li><a href="https://vitalityliving.uk/" target="_blank" rel="noopener">Vitality Living Ltd</a> (supported living)</li>
-            <li><a href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener">Bradford District Care NHS Foundation Trust</a> (mental health / community services)</li>
-            <li><a href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener">Bradford City Football Club</a> (mental health support & community collaboration)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h4>Clinical governance that stands up to scrutiny</h4>
-          <p>
-            We help you build a governance framework that is simple, consistent and inspection-ready:
-            audits, learning from incidents, risk management, policy implementation, supervision and training,
-            KPI dashboards, and evidence packs aligned to CQC’s key lines of enquiry.
-          </p>
-          <ul class="linklist">
-            <li>Supported living compliance & provider oversight</li>
-            <li>Mental health service quality & safety systems</li>
-            <li>Action plans that are measurable, owned and delivered</li>
-          </ul>
+          <div class="image-card" aria-label="Care image">
+            <img
+              src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/care.jpg.webp"
+              alt="Care and support"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="theme-pink" id="services">
+  <!-- WHAT WE DO -->
+  <section id="whatwedo">
     <div class="container">
-      <h3 class="section-title" style="color:var(--blue);">Services available</h3>
-      <p class="lead">
-        Practical, hands-on support across supported living, mental health and care delivery —
-        from quick improvements to full turnaround programmes.
-      </p>
+      <div class="bubble-wrap theme-blue">
+        <span class="kicker">What we do</span>
+        <h2 class="h2">Clear support that helps services improve</h2>
+        <p class="lead">
+          We keep it simple: we look at what’s working, what’s missing, and what needs tightening up. Then we help you fix it,
+          step by step, with real tools your team can use.
+        </p>
 
-      <div class="grid-3">
-        <div class="card">
-          <h4>Mock inspections (CQC-style)</h4>
-          <p>
-            Structured mock inspections with clear findings, evidence requirements and an improvement plan
-            aligned to CQC expectations.
-          </p>
-        </div>
-        <div class="card">
-          <h4>Turnaround management</h4>
-          <p>
-            Rapid stabilisation and sustained improvement for challenged services: risk review, governance reset,
-            action planning, staff support and performance recovery.
-          </p>
-        </div>
-        <div class="card">
-          <h4>Action planning & delivery</h4>
-          <p>
-            SMART action plans with ownership, timelines, KPIs and follow-up — ensuring improvements happen,
-            not just get written down.
-          </p>
-        </div>
-        <div class="card">
-          <h4>Supported living support</h4>
-          <p>
-            Provider oversight, quality audits, person-centred planning, risk management and outcomes-based support
-            for supported living services.
-          </p>
-        </div>
-        <div class="card">
-          <h4>Mental health quality improvement</h4>
-          <p>
-            Governance, incident learning, audit programmes, supervision structures and evidence packs to strengthen
-            safe and effective mental health support.
-          </p>
-        </div>
-        <div class="card">
-          <h4>Recruitment & human resources support</h4>
-          <p>
-            HR support to strengthen recruitment pipelines, safer recruitment practice, onboarding, role profiles,
-            supervision frameworks and workforce retention.
-          </p>
+        <div class="grid-3">
+          <div class="card">
+            <h4><strong>Clinical governance</strong></h4>
+            <p>Helping you keep on top of audits, incidents, learning, policies, and day-to-day standards.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Supported living</strong></h4>
+            <p>Oversight, quality checks, and practical improvements that make services safer and more consistent.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Mental health support</strong></h4>
+            <p>Support with quality and safety, and building confidence across teams working in mental health.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Managing Director -->
-  <section id="director">
+  <!-- SERVICES -->
+  <section id="services">
     <div class="container">
-      <h3 class="section-title" style="color:var(--blue);">Managing Director</h3>
-      <p class="lead">
-        Leadership that blends care-sector experience with governance discipline — supporting teams to deliver
-        high-quality, compliant care.
-      </p>
+      <div class="bubble-wrap theme-pink">
+        <span class="kicker">Services</span>
+        <h2 class="h2">How we can help</h2>
+        <p class="lead">
+          Choose one-off support or a full improvement plan. We can work alongside you on-site or remotely.
+        </p>
 
-      <div class="md-grid">
-        <div class="md-photo">
-          <img
-            src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/robert-cranmer.jpg"
-            alt="Robert Cranmer"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="card md-meta">
-          <span class="role">Robert Cranmer • Managing Director</span>
-          <h4 style="margin-top:0;">A practical, evidence-led approach to quality</h4>
-          <p style="margin:0 0 10px;">
-            Robert leads Cranmer Care Management Ltd with a focus on clinical governance, supported living improvement,
-            and mental health quality and safety. He works alongside providers and partners to strengthen compliance,
-            improve outcomes and build inspection-ready services.
-          </p>
-          <ul class="linklist">
-            <li>Governance systems: audits, incidents, learning and assurance</li>
-            <li>Supported living: oversight, quality frameworks and person-centred delivery</li>
-            <li>Mental health: safety systems, supervision and measurable improvement</li>
-          </ul>
+        <div class="grid-3">
+          <div class="card">
+            <h4><strong>Mock inspection</strong></h4>
+            <p>A realistic review of your service with clear actions to improve.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Turnaround management</strong></h4>
+            <p>Extra leadership and structure when a service needs urgent improvement.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Action planning</strong></h4>
+            <p>Simple plans that your team can follow, with check-ins to keep progress moving.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Recruitment</strong></h4>
+            <p>Support with hiring, onboarding, and building a stronger team pipeline.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Human resources support</strong></h4>
+            <p>Practical HR support around policies, supervision, training, and workforce retention.</p>
+          </div>
+          <div class="card">
+            <h4><strong>Quality checks</strong></h4>
+            <p>Regular reviews to keep standards high and spot issues early.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Partners -->
-  <section class="theme-blue" id="partners">
+  <!-- OUR STORY -->
+  <section id="story">
     <div class="container">
-      <h3 class="section-title">Partners we work with</h3>
-      <p class="lead">
-        We collaborate with health, care and community organisations across Bradford and Yorkshire.
-        Explore their work below.
-      </p>
+      <div class="bubble-wrap theme-pinkblue">
+        <span class="kicker">Our story</span>
+        <h2 class="h2">Built in 2024, shaped by Robert’s career</h2>
+        <p class="lead">
+          Cranmer Care Management Ltd was founded in <strong>2024</strong> after Robert’s career across nursing, mental health,
+          and care management. The aim is simple: help services improve in ways that are practical, calm, and achievable.
+        </p>
 
-      <div class="grid-3">
-        <div class="card">
-          <h4>Bradford City Football Club</h4>
-          <p><a href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener">www.bradfordcityafc.com</a></p>
-        </div>
-        <div class="card">
-          <h4>Bradford City Community Foundation</h4>
-          <p><a href="https://www.bradfordcitycf.org.uk/" target="_blank" rel="noopener">www.bradfordcitycf.org.uk</a></p>
-        </div>
-        <div class="card">
-          <h4>NHS Bradford (Bradford District & Craven)</h4>
-          <p><a href="https://bdcpartnership.co.uk/" target="_blank" rel="noopener">bdcpartnership.co.uk</a></p>
-        </div>
-        <div class="card">
-          <h4>Bradford District Care NHS Foundation Trust</h4>
-          <p><a href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener">www.bdct.nhs.uk</a></p>
-        </div>
-        <div class="card">
-          <h4>Vitality Living Ltd</h4>
-          <p><a href="https://vitalityliving.uk/" target="_blank" rel="noopener">vitalityliving.uk</a></p>
-        </div>
-        <div class="card">
-          <h4>Bradford District & Craven Mind</h4>
-          <p><a href="https://www.bdcmind.org.uk/" target="_blank" rel="noopener">www.bdcmind.org.uk</a></p>
-        </div>
-        <div class="card">
-          <h4>ANDYSMANCLUB</h4>
-          <p><a href="https://andysmanclub.co.uk/" target="_blank" rel="noopener">andysmanclub.co.uk</a></p>
+        <div class="grid-2">
+          <div class="card">
+            <h4><strong>Quality and inspection success</strong></h4>
+            <p>
+              We’ve supported services and partners across Bradford and Yorkshire, helping teams organise evidence,
+              strengthen standards, and improve confidence ahead of inspections.
+            </p>
+            <ul class="links">
+              <li><a href="https://vitalityliving.uk/" target="_blank" rel="noopener">Vitality Living Ltd</a></li>
+              <li><a href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener">Bradford District Care NHS Foundation Trust</a></li>
+              <li><a href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener">Bradford City Football Club</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4><strong>Supported living and mental health</strong></h4>
+            <p>
+              We focus on what matters most: safe care, consistent routines, clear plans, and confident staff. Our work supports
+              supported living services and mental health support, including community connections in Bradford.
+            </p>
+          </div>
         </div>
       </div>
-
-      <p class="lead" style="margin-top:16px;">
-        Our work spans clinical governance, supported living, and mental health improvement in partnership with local services —
-        including community-facing mental health support connected with the Bradford City network.
-      </p>
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- MEET THE TEAM -->
+  <section id="team">
+    <div class="container">
+      <div class="bubble-wrap theme-blue">
+        <span class="kicker">Meet the team</span>
+        <h2 class="h2">Robert Cranmer</h2>
+
+        <div class="team-row">
+          <div class="avatar" aria-label="Robert Cranmer photo">
+            <img
+              src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/robert-cranmer.jpg"
+              alt="Robert Cranmer"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="team-text">
+            <div class="role">Managing Director</div>
+            <p class="lead" style="margin-bottom:10px;">
+              Robert’s background includes <strong>nursing</strong>, <strong>mental health</strong>, and <strong>care management</strong>.
+              He brings a steady, supportive approach and helps teams improve without making things complicated.
+            </p>
+            <div class="chips">
+              <span class="chip">🧭 Clear leadership</span>
+              <span class="chip">🧩 Practical improvements</span>
+              <span class="chip">📚 Staff support</span>
+              <span class="chip">✅ Inspection readiness</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="container">
+      <div class="bubble-wrap theme-pink">
+        <span class="kicker">Partners</span>
+        <h2 class="h2">Partners we work with</h2>
+        <p class="lead">
+          We’re proud to work alongside services and community partners in Bradford and Yorkshire.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4><strong>Bradford City Football Club</strong></h4>
+            <p><a href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+          <div class="card">
+            <h4><strong>Bradford City Community Foundation</strong></h4>
+            <p><a href="https://www.bradfordcitycf.org.uk/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+          <div class="card">
+            <h4><strong>NHS Bradford (BDC Partnership)</strong></h4>
+            <p><a href="https://bdcpartnership.co.uk/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+          <div class="card">
+            <h4><strong>Bradford District Care NHS Foundation Trust</strong></h4>
+            <p><a href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+          <div class="card">
+            <h4><strong>Vitality Living Ltd</strong></h4>
+            <p><a href="https://vitalityliving.uk/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+          <div class="card">
+            <h4><strong>Mind in Bradford</strong></h4>
+            <p><a href="https://www.bdcmind.org.uk/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+          <div class="card">
+            <h4><strong>ANDYSMANCLUB</strong></h4>
+            <p><a href="https://andysmanclub.co.uk/" target="_blank" rel="noopener">Visit website</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="container">
-      <h3 class="section-title" style="color:var(--blue);">Testimonials</h3>
-      <p class="lead">
-        A few examples of feedback (replace the text below with your real testimonials whenever you’re ready).
-      </p>
+      <div class="bubble-wrap theme-pinkblue">
+        <span class="kicker">Testimonials</span>
+        <h2 class="h2">What people say</h2>
+        <p class="lead">
+          Replace these with your real testimonials whenever you’re ready.
+        </p>
 
-      <div class="grid-3">
-        <div class="bubble">
-          <p class="quote">“Clear, practical advice that helped us organise evidence and improve governance quickly.”</p>
-          <p class="who">Registered Manager</p>
-        </div>
-        <div class="bubble">
-          <p class="quote">“The mock inspection was thorough and realistic — the action plan was easy to follow and deliver.”</p>
-          <p class="who">Service Lead</p>
-        </div>
-        <div class="bubble">
-          <p class="quote">“Supportive turnaround input for our team — focused on safety, outcomes and sustainable improvement.”</p>
-          <p class="who">Operations Director</p>
+        <div class="grid-3">
+          <div class="speech">
+            <p>“Straightforward support that helped us get organised and improve quickly.”</p>
+            <p class="who">Registered Manager</p>
+          </div>
+          <div class="speech">
+            <p>“The mock inspection made everything clear. The action list was simple and worked.”</p>
+            <p class="who">Service Lead</p>
+          </div>
+          <div class="speech">
+            <p>“Supportive and calm approach. Our team felt listened to and supported.”</p>
+            <p class="who">Operations Team</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="theme-pink" id="contact">
+  <!-- CONTACT -->
+  <section id="contact">
     <div class="container">
-      <h3 class="section-title" style="color:var(--blue);">Contact us</h3>
-      <p class="lead">
-        For a confidential conversation about supported living, mental health services, clinical governance,
-        mock inspections, turnaround support, action planning, recruitment or HR support — get in touch.
-      </p>
+      <div class="bubble-wrap theme-blue">
+        <span class="kicker">Contact</span>
+        <h2 class="h2">Let’s talk</h2>
+        <p class="lead">
+          Tell us what you need help with, and we’ll get back to you.
+        </p>
 
-      <div class="contact-box">
-        <div class="contact-item">
-          <div class="label">Email</div>
-          <div class="value"><a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></div>
-          <p style="margin:10px 0 0; color:var(--muted);">We aim to respond as soon as possible.</p>
-        </div>
-        <div class="contact-item">
-          <div class="label">Telephone</div>
-          <div class="value"><a href="tel:+441274449277">01274 449277</a></div>
-          <p style="margin:10px 0 0; color:var(--muted);">Call for advice, support or to book a mock inspection.</p>
+        <div class="contact-grid">
+          <div>
+            <div class="contact-pill">
+              <div class="emoji" aria-hidden="true">📧</div>
+              <div>
+                <p class="label">Email</p>
+                <p class="value"><a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a></p>
+              </div>
+            </div>
+
+            <div style="height:10px"></div>
+
+            <div class="contact-pill">
+              <div class="emoji" aria-hidden="true">📞</div>
+              <div>
+                <p class="label">Telephone</p>
+                <p class="value"><a href="tel:+441274449277">01274 449277</a></p>
+              </div>
+            </div>
+
+            <p class="note">
+              If your message is urgent, please call us.
+            </p>
+          </div>
+
+          <!-- Contact form (simple mailto) -->
+          <form action="mailto:info@cranmercare.co.uk" method="post" enctype="text/plain">
+            <h3 style="margin:0 0 6px; color:var(--deep); font-size:18px; font-weight:900;">Contact form</h3>
+            <p class="note" style="margin-top:0;">
+              This form will open your email app to send the message.
+            </p>
+
+            <label for="name">Your name</label>
+            <input id="name" name="Name" type="text" placeholder="Your name" required />
+
+            <label for="email">Your email</label>
+            <input id="email" name="Email" type="email" placeholder="your@email.com" required />
+
+            <label for="phone">Your phone (optional)</label>
+            <input id="phone" name="Phone" type="tel" placeholder="Your phone number" />
+
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="Message" placeholder="Tell us a bit about what you need..." required></textarea>
+
+            <button class="btn" type="submit">Send message</button>
+            <p class="note">If the button doesn’t work on your device, email us directly at info@cranmercare.co.uk.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -684,10 +809,11 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="small">© <span id="year"></span> Cranmer Care Management Ltd. All rights reserved.</div>
+      <div class="small">© <span id="year"></span> Cranmer Care Management Ltd</div>
       <div class="small">
-        Email: <a href="mailto:info@cranmercare.co.uk" style="color:#fff;">info@cranmercare.co.uk</a>
-        • Tel: <a href="tel:+441274449277" style="color:#fff;">01274 449277</a>
+        📧 <a href="mailto:info@cranmercare.co.uk">info@cranmercare.co.uk</a>
+        &nbsp; • &nbsp;
+        📞 <a href="tel:+441274449277">01274 449277</a>
       </div>
     </div>
   </footer>
@@ -695,6 +821,5 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>

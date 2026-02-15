@@ -18,6 +18,10 @@
       --deep:#0b1b4a;
       --ink:#0f172a;
 
+      /* ✅ NEW: readable text colours for coloured boxes */
+      --text-on-blue: rgba(255, 182, 213, 0.98); /* soft pink */
+      --text-on-pink: rgba(205, 226, 255, 0.98); /* soft blue */
+
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
       --shadow2: 0 12px 34px rgba(15, 23, 42, 0.14);
       --shadow3: 0 10px 26px rgba(15, 23, 42, 0.12);
@@ -262,6 +266,10 @@
     .theme-pink{ background: linear-gradient(135deg, rgba(233,30,99,0.55), rgba(244,114,182,0.42)); color:#fff; }
     .theme-pinkblue{ background: linear-gradient(135deg, rgba(233,30,99,0.38), rgba(30,58,138,0.30)); }
 
+    /* ✅ NEW: swap white text to pink/blue on the coloured boxes only */
+    .theme-blue, .theme-blue *{ color: var(--text-on-blue); }
+    .theme-pink, .theme-pink *{ color: var(--text-on-pink); }
+
     /* Colourful hero */
     .theme-hero{
       background:
@@ -296,13 +304,11 @@
     }
     .theme-blue .kicker, .theme-pink .kicker{
       background: rgba(255,255,255,0.22);
-      color:#fff;
       border-color: rgba(255,255,255,0.24);
     }
 
     .h1{ font-size:48px; line-height:1.03; margin:0 0 12px; font-weight:950; }
     .h2{ font-size:38px; margin:0 0 12px; font-weight:950; }
-    .theme-blue .h1, .theme-blue .h2, .theme-pink .h1, .theme-pink .h2{ color:#fff; }
     .theme-pinkblue .h1, .theme-pinkblue .h2{ color: var(--deep); }
     .theme-hero .h1{ color: rgba(11,27,74,0.98); text-shadow: 0 10px 30px rgba(15,23,42,0.10); }
 
@@ -313,7 +319,6 @@
       font-weight:750;
       color: rgba(15,23,42,0.92);
     }
-    .theme-blue .lead, .theme-pink .lead{ color: rgba(255,255,255,0.92); }
     .theme-hero .lead{ color: rgba(11,27,74,0.92); }
 
     .hero-grid{

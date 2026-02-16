@@ -660,6 +660,49 @@
       box-shadow: 0 0 0 4px rgba(30,58,138,0.14);
     }
     textarea{ min-height:120px; resize:vertical; }
+
+    /* ===========================================================
+       TESTIMONIALS: SPEECH BUBBLES + BOLD NAMES (ADDED)
+       This MUST be at the very end of CSS
+    ============================================================ */
+
+    /* Speech bubble tail */
+    .speech{
+      position: relative;
+      overflow: visible; /* allow tail to show outside bubble */
+      border-radius: 26px !important;
+      padding: 18px 18px 16px !important;
+    }
+
+    /* Tail border */
+    .speech:before{
+      content:"";
+      position:absolute;
+      left:26px;
+      bottom:-14px;
+      width:0;
+      height:0;
+      border:14px solid transparent;
+      border-top-color: rgba(11,27,74,0.12);
+      pointer-events:none;
+    }
+
+    /* Tail fill */
+    .speech:after{
+      content:"";
+      position:absolute;
+      left:27px;
+      bottom:-12px;
+      width:0;
+      height:0;
+      border:13px solid transparent;
+      border-top-color: #fff;
+      pointer-events:none;
+    }
+
+    /* Make the testimonial name bold */
+    .who strong{ font-weight: 950; }
+
   </style>
 </head>
 
@@ -1114,17 +1157,17 @@
               “Cranmer Care Management supported us with service set-up, tender writing, and local authority support.
               The approach was professional, organised, and made a real difference.”
             </p>
-            <p class="who">Graham, Director, Local Care Provider</p>
+            <p class="who"><strong>Graham</strong>, Director, Local Care Provider</p>
           </div>
 
           <div class="speech">
             <p>“Straightforward support that helped us get organised and improve quickly after a poor inspection.”</p>
-            <p class="who">Claire, Registered Manager</p>
+            <p class="who"><strong>Claire</strong>, Registered Manager</p>
           </div>
 
           <div class="speech">
             <p>“The mock inspection made everything clear. The action list was simple and worked.”</p>
-            <p class="who">Service Lead</p>
+            <p class="who"><strong>Service Lead</strong></p>
           </div>
         </div>
       </div>

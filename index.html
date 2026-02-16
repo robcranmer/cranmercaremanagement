@@ -42,7 +42,7 @@
     .container{ width:min(1180px, 92vw); margin:0 auto; }
 
     /* =========================
-       TOP BAR: Logo + Contact + Section Buttons
+       TOP BAR
     ========================= */
     .topbar{
       position:sticky;
@@ -53,7 +53,6 @@
       border-bottom:1px solid rgba(255,255,255,0.12);
     }
     .topbar, .topbar *{ color:#fff; }
-
     .topbar .container{
       display:grid;
       grid-template-columns: auto 1fr auto;
@@ -62,7 +61,6 @@
       padding:10px 0;
     }
 
-    /* Logo */
     .brand-mini{
       display:flex;
       align-items:center;
@@ -82,7 +80,6 @@
     }
     .brand-mini img{ width:120px; height:auto; display:block; }
 
-    /* Contact chips centered */
     .topbar-mid{
       display:flex;
       justify-content:center;
@@ -90,7 +87,6 @@
       gap:10px;
       flex-wrap:wrap;
     }
-
     .contact-chip{
       display:inline-flex;
       align-items:center;
@@ -110,21 +106,11 @@
       white-space:nowrap;
       font-size:14px;
     }
-    .contact-chip:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: linear-gradient(90deg, rgba(233,30,99,0.40), rgba(30,58,138,0.40), rgba(233,30,99,0.40));
-      opacity:0.0;
-      transition: opacity 220ms ease;
-      pointer-events:none;
-    }
     .contact-chip:hover{
       transform: translateY(-2px);
       filter: brightness(1.04);
       box-shadow: 0 18px 50px rgba(0,0,0,0.22);
     }
-    .contact-chip:hover:before{ opacity:0.65; }
     .contact-chip .ico{
       width:30px; height:30px;
       display:grid; place-items:center;
@@ -133,7 +119,6 @@
       border:1px solid rgba(255,255,255,0.18);
     }
 
-    /* Pink section buttons right, symmetrical */
     .topbar-nav{
       display:flex;
       align-items:center;
@@ -141,22 +126,20 @@
       gap:10px;
       flex-wrap:wrap;
     }
-
     .nav-pills{
       display:flex;
       align-items:center;
       gap:8px;
       flex-wrap:wrap;
       justify-content:flex-end;
-      max-width: 520px;
+      max-width: 560px;
     }
-
     .nav-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       padding:8px 12px;
-      min-width: 110px; /* symmetry */
+      min-width: 110px;
       border-radius:999px;
       text-decoration:none;
       font-weight:950;
@@ -175,7 +158,6 @@
       box-shadow: 0 18px 50px rgba(0,0,0,0.22);
     }
 
-    /* Mobile menu button */
     .menu-btn{
       display:none;
       align-items:center;
@@ -205,7 +187,6 @@
     body.nav-open .menu-icon span:nth-child(2){ opacity:0; }
     body.nav-open .menu-icon span:nth-child(3){ top:6px; transform: rotate(-45deg); }
 
-    /* Mobile nav drawer */
     .mobile-nav{
       display:none;
       position:sticky;
@@ -236,7 +217,6 @@
       transition: transform 160ms ease, box-shadow 160ms ease;
     }
     .mobile-nav a:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
-    .mobile-nav .chev{ opacity:0.85; }
 
     @media (max-width: 1100px){
       .nav-pills{ display:none; }
@@ -249,7 +229,7 @@
     }
     body.nav-open .mobile-nav{ display:block; }
 
-    /* Floating contact */
+    /* Floating contact + to top */
     .float-contact{
       position:fixed;
       right:16px;
@@ -267,7 +247,6 @@
     }
     .float-contact:hover{ transform: translateY(-2px); filter:brightness(0.98); }
 
-    /* Return to top */
     .to-top{
       position:fixed;
       right:16px;
@@ -288,7 +267,6 @@
       pointer-events:none;
       transition: opacity 180ms ease, transform 180ms ease, filter 180ms ease;
     }
-    .to-top:hover{ filter: brightness(1.05); transform: translateY(6px); }
     .to-top.show{ opacity:1; transform: translateY(0); pointer-events:auto; }
 
     /* Sections */
@@ -391,7 +369,6 @@
       min-height: 330px;
       transition: transform 180ms ease;
     }
-    .bubble-wrap:hover .image-card{ transform: scale(1.01); }
     .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; display:block; }
 
     /* Layout grids */
@@ -399,39 +376,23 @@
     .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
     @media (max-width: 980px){ .grid-3{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } }
 
-    /* Shared chips */
-    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    .chip{
-      border-radius:999px;
-      padding:9px 12px;
-      font-size:15px;
-      font-weight:950;
-      box-shadow: var(--shadow2);
-      transition: transform 160ms ease, filter 160ms ease;
-      border:1px solid rgba(255,255,255,0.28);
-      color:#fff;
-      background: linear-gradient(135deg, rgba(233,30,99,0.78), rgba(30,58,138,0.78));
-      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
-    }
-    .chip:hover{ transform: translateY(-2px); filter:brightness(1.04); }
-
     /* White box overrides */
-    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-card{
+    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-card, .contact-card{
       background:#fff !important;
       border:1px solid rgba(11,27,74,0.12) !important;
       box-shadow: var(--shadow2);
       color: var(--navy) !important;
     }
-    .card *, .feature *, .cqc-card *, .partner-btn *, .speech *, .contact-pill *, form *, .outstanding-card *{
+    .card *, .feature *, .cqc-card *, .partner-btn *, .speech *, .contact-pill *, form *, .outstanding-card *, .contact-card *{
       color: #0b1b4a !important;
       text-shadow: none !important;
     }
-    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-card{
+    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-card, .contact-card{
       border-radius: var(--r);
       overflow:hidden;
       transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
     }
-    .card:hover, .feature:hover, .cqc-card:hover, .partner-btn:hover, .speech:hover, .contact-pill:hover, form:hover, .outstanding-card:hover{
+    .card:hover, .feature:hover, .cqc-card:hover, .partner-btn:hover, .speech:hover, .contact-pill:hover, form:hover, .outstanding-card:hover, .contact-card:hover{
       transform: translateY(-3px);
       box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
       filter:brightness(1.01);
@@ -439,92 +400,10 @@
 
     .card{ padding:16px; }
     .feature{ padding:18px; border-radius: calc(var(--r) + 6px); }
-    .contact-pill{ display:flex; gap:10px; align-items:center; padding:14px; }
-
-    .mini{
-      margin:10px 0 0;
-      padding-left:18px;
-      font-weight:850;
-      font-size:16px;
-    }
+    .mini{ margin:10px 0 0; padding-left:18px; font-weight:850; font-size:16px; }
     .mini li{ margin:8px 0; }
 
-    /* CQC card layout */
-    .cqc-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:12px; }
-    .cqc-card{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:12px 14px;
-      text-decoration:none;
-      border-radius: var(--r);
-    }
-    .cqc-card img{ width:100px; border-radius:14px; display:block; }
-
-    /* Partner layout */
-    .partner-btn{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      padding:14px;
-      text-decoration:none;
-      font-weight:950;
-      border-radius: var(--r);
-    }
-    .partner-btn span{ font-size:18px; }
-    .partner-btn em{ font-style:normal; font-weight:950; opacity:0.95; }
-
-    /* Testimonials */
-    .speech{
-      position: relative;
-      overflow: visible;
-      border-radius: 26px !important;
-      padding: 18px 18px 16px !important;
-    }
-    .speech:before{
-      content:"";
-      position:absolute;
-      left:26px;
-      bottom:-14px;
-      width:0;
-      height:0;
-      border:14px solid transparent;
-      border-top-color: rgba(11,27,74,0.12);
-      pointer-events:none;
-    }
-    .speech:after{
-      content:"";
-      position:absolute;
-      left:27px;
-      bottom:-12px;
-      width:0;
-      height:0;
-      border:13px solid transparent;
-      border-top-color: #fff;
-      pointer-events:none;
-    }
-
-    /* Outstanding cards */
-    .outstanding-wrap{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:12px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){ .outstanding-wrap{ grid-template-columns: 1fr; } }
-    .outstanding-card{ border-radius: calc(var(--r) + 6px); padding:18px; }
-    .outstanding-title{ margin:0 0 10px; font-size:22px; font-weight:950; }
-    .outstanding-note{
-      margin:12px 0 0;
-      font-weight:900;
-      border-top: 1px solid rgba(11,27,74,0.10);
-      padding-top:12px;
-      opacity:0.98;
-    }
-
-    /* Team + smaller avatar */
+    /* Team smaller avatar */
     .team-row{ display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; }
     .avatar{
       width:92px; height:92px;
@@ -534,43 +413,192 @@
       box-shadow: var(--shadow2);
       background: rgba(255,255,255,0.12);
       flex:0 0 auto;
-      transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .avatar:hover{ transform: translateY(-3px) scale(1.02); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
-    .avatar img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      object-position: 50% 20%;
-      transform: scale(1.06);
-      transition: transform 220ms ease;
-    }
-    .avatar:hover img{ transform: scale(1.12); }
+    .avatar img{ width:100%; height:100%; display:block; object-fit:cover; object-position:50% 20%; transform: scale(1.06); }
 
     /* =========================
-       CONTACT FORM (RESTORED + CLEAN)
+       CONTACT (IMPROVED)
     ========================= */
-    .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch; }
-    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
-
-    .emoji{
-      font-size:22px;
-      width:38px; height:38px;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:14px;
-      background: rgba(11,27,74,0.06);
-      border:1px solid rgba(11,27,74,0.10);
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:12px;
     }
-    .label{
+    @media (max-width: 980px){
+      .contact-wrap{ grid-template-columns:1fr; }
+    }
+
+    .contact-card{
+      padding:18px;
+      border-radius: calc(var(--r) + 6px);
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 260px at 20% 10%, rgba(233,30,99,0.14), transparent 55%),
+        radial-gradient(600px 260px at 85% 20%, rgba(30,58,138,0.12), transparent 58%);
+      pointer-events:none;
+    }
+    .contact-card > *{ position:relative; }
+
+    .contact-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .contact-head h3{
+      margin:0;
+      font-size:22px;
+      font-weight:950;
+    }
+    .contact-head p{
+      margin:6px 0 0;
+      font-weight:850;
+      opacity:0.9;
+    }
+    .contact-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:13px;
+      border:1px solid rgba(11,27,74,0.12);
+      background: rgba(11,27,74,0.06);
+      white-space:nowrap;
+    }
+
+    .contact-actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    @media (max-width: 520px){
+      .contact-actions{ grid-template-columns:1fr; }
+    }
+
+    .quick-btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 16px;
+      text-decoration:none;
+      font-weight:950;
+      border:1px solid rgba(11,27,74,0.12);
+      background:#fff;
+      box-shadow: var(--shadow3);
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+    }
+    .quick-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18);
+      filter:brightness(1.01);
+    }
+    .quick-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+    .quick-ico{
+      width:40px; height:40px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(135deg, rgba(233,30,99,0.18), rgba(30,58,138,0.14));
+      border:1px solid rgba(11,27,74,0.10);
+      flex:0 0 auto;
+      font-size:20px;
+    }
+    .quick-meta{
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+    }
+    .quick-meta span:nth-child(1){
       font-size:13px;
       font-weight:950;
       letter-spacing:0.8px;
       text-transform:uppercase;
-      margin:0;
-      opacity:0.95;
+      opacity:0.9;
     }
-    .value{ margin:2px 0 0; font-weight:950; font-size:18px; }
+    .quick-meta span:nth-child(2){
+      font-size:16px;
+      font-weight:950;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .quick-arrow{ font-weight:950; opacity:0.8; }
+
+    /* Form styling (clean + modern) */
+    form.contact-form{
+      padding:18px;
+      border-radius: calc(var(--r) + 6px);
+      position:relative;
+      overflow:hidden;
+    }
+    form.contact-form:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 260px at 15% 12%, rgba(233,30,99,0.12), transparent 55%),
+        radial-gradient(600px 260px at 88% 18%, rgba(30,58,138,0.12), transparent 58%);
+      pointer-events:none;
+    }
+    form.contact-form > *{ position:relative; }
+
+    .form-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .form-head h3{ margin:0; font-size:24px; font-weight:950; }
+    .form-head p{ margin:6px 0 0; font-weight:850; opacity:0.9; }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    @media (max-width: 640px){
+      .form-grid{ grid-template-columns:1fr; }
+    }
+
+    label.formlabel{ display:block; font-weight:950; margin:0 0 6px; font-size:14px; letter-spacing:0.2px; }
+    input, textarea{
+      width:100%;
+      border-radius: 14px;
+      border:1px solid rgba(11,27,74,0.18);
+      padding:12px 12px;
+      font-size:16px;
+      font-family: inherit;
+      background: #fff;
+      outline:none;
+      color:#0b1b4a !important;
+    }
+    input::placeholder, textarea::placeholder{ color: rgba(11,27,74,0.55) !important; }
+    input:focus, textarea:focus{
+      border-color: rgba(11,27,74,0.35);
+      box-shadow: 0 0 0 4px rgba(30,58,138,0.14);
+    }
+    textarea{ min-height:128px; resize:vertical; }
 
     .btn{
       margin-top:12px;
@@ -589,24 +617,11 @@
     }
     .btn:hover{ transform: translateY(-2px); filter:brightness(1.03); }
 
-    label.formlabel{ display:block; font-weight:950; margin:10px 0 6px; font-size:15px; }
-    input, textarea{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(11,27,74,0.18);
-      padding:12px 12px;
-      font-size:17px;
-      font-family: inherit;
-      background: #fff;
-      outline:none;
-      color:#0b1b4a !important;
+    .form-footnote{
+      margin:10px 0 0;
+      font-weight:850;
+      opacity:0.95;
     }
-    input::placeholder, textarea::placeholder{ color: rgba(11,27,74,0.55) !important; }
-    input:focus, textarea:focus{
-      border-color: rgba(11,27,74,0.35);
-      box-shadow: 0 0 0 4px rgba(30,58,138,0.14);
-    }
-    textarea{ min-height:120px; resize:vertical; }
 
     footer{
       margin-top:18px;
@@ -625,7 +640,6 @@
       font-weight:850;
       text-align:center;
     }
-    footer, footer *{ color:#fff; }
     footer a{ text-decoration:none; font-weight:950; border-bottom:2px solid rgba(255,255,255,0.35); }
     footer a:hover{ border-bottom-color: rgba(255,255,255,0.90); }
     .small{ color: rgba(255,255,255,0.92); }
@@ -634,7 +648,6 @@
       .h1{ font-size:36px; }
       .lead{ font-size:18px; }
       .bubble-wrap{ padding:18px; }
-      .topbar .container{ grid-template-columns: auto 1fr auto; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -728,9 +741,9 @@
               <span class="chip">🔧 Turnaround support</span>
             </div>
 
-            <div class="cqc-row" aria-label="CQC link">
-              <a class="cqc-card" href="https://www.cqc.org.uk/" target="_blank" rel="noopener" aria-label="Visit the CQC website">
-                <img src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/NCF-CQC-Policies.webp" alt="CQC policies" loading="lazy" />
+            <div class="cqc-row" aria-label="CQC link" style="margin-top:12px;">
+              <a class="cqc-card" href="https://www.cqc.org.uk/" target="_blank" rel="noopener" aria-label="Visit the CQC website" style="display:flex; gap:12px; align-items:center; padding:12px 14px; text-decoration:none;">
+                <img src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/NCF-CQC-Policies.webp" alt="CQC policies" loading="lazy" style="width:100px; border-radius:14px; display:block;" />
                 <div>
                   <p style="margin:0; font-weight:950;">Care Quality Commission (CQC)</p>
                   <p style="margin:2px 0 0; font-weight:850; opacity:0.9;">Guidance and standards</p>
@@ -868,93 +881,6 @@
     </div>
   </section>
 
-  <!-- CQC -->
-  <section id="cqc">
-    <div class="container">
-      <div class="bubble-wrap theme-blue">
-        <span class="kicker">CQC</span>
-        <h2 class="h2">Inspection readiness built around CQC key questions and KLOEs</h2>
-        <p class="lead">
-          Our mock inspections, evidence support and action planning are aligned to the CQC approach, the five key questions
-          (<strong>Safe, Effective, Caring, Responsive and Well-led</strong>) and the Key Lines of Enquiry (KLOEs).
-        </p>
-
-        <div class="grid-3">
-          <div class="card">
-            <h4>Safe</h4>
-            <p>We test safeguarding, risk management, staffing and medicines using CQC-style prompts.</p>
-            <ul class="mini">
-              <li><strong>S1:</strong> Safeguard people from abuse (systems, processes and practice).</li>
-              <li><strong>S2:</strong> Assess and manage risks while respecting people’s freedom.</li>
-              <li><strong>S3:</strong> Sufficient numbers of suitable staff.</li>
-              <li><strong>S4:</strong> Medicines managed safely (where applicable).</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h4>Effective</h4>
-            <p>We focus on evidence-based care, staff competence and outcomes that show impact.</p>
-            <ul class="mini">
-              <li><strong>E1:</strong> Needs/choices assessed and care delivered in line with legislation and evidence-based guidance.</li>
-              <li><strong>E2:</strong> Staff have the skills, knowledge and experience to deliver effective care.</li>
-              <li>Training, supervision, competency and learning culture.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h4>Caring &amp; Responsive</h4>
-            <p>We check real lived experience, person-centred care and how services respond to needs and feedback.</p>
-            <ul class="mini">
-              <li><strong>C1:</strong> Kindness, respect, compassion and emotional support.</li>
-              <li><strong>R1:</strong> Personalised care responsive to people’s needs.</li>
-              <li><strong>R2:</strong> Concerns/complaints listened to, responded to and used to improve quality.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OUTSTANDING -->
-  <section id="outstanding">
-    <div class="container">
-      <div class="bubble-wrap theme-hero">
-        <span class="kicker">Outstanding CQC</span>
-        <h2 class="h2">How to achieve an Outstanding CQC rating, and how we can help</h2>
-        <p class="lead">
-          Outstanding services don’t just “meet the regulations” — they demonstrate a clear culture of learning, visible leadership,
-          consistent governance, and evidence that people experience truly exceptional care.
-        </p>
-
-        <div class="outstanding-wrap" aria-label="Outstanding CQC guidance">
-          <div class="outstanding-card">
-            <h3 class="outstanding-title">What <strong>Outstanding</strong> looks like in practice</h3>
-            <ul class="mini">
-              <li><strong>Well-led:</strong> visible leadership, clear values, strong governance, and a learning culture.</li>
-              <li><strong>Safe:</strong> proactive risk management, excellent safeguarding practice, and learning from incidents.</li>
-              <li><strong>Effective:</strong> evidence-based care, robust competency, and outcomes that demonstrate impact.</li>
-              <li><strong>Caring:</strong> consistently compassionate, person-centred care with exceptional dignity and respect.</li>
-              <li><strong>Responsive:</strong> adapts quickly to needs, feedback and changing risks — with improvement cycles.</li>
-            </ul>
-            <p class="outstanding-note"><strong>Tip:</strong> “Outstanding” is shown through <strong>real examples</strong> — outcomes, feedback, learning, and improvement.</p>
-          </div>
-
-          <div class="outstanding-card">
-            <h3 class="outstanding-title">How <strong>Cranmer Care Management</strong> can help</h3>
-            <ul class="mini">
-              <li><strong>Outstanding-readiness review:</strong> gap analysis against the 5 key questions, KLOEs and “Outstanding features”.</li>
-              <li><strong>Evidence packs:</strong> clear, inspection-friendly evidence that shows outcomes and impact.</li>
-              <li><strong>Governance &amp; assurance:</strong> audit schedules, action logs, learning systems and Well-led framework.</li>
-              <li><strong>Workforce &amp; culture:</strong> training plans, competency frameworks, supervision and leadership coaching.</li>
-              <li><strong>Mock inspection:</strong> interviews, record checks and feedback with a practical action plan.</li>
-            </ul>
-            <p class="outstanding-note">Want to target <strong>Outstanding</strong>? We can create a structured improvement plan with clear milestones, owners, and evidence.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- TRACK RECORD -->
   <section id="trackrecord">
     <div class="container">
@@ -1023,69 +949,7 @@
     </div>
   </section>
 
-  <!-- PARTNERS -->
-  <section id="partners">
-    <div class="container">
-      <div class="bubble-wrap theme-pink">
-        <span class="kicker">Partners</span>
-        <h2 class="h2">Partners we work with</h2>
-        <p class="lead">Links to organisations we work alongside.</p>
-
-        <div class="grid-3">
-          <a class="partner-btn" href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener">
-            <span>Bradford City Football Club</span> <em>↗</em>
-          </a>
-          <a class="partner-btn" href="https://www.bradfordcitycf.org.uk/" target="_blank" rel="noopener">
-            <span>Bradford City Community Foundation</span> <em>↗</em>
-          </a>
-          <a class="partner-btn" href="https://bdcpartnership.co.uk/" target="_blank" rel="noopener">
-            <span>NHS Bradford (BDC Partnership)</span> <em>↗</em>
-          </a>
-          <a class="partner-btn" href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener">
-            <span>Bradford District Care NHS Foundation Trust</span> <em>↗</em>
-          </a>
-          <a class="partner-btn" href="https://vitalityliving.uk/" target="_blank" rel="noopener">
-            <span>Vitality Living Ltd</span> <em>↗</em>
-          </a>
-          <a class="partner-btn" href="https://www.bdcmind.org.uk/" target="_blank" rel="noopener">
-            <span>Mind in Bradford</span> <em>↗</em>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="bubble-wrap theme-pinkblue">
-        <span class="kicker">Testimonials</span>
-        <h2 class="h2">What partners say</h2>
-
-        <div class="grid-3">
-          <div class="speech">
-            <p>
-              “Cranmer Care Management supported us with service set-up, tender writing, and local authority support.
-              The approach was professional, organised, and made a real difference.”
-            </p>
-            <p style="margin:10px 0 0; font-weight:950;"><strong>Graham</strong>, Director, Local Care Provider</p>
-          </div>
-
-          <div class="speech">
-            <p>“Straightforward support that helped us get organised and improve quickly after a poor inspection.”</p>
-            <p style="margin:10px 0 0; font-weight:950;"><strong>Claire</strong>, Registered Manager</p>
-          </div>
-
-          <div class="speech">
-            <p>“The mock inspection made everything clear. The action list was simple and worked.”</p>
-            <p style="margin:10px 0 0; font-weight:950;"><strong>Service Lead</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
+  <!-- CONTACT (IMPROVED) -->
   <section id="contact">
     <div class="container">
       <div class="bubble-wrap theme-blue">
@@ -1093,58 +957,116 @@
         <h2 class="h2">Let’s talk</h2>
         <p class="lead">Tell us what you need help with and we’ll get back to you.</p>
 
-        <div class="contact-grid">
-          <div>
-            <div class="contact-pill">
-              <div class="emoji" aria-hidden="true">📧</div>
+        <div class="contact-wrap">
+          <!-- Left: quick contact + reassurance -->
+          <div class="contact-card" aria-label="Quick contact">
+            <div class="contact-head">
               <div>
-                <p class="label">Email</p>
-                <p class="value"><a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></p>
+                <h3>Quick contact</h3>
+                <p><strong>Fast response</strong>, friendly support, and practical next steps.</p>
               </div>
+              <div class="contact-badge">✅ Reply ASAP</div>
+            </div>
+
+            <div class="contact-actions" aria-label="Quick actions">
+              <a class="quick-btn" href="mailto:support@cranmercare.co.uk">
+                <div class="quick-left">
+                  <div class="quick-ico" aria-hidden="true">📧</div>
+                  <div class="quick-meta">
+                    <span>Email</span>
+                    <span>support@cranmercare.co.uk</span>
+                  </div>
+                </div>
+                <span class="quick-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <a class="quick-btn" href="tel:+441274449277">
+                <div class="quick-left">
+                  <div class="quick-ico" aria-hidden="true">📞</div>
+                  <div class="quick-meta">
+                    <span>Telephone</span>
+                    <span>01274 449277</span>
+                  </div>
+                </div>
+                <span class="quick-arrow" aria-hidden="true">↗</span>
+              </a>
             </div>
 
             <div style="height:10px"></div>
 
-            <div class="contact-pill">
-              <div class="emoji" aria-hidden="true">📞</div>
-              <div>
-                <p class="label">Telephone</p>
-                <p class="value"><a href="tel:+441274449277">01274 449277</a></p>
+            <div class="contact-actions" aria-label="Company details">
+              <div class="quick-btn" role="group" aria-label="Company number">
+                <div class="quick-left">
+                  <div class="quick-ico" aria-hidden="true">🏢</div>
+                  <div class="quick-meta">
+                    <span>Company number</span>
+                    <span>15610739</span>
+                  </div>
+                </div>
+                <span class="quick-arrow" aria-hidden="true">•</span>
+              </div>
+
+              <div class="quick-btn" role="group" aria-label="Availability">
+                <div class="quick-left">
+                  <div class="quick-ico" aria-hidden="true">🗓️</div>
+                  <div class="quick-meta">
+                    <span>Availability</span>
+                    <span>On-site or remote</span>
+                  </div>
+                </div>
+                <span class="quick-arrow" aria-hidden="true">•</span>
               </div>
             </div>
 
-            <div style="height:10px"></div>
-
-            <div class="contact-pill">
-              <div class="emoji" aria-hidden="true">🏢</div>
-              <div>
-                <p class="label">Company number</p>
-                <p class="value">15610739</p>
-              </div>
-            </div>
+            <p style="margin:12px 0 0; font-weight:900; opacity:0.95;">
+              Prefer email? Tell us your service type and location — we’ll respond with a clear plan.
+            </p>
           </div>
 
-          <form action="mailto:support@cranmercare.co.uk" method="post" enctype="text/plain">
-            <h3 style="margin:0 0 6px; font-size:24px; font-weight:950;">Contact form</h3>
+          <!-- Right: form -->
+          <form class="contact-form" action="mailto:support@cranmercare.co.uk" method="post" enctype="text/plain" aria-label="Contact form">
+            <div class="form-head">
+              <div>
+                <h3>Send a message</h3>
+                <p>Share what you need — we’ll reply with next steps.</p>
+              </div>
+              <div class="contact-badge">🔒 No spam</div>
+            </div>
 
-            <label class="formlabel" for="name">Your name</label>
-            <input id="name" name="Name" type="text" placeholder="Your name" required />
+            <div class="form-grid">
+              <div>
+                <label class="formlabel" for="name">Your name</label>
+                <input id="name" name="Name" type="text" placeholder="Your name" required />
+              </div>
 
-            <label class="formlabel" for="email">Your email</label>
-            <input id="email" name="Email" type="email" placeholder="your@email.com" required />
+              <div>
+                <label class="formlabel" for="email">Your email</label>
+                <input id="email" name="Email" type="email" placeholder="your@email.com" required />
+              </div>
 
-            <label class="formlabel" for="phone">Your phone (optional)</label>
-            <input id="phone" name="Phone" type="tel" placeholder="Your phone number" />
+              <div>
+                <label class="formlabel" for="phone">Your phone (optional)</label>
+                <input id="phone" name="Phone" type="tel" placeholder="Your phone number" />
+              </div>
 
-            <label class="formlabel" for="message">How can we help?</label>
-            <textarea id="message" name="Message" placeholder="Tell us what you need..." required></textarea>
+              <div>
+                <label class="formlabel" for="service">Service type (optional)</label>
+                <input id="service" name="Service" type="text" placeholder="e.g. Supported living / Mental health" />
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <label class="formlabel" for="message">How can we help?</label>
+              <textarea id="message" name="Message" placeholder="Tell us what you need..." required></textarea>
+            </div>
 
             <button class="btn" type="submit">Send message</button>
-            <p style="margin:10px 0 0; font-weight:850; opacity:0.95;">
-              If the button doesn’t work on your device, email us directly at support@cranmercare.co.uk.
+            <p class="form-footnote">
+              If the button doesn’t work on your device, email us directly at <strong>support@cranmercare.co.uk</strong>.
             </p>
           </form>
         </div>
+
       </div>
     </div>
   </section>

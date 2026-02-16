@@ -419,27 +419,6 @@
     .bubble-wrap:hover .image-card{ transform: scale(1.01); }
     .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; display:block; }
 
-    /* ✅ NEW: better fitting image option for Outstanding CQC section */
-    .image-card.fit{
-      min-height: 420px;               /* taller container so image can be seen */
-      background: rgba(255,255,255,0.10);
-    }
-    .image-card.fit img{
-      width:100%;
-      height:100%;
-      min-height: 420px;
-      object-fit: contain;             /* show the whole image */
-      background: rgba(255,255,255,0.08);
-    }
-    @media (max-width: 980px){
-      .image-card.fit{ min-height: 380px; }
-      .image-card.fit img{ min-height: 380px; }
-    }
-    @media (max-width: 540px){
-      .image-card.fit{ min-height: 320px; }
-      .image-card.fit img{ min-height: 320px; }
-    }
-
     /* Layout grids */
     .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
     .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
@@ -585,7 +564,7 @@
     ============================================================ */
 
     /* Treat these as "white boxes" everywhere */
-    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form{
+    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-row{
       background:#fff !important;
       border:1px solid rgba(11,27,74,0.12) !important;
       box-shadow: var(--shadow2);
@@ -593,7 +572,7 @@
     }
 
     /* Make ALL text inside white boxes navy (including lists, strong, links, visited) */
-    .card *, .feature *, .cqc-card *, .partner-btn *, .speech *, .contact-pill *, form *{
+    .card *, .feature *, .cqc-card *, .partner-btn *, .speech *, .contact-pill *, form *, .outstanding-row *{
       color: #0b1b4a !important;
       text-shadow: none !important;
     }
@@ -610,12 +589,12 @@
     .cqc-title, .cqc-sub{ color:#0b1b4a !important; }
 
     /* Re-apply hover animation for white boxes */
-    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form{
+    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-row{
       border-radius: var(--r);
       overflow:hidden;
       transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
     }
-    .card:hover, .feature:hover, .cqc-card:hover, .partner-btn:hover, .speech:hover, .contact-pill:hover, form:hover{
+    .card:hover, .feature:hover, .cqc-card:hover, .partner-btn:hover, .speech:hover, .contact-pill:hover, form:hover, .outstanding-row:hover{
       transform: translateY(-3px);
       box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
       filter:brightness(1.01);
@@ -684,9 +663,7 @@
 
     /* ===========================================================
        TESTIMONIALS: SPEECH BUBBLES + BOLD NAMES (ADDED)
-       This MUST be at the very end of CSS
     ============================================================ */
-
     .speech{
       position: relative;
       overflow: visible; /* allow tail to show outside bubble */
@@ -716,6 +693,50 @@
       pointer-events:none;
     }
     .who strong{ font-weight: 950; }
+
+    /* ===========================================================
+       OUTSTANDING CQC: SMALL RECT IMAGE LEFT + TEXT RIGHT (NEW)
+    ============================================================ */
+    .outstanding-row{
+      display:flex;
+      gap:16px;
+      align-items:stretch;
+      padding:16px;
+      border-radius: calc(var(--r) + 6px);
+    }
+    .outstanding-thumb{
+      flex: 0 0 240px;              /* fixed-ish left box */
+      max-width: 240px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(11,27,74,0.12);
+      box-shadow: var(--shadow3);
+      background: #fff;
+      align-self:flex-start;         /* sits nicely next to text */
+    }
+    .outstanding-thumb img{
+      width:100%;
+      height:170px;                  /* rectangular thumbnail */
+      object-fit: cover;             /* looks clean */
+      display:block;
+    }
+    .outstanding-text{
+      flex: 1 1 auto;
+      min-width: 260px;
+    }
+    @media (max-width: 980px){
+      .outstanding-row{
+        flex-direction: column;
+      }
+      .outstanding-thumb{
+        max-width: 100%;
+        width: 100%;
+      }
+      .outstanding-thumb img{
+        height: 210px;
+        object-fit: cover;
+      }
+    }
   </style>
 </head>
 
@@ -1070,8 +1091,17 @@
           consistent governance, and evidence that people experience truly exceptional care.
         </p>
 
-        <div class="grid-2" style="align-items:stretch;">
-          <div class="card">
+        <!-- ✅ Small rectangular image LEFT, text RIGHT -->
+        <div class="outstanding-row">
+          <div class="outstanding-thumb" aria-label="Getting Outstanding CQC">
+            <img
+              src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/658d5bdf52d5ee59e366abc9_Getting-Outstanding-CQC.webp"
+              alt="Getting Outstanding CQC"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="outstanding-text">
             <h3 style="margin:0 0 8px; font-size:22px; font-weight:950;">What Outstanding looks like in practice</h3>
             <ul class="mini">
               <li><strong>Well-led:</strong> visible leadership, clear values, strong governance, and a learning culture.</li>
@@ -1097,16 +1127,8 @@
               owners, and evidence so your service can confidently demonstrate excellence.
             </p>
           </div>
-
-          <!-- ✅ changed to image-card fit so the whole image is visible -->
-          <div class="image-card fit" aria-label="Getting Outstanding CQC">
-            <img
-              src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/658d5bdf52d5ee59e366abc9_Getting-Outstanding-CQC.webp"
-              alt="Getting Outstanding CQC"
-              loading="lazy"
-            />
-          </div>
         </div>
+
       </div>
     </div>
   </section>

@@ -419,6 +419,27 @@
     .bubble-wrap:hover .image-card{ transform: scale(1.01); }
     .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; display:block; }
 
+    /* ✅ NEW: better fitting image option for Outstanding CQC section */
+    .image-card.fit{
+      min-height: 420px;               /* taller container so image can be seen */
+      background: rgba(255,255,255,0.10);
+    }
+    .image-card.fit img{
+      width:100%;
+      height:100%;
+      min-height: 420px;
+      object-fit: contain;             /* show the whole image */
+      background: rgba(255,255,255,0.08);
+    }
+    @media (max-width: 980px){
+      .image-card.fit{ min-height: 380px; }
+      .image-card.fit img{ min-height: 380px; }
+    }
+    @media (max-width: 540px){
+      .image-card.fit{ min-height: 320px; }
+      .image-card.fit img{ min-height: 320px; }
+    }
+
     /* Layout grids */
     .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
     .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
@@ -666,15 +687,12 @@
        This MUST be at the very end of CSS
     ============================================================ */
 
-    /* Speech bubble tail */
     .speech{
       position: relative;
       overflow: visible; /* allow tail to show outside bubble */
       border-radius: 26px !important;
       padding: 18px 18px 16px !important;
     }
-
-    /* Tail border */
     .speech:before{
       content:"";
       position:absolute;
@@ -686,8 +704,6 @@
       border-top-color: rgba(11,27,74,0.12);
       pointer-events:none;
     }
-
-    /* Tail fill */
     .speech:after{
       content:"";
       position:absolute;
@@ -699,8 +715,6 @@
       border-top-color: #fff;
       pointer-events:none;
     }
-
-    /* Make the testimonial name bold */
     .who strong{ font-weight: 950; }
   </style>
 </head>
@@ -1084,7 +1098,8 @@
             </p>
           </div>
 
-          <div class="image-card" aria-label="Getting Outstanding CQC">
+          <!-- ✅ changed to image-card fit so the whole image is visible -->
+          <div class="image-card fit" aria-label="Getting Outstanding CQC">
             <img
               src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/658d5bdf52d5ee59e366abc9_Getting-Outstanding-CQC.webp"
               alt="Getting Outstanding CQC"

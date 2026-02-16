@@ -13,17 +13,10 @@
 
   <style>
     :root{
-      /* Logo scheme (keep your existing palette) */
       --pink:#e91e63;
       --blue:#1e3a8a;
       --navy:#0b1b4a;
       --ink:#0f172a;
-
-      /* Solid block colours for info boxes */
-      --solid-navy:#0b1b4a;
-      --solid-blue:#1e3a8a;
-      --solid-pink:#b0004b;
-      --solid-slate:#111827;
 
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
       --shadow2: 0 12px 34px rgba(15, 23, 42, 0.14);
@@ -48,7 +41,7 @@
     a{color:inherit}
     .container{ width:min(1180px, 92vw); margin:0 auto; }
 
-    /* ---------- Top bar (more visually appealing + animated) ---------- */
+    /* ---------- Top bar (animated chips) ---------- */
     .topbar{
       position:sticky;
       top:0;
@@ -108,7 +101,7 @@
       background: rgba(255,255,255,0.16);
       border:1px solid rgba(255,255,255,0.18);
     }
-    /* gentle shimmer animation */
+
     @keyframes shimmer {
       0% { transform: translateX(-110%); opacity:0.0; }
       20%{ opacity:0.25; }
@@ -127,9 +120,6 @@
       animation: shimmer 5.2s ease-in-out infinite;
       pointer-events:none;
       opacity:0.0;
-    }
-    @media (prefers-reduced-motion: reduce){
-      .contact-chip:after{ animation:none; }
     }
 
     .sep{ opacity:0.85; }
@@ -152,7 +142,7 @@
     }
     .float-contact:hover{ transform: translateY(-2px); filter:brightness(0.98); }
 
-    /* ---------- Return to top button (appears on scroll) ---------- */
+    /* Return to top */
     .to-top{
       position:fixed;
       right:16px;
@@ -178,10 +168,6 @@
       opacity:1;
       transform: translateY(0);
       pointer-events:auto;
-    }
-    @media (max-width: 860px){
-      .to-top{ right:12px; bottom:68px; }
-      .float-contact{ right:12px; bottom:12px; padding:11px 14px; }
     }
 
     /* Header */
@@ -322,6 +308,8 @@
       .menu-btn{ display:inline-flex; }
       body.nav-open .mobile-nav{ display:block; }
       .logo{ width:170px; }
+      .float-contact{ right:12px; bottom:12px; padding:11px 14px; }
+      .to-top{ right:12px; bottom:68px; }
     }
 
     /* Sections */
@@ -354,26 +342,9 @@
       color: var(--navy);
     }
 
-    /* Headings */
-    .h1{ font-size:48px; line-height:1.03; margin:0 0 12px; font-weight:950; color: var(--navy); }
-    .h2{ font-size:38px; margin:0 0 12px; font-weight:950; color: var(--navy); }
-    .lead{
-      margin:0 0 14px;
-      font-size:19px;
-      max-width: 980px;
-      font-weight:750;
-      color: rgba(15,23,42,0.92);
-    }
-
-    .theme-blue *, .theme-pink *{ color: rgba(255,255,255,0.94); }
-    .theme-blue .h1, .theme-blue .h2,
-    .theme-pink .h1, .theme-pink .h2{
-      color: rgba(255,255,255,0.98);
-      text-shadow: 0 10px 24px rgba(0,0,0,0.24);
-    }
-    .theme-blue .lead, .theme-pink .lead{
-      color: rgba(255,255,255,0.92);
-      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    /* Readability for dark sections (BUT cards are overridden below) */
+    .theme-blue *, .theme-pink *{
+      color: rgba(255,255,255,0.94);
     }
 
     .kicker{
@@ -395,6 +366,27 @@
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.22);
       color: rgba(255,255,255,0.98);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .h1{ font-size:48px; line-height:1.03; margin:0 0 12px; font-weight:950; color: var(--navy); }
+    .h2{ font-size:38px; margin:0 0 12px; font-weight:950; color: var(--navy); }
+
+    .lead{
+      margin:0 0 14px;
+      font-size:19px;
+      max-width: 980px;
+      font-weight:750;
+      color: rgba(15,23,42,0.92);
+    }
+
+    .theme-blue .h1, .theme-blue .h2,
+    .theme-pink .h1, .theme-pink .h2{
+      color: rgba(255,255,255,0.98);
+      text-shadow: 0 10px 24px rgba(0,0,0,0.24);
+    }
+    .theme-blue .lead, .theme-pink .lead{
+      color: rgba(255,255,255,0.92);
       text-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
 
@@ -440,17 +432,17 @@
     .grid-1{ display:grid; grid-template-columns: 1fr; gap:14px; }
     @media (max-width: 980px){ .grid-3{ grid-template-columns:1fr; } .grid-2{ grid-template-columns:1fr; } }
 
-    /* ---------- SOLID info boxes (text clear) ---------- */
+    /* --------- Cards (SOLID blocks, readable text) ---------- */
     .card{
       position:relative;
       border-radius: var(--r);
       padding:16px;
       box-shadow: var(--shadow2);
-      border:1px solid rgba(255,255,255,0.22);
+      border:1px solid rgba(11,27,74,0.12);
       overflow:hidden;
       transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
-      background: #ffffff; /* default light card */
-      color: var(--ink);
+      background:#ffffff;
+      color: var(--navy);
     }
     .card:hover{
       transform: translateY(-3px);
@@ -469,46 +461,23 @@
       font-size:17px;
       color: rgba(11,27,74,0.92);
     }
-
-    /* Solid variants */
-    .solid{
-      border:1px solid rgba(255,255,255,0.18);
-      color:#fff;
-    }
-    .solid h4, .solid p, .solid li{ color: rgba(255,255,255,0.96); }
-    .solid h4{ text-shadow: 0 10px 24px rgba(0,0,0,0.18); }
-    .solid p, .solid li{ text-shadow: 0 8px 18px rgba(0,0,0,0.16); }
-
-    .solid-navy{ background: var(--solid-navy); }
-    .solid-blue{ background: var(--solid-blue); }
-    .solid-pink{ background: var(--solid-pink); }
-    .solid-slate{ background: var(--solid-slate); }
-
-    /* If inside dark sections, keep boxes SOLID instead of translucent */
-    .theme-blue .card,
-    .theme-pink .card{
-      background:#ffffff;
-      border-color: rgba(255,255,255,0.22);
-    }
-    .theme-blue .card h4,
-    .theme-blue .card p,
-    .theme-blue .mini,
-    .theme-pink .card h4,
-    .theme-pink .card p,
-    .theme-pink .mini{
-      color: rgba(11,27,74,0.95);
-      text-shadow:none;
-    }
-
-    /* Lists */
     .mini{
       margin:10px 0 0;
       padding-left:18px;
       font-weight:850;
       font-size:16px;
-      color: rgba(11,27,74,0.90);
+      color: rgba(11,27,74,0.92);
     }
     .mini li{ margin:8px 0; }
+
+    /* ✅ THE FIX: force ALL text inside white cards to dark navy even inside blue/pink sections */
+    .theme-blue .card,
+    .theme-blue .card *,
+    .theme-pink .card,
+    .theme-pink .card *{
+      color: #0b1b4a !important;
+      text-shadow: none !important;
+    }
 
     /* Chips */
     .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
@@ -529,7 +498,7 @@
     /* Feature blocks */
     .feature{
       background:#ffffff;
-      border:1px solid rgba(255,255,255,0.22);
+      border:1px solid rgba(11,27,74,0.12);
       border-radius: calc(var(--r) + 6px);
       padding:18px;
       box-shadow: var(--shadow2);
@@ -569,10 +538,8 @@
     .cqc-title{ margin:0; font-weight:950; font-size:16px; }
     .cqc-sub{ margin:4px 0 0; font-weight:850; font-size:14px; opacity:0.95; }
 
-    /* ---------- Team (Robert image fit + hover animation) ---------- */
+    /* Team (Robert image crop + hover) */
     .team-row{ display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; }
-
-    /* Use a square wrapper so circle always crops correctly */
     .avatar{
       width:132px; height:132px;
       border-radius:999px;
@@ -592,14 +559,12 @@
       width:100%;
       height:100%;
       display:block;
-      object-fit:cover;   /* IMPORTANT: ensures circle crop always correct */
+      object-fit:cover;
       object-position: 50% 20%;
       transform: scale(1.06);
       transition: transform 220ms ease;
     }
     .avatar:hover img{ transform: scale(1.12); }
-
-    /* if you ever want square instead, just add class="avatar avatar--square" */
     .avatar.avatar--square{ border-radius: 18px; }
 
     .role{
@@ -624,8 +589,9 @@
       font-size:17px;
     }
     .qual-list li{ margin:8px 0; }
+    .theme-blue .qual-list{ color: rgba(255,255,255,0.92); }
 
-    /* Partners buttons (hover animated already; keep but solid background for clarity) */
+    /* Partners buttons */
     .partner-btn{
       display:flex;
       justify-content:space-between;
@@ -772,6 +738,7 @@
 
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
+      .contact-chip:after{ animation:none !important; }
     }
   </style>
 </head>
@@ -779,10 +746,7 @@
 <body id="top">
   <a class="float-contact" href="#contact" aria-label="Go to Contact section">Contact us</a>
 
-  <!-- Return to top -->
-  <button class="to-top" id="toTop" type="button" aria-label="Return to top" title="Return to top">
-    ↑
-  </button>
+  <button class="to-top" id="toTop" type="button" aria-label="Return to top" title="Return to top">↑</button>
 
   <div class="topbar">
     <div class="container">
@@ -790,9 +754,7 @@
         <span class="ico" aria-hidden="true">📧</span>
         <span>support@cranmercare.co.uk</span>
       </a>
-
       <span class="sep" aria-hidden="true">•</span>
-
       <a class="contact-chip" href="tel:+441274449277" aria-label="Call 01274 449277">
         <span class="ico" aria-hidden="true">📞</span>
         <span>01274 449277</span>
@@ -901,17 +863,16 @@
           supported living and wider community care.
         </p>
 
-        <!-- SOLID blocks for clarity -->
         <div class="grid-3">
-          <div class="card solid solid-navy">
+          <div class="card">
             <h4>Quality &amp; compliance</h4>
             <p>Audits, policies, training, evidence packs and inspection readiness across care and mental health services.</p>
           </div>
-          <div class="card solid solid-blue">
+          <div class="card">
             <h4>Clinical governance</h4>
             <p>Clear oversight of incidents, risks, learning, audits and continuous improvement.</p>
           </div>
-          <div class="card solid solid-pink">
+          <div class="card">
             <h4>Workforce support</h4>
             <p>Recruitment and HR support to build, stabilise and develop strong teams.</p>
           </div>
@@ -932,7 +893,7 @@
         </p>
 
         <div class="grid-3">
-          <div class="card solid solid-slate">
+          <div class="card">
             <h4>Mock inspection</h4>
             <p>A realistic, CQC-style review with a clear “what’s working / what needs to change” report.</p>
             <ul class="mini">
@@ -942,7 +903,7 @@
             </ul>
           </div>
 
-          <div class="card solid solid-navy">
+          <div class="card">
             <h4>Post-inspection action planning</h4>
             <p>Fast support after an inspection to turn feedback into clear actions and measurable outcomes.</p>
             <ul class="mini">
@@ -952,7 +913,7 @@
             </ul>
           </div>
 
-          <div class="card solid solid-blue">
+          <div class="card">
             <h4>Turnaround support</h4>
             <p>Hands-on help where services need rapid improvement and stability.</p>
             <ul class="mini">
@@ -962,9 +923,9 @@
             </ul>
           </div>
 
-          <div class="card solid solid-pink"><h4>Action planning</h4><p>Simple plans your team can follow and deliver across care and mental health services.</p></div>
-          <div class="card solid solid-slate"><h4>Service set-up</h4><p>Support to set up services properly, from policies to readiness for care and mental health provision.</p></div>
-          <div class="card solid solid-navy"><h4>Recruitment &amp; HR</h4><p>Hiring, onboarding, HR basics, supervision and retention support across care and mental health services.</p></div>
+          <div class="card"><h4>Action planning</h4><p>Simple plans your team can follow and deliver across care and mental health services.</p></div>
+          <div class="card"><h4>Service set-up</h4><p>Support to set up services properly, from policies to readiness for care and mental health provision.</p></div>
+          <div class="card"><h4>Recruitment &amp; HR</h4><p>Hiring, onboarding, HR basics, supervision and retention support across care and mental health services.</p></div>
         </div>
 
         <!-- Tender writing -->
@@ -988,7 +949,7 @@
           <div style="height:12px"></div>
 
           <div class="grid-2" style="margin-top:6px;">
-            <div class="card solid solid-navy">
+            <div class="card">
               <h4>Benefits</h4>
               <ul class="mini">
                 <li><strong>Clarity and scoring focus:</strong> answers mapped to the question and evaluation criteria.</li>
@@ -998,7 +959,7 @@
               </ul>
             </div>
 
-            <div class="card solid solid-blue">
+            <div class="card">
               <h4>Pricing approach</h4>
               <p style="margin-bottom:10px;">
                 We keep pricing <strong>competitive</strong> with flexible options that match the level of support you need.
@@ -1029,7 +990,7 @@
         </p>
 
         <div class="grid-3">
-          <div class="card solid solid-navy">
+          <div class="card">
             <h4>Safe</h4>
             <p>We test safeguarding, risk management, staffing and medicines using CQC-style prompts.</p>
             <ul class="mini">
@@ -1040,7 +1001,7 @@
             </ul>
           </div>
 
-          <div class="card solid solid-blue">
+          <div class="card">
             <h4>Effective</h4>
             <p>We focus on evidence-based care, staff competence and outcomes that show impact.</p>
             <ul class="mini">
@@ -1050,7 +1011,7 @@
             </ul>
           </div>
 
-          <div class="card solid solid-pink">
+          <div class="card">
             <h4>Caring &amp; Responsive</h4>
             <p>We check real lived experience, person-centred care and how services respond to needs and feedback.</p>
             <ul class="mini">
@@ -1280,7 +1241,7 @@
               </div>
             </div>
 
-            <!-- Company address REMOVED as requested -->
+            <!-- Company address removed -->
 
             <div style="height:10px"></div>
             <div class="contact-pill">

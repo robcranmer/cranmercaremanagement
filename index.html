@@ -15,7 +15,7 @@
     :root{
       --pink:#e91e63;
       --blue:#1e3a8a;
-      --navy:#0b1b4a;      /* logo navy */
+      --navy:#0b1b4a;
       --ink:#0f172a;
 
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
@@ -168,35 +168,59 @@
       pointer-events:auto;
     }
 
-    /* Header */
+    /* =======================
+       HEADER (improved layout)
+       - logo positioned better
+       - nav buttons integrated (same “pill” system)
+    ======================= */
     header{ padding:14px 0 10px; }
+
     .header-row{
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
       gap:14px;
       flex-wrap:wrap;
     }
-    .logo-link{
-      display:inline-flex;
+
+    .brand{
+      display:flex;
       align-items:center;
+      gap:12px;
       text-decoration:none;
-      padding:10px 14px;
-      border-radius: 18px;
-      background:#fff;
+      padding:10px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.86);
       border:1px solid rgba(15,23,42,0.10);
       box-shadow: var(--shadow2);
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .logo-link:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
-    .logo{ width:190px; height:auto; display:block; }
+    .brand:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18);
+    }
+    .logo{
+      width:170px;
+      height:auto;
+      display:block;
+    }
 
-    /* Desktop nav */
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      flex:1 1 auto;
+    }
+
+    /* Desktop nav - now looks integrated with header */
     .nav{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       align-items:center;
+      justify-content:flex-end;
     }
     .nav a{
       text-decoration:none;
@@ -210,7 +234,7 @@
       background:
         radial-gradient(220px 120px at 20% 30%, rgba(233,30,99,0.55), transparent 62%),
         radial-gradient(240px 140px at 85% 30%, rgba(30,58,138,0.55), transparent 62%),
-        linear-gradient(135deg, rgba(11,27,74,0.78), rgba(11,27,74,0.44));
+        linear-gradient(135deg, rgba(11,27,74,0.80), rgba(11,27,74,0.44));
       backdrop-filter: blur(10px);
       transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
       position:relative;
@@ -300,13 +324,16 @@
     .mobile-nav a:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
     .mobile-nav .chev{ opacity:0.85; }
 
+    @media (max-width: 980px){
+      .logo{ width:160px; }
+    }
     @media (max-width: 860px){
       .nav{ display:none; }
       .menu-btn{ display:inline-flex; }
       body.nav-open .mobile-nav{ display:block; }
-      .logo{ width:170px; }
       .float-contact{ right:12px; bottom:12px; padding:11px 14px; }
       .to-top{ right:12px; bottom:68px; }
+      .header-actions{ justify-content:flex-end; }
     }
 
     /* Sections */
@@ -340,9 +367,7 @@
     }
 
     /* General readability in dark sections */
-    .theme-blue *, .theme-pink *{
-      color: rgba(255,255,255,0.94);
-    }
+    .theme-blue *, .theme-pink *{ color: rgba(255,255,255,0.94); }
 
     .kicker{
       display:inline-block;
@@ -550,7 +575,6 @@
       .h1{ font-size:36px; }
       .lead{ font-size:18px; }
       .bubble-wrap{ padding:18px; }
-      .cqc-card img{ width:88px; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -559,25 +583,22 @@
     }
 
     /* ===========================================================
-       HARD OVERRIDE: ALL WHITE BOX TEXT = NAVY (FIXES YOUR ISSUES)
-       This MUST be at the very end of CSS
+       HARD OVERRIDE: ALL WHITE BOX TEXT = NAVY
+       (kept as you had, but removed outstanding image styling)
     ============================================================ */
 
-    /* Treat these as "white boxes" everywhere */
-    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-row{
+    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form{
       background:#fff !important;
       border:1px solid rgba(11,27,74,0.12) !important;
       box-shadow: var(--shadow2);
       color: var(--navy) !important;
     }
 
-    /* Make ALL text inside white boxes navy (including lists, strong, links, visited) */
-    .card *, .feature *, .cqc-card *, .partner-btn *, .speech *, .contact-pill *, form *, .outstanding-row *{
+    .card *, .feature *, .cqc-card *, .partner-btn *, .speech *, .contact-pill *, form *{
       color: #0b1b4a !important;
       text-shadow: none !important;
     }
 
-    /* Ensure partner links never switch colour */
     .partner-btn:link,
     .partner-btn:visited,
     .partner-btn:hover,
@@ -585,22 +606,19 @@
       color:#0b1b4a !important;
     }
 
-    /* Ensure CQC box title/subtext always navy */
     .cqc-title, .cqc-sub{ color:#0b1b4a !important; }
 
-    /* Re-apply hover animation for white boxes */
-    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form, .outstanding-row{
+    .card, .feature, .cqc-card, .partner-btn, .speech, .contact-pill, form{
       border-radius: var(--r);
       overflow:hidden;
       transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
     }
-    .card:hover, .feature:hover, .cqc-card:hover, .partner-btn:hover, .speech:hover, .contact-pill:hover, form:hover, .outstanding-row:hover{
+    .card:hover, .feature:hover, .cqc-card:hover, .partner-btn:hover, .speech:hover, .contact-pill:hover, form:hover{
       transform: translateY(-3px);
       box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
       filter:brightness(1.01);
     }
 
-    /* Defaults for white boxes content spacing */
     .card{ padding:16px; }
     .feature{ padding:18px; border-radius: calc(var(--r) + 6px); }
     .speech{ border-radius: 22px; padding:16px; }
@@ -641,7 +659,7 @@
     .partner-btn span{ font-size:18px; }
     .partner-btn em{ font-style:normal; font-weight:950; opacity:0.95; }
 
-    /* Form elements (keep navy) */
+    /* Form elements */
     label.formlabel{ display:block; font-weight:950; margin:10px 0 6px; font-size:15px; }
     input, textarea{
       width:100%;
@@ -661,12 +679,10 @@
     }
     textarea{ min-height:120px; resize:vertical; }
 
-    /* ===========================================================
-       TESTIMONIALS: SPEECH BUBBLES + BOLD NAMES (ADDED)
-    ============================================================ */
+    /* Testimonials: speech bubbles + bold names */
     .speech{
       position: relative;
-      overflow: visible; /* allow tail to show outside bubble */
+      overflow: visible;
       border-radius: 26px !important;
       padding: 18px 18px 16px !important;
     }
@@ -694,48 +710,60 @@
     }
     .who strong{ font-weight: 950; }
 
-    /* ===========================================================
-       OUTSTANDING CQC: SMALL RECT IMAGE LEFT + TEXT RIGHT (NEW)
-    ============================================================ */
-    .outstanding-row{
-      display:flex;
-      gap:16px;
+    /* =========================
+       OUTSTANDING SECTION (text-only, more visual)
+       - removes image entirely
+       - adds bold + bullets + 2-column layout on desktop
+    ========================= */
+    .outstanding-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:12px;
       align-items:stretch;
-      padding:16px;
-      border-radius: calc(var(--r) + 6px);
-    }
-    .outstanding-thumb{
-      flex: 0 0 240px;              /* fixed-ish left box */
-      max-width: 240px;
-      border-radius: 18px;
-      overflow:hidden;
-      border:1px solid rgba(11,27,74,0.12);
-      box-shadow: var(--shadow3);
-      background: #fff;
-      align-self:flex-start;         /* sits nicely next to text */
-    }
-    .outstanding-thumb img{
-      width:100%;
-      height:170px;                  /* rectangular thumbnail */
-      object-fit: cover;             /* looks clean */
-      display:block;
-    }
-    .outstanding-text{
-      flex: 1 1 auto;
-      min-width: 260px;
     }
     @media (max-width: 980px){
-      .outstanding-row{
-        flex-direction: column;
-      }
-      .outstanding-thumb{
-        max-width: 100%;
-        width: 100%;
-      }
-      .outstanding-thumb img{
-        height: 210px;
-        object-fit: cover;
-      }
+      .outstanding-wrap{ grid-template-columns: 1fr; }
+    }
+
+    .outstanding-card{
+      background:#fff;
+      border:1px solid rgba(11,27,74,0.12);
+      box-shadow: var(--shadow2);
+      border-radius: calc(var(--r) + 6px);
+      padding:18px;
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    }
+    .outstanding-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+      filter:brightness(1.01);
+    }
+    .outstanding-card *{
+      color:#0b1b4a !important;
+      text-shadow:none !important;
+    }
+
+    .outstanding-title{
+      margin:0 0 10px;
+      font-size:22px;
+      font-weight:950;
+    }
+
+    .outstanding-points{
+      margin:0;
+      padding-left:18px;
+      font-weight:850;
+      font-size:16px;
+    }
+    .outstanding-points li{ margin:9px 0; }
+
+    .outstanding-note{
+      margin:12px 0 0;
+      font-weight:900;
+      border-top: 1px solid rgba(11,27,74,0.10);
+      padding-top:12px;
+      opacity:0.98;
     }
   </style>
 </head>
@@ -761,27 +789,29 @@
   <header>
     <div class="container">
       <div class="header-row">
-        <a class="logo-link" href="#top" aria-label="Back to top">
+        <a class="brand" href="#top" aria-label="Back to top">
           <img class="logo" src="logo.png" alt="Cranmer Care Management Ltd logo" />
         </a>
 
-        <button class="menu-btn" id="menuBtn" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
-          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-          Menu
-        </button>
+        <div class="header-actions">
+          <button class="menu-btn" id="menuBtn" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
+            <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            Menu
+          </button>
 
-        <nav class="nav" aria-label="Site">
-          <a href="#whatwedo">What we do</a>
-          <a href="#services">Services</a>
-          <a href="#tender">Tender writing</a>
-          <a href="#cqc">CQC</a>
-          <a href="#outstanding">Outstanding CQC</a>
-          <a href="#trackrecord">Track record</a>
-          <a href="#team">Meet the team</a>
-          <a href="#partners">Partners</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact</a>
-        </nav>
+          <nav class="nav" aria-label="Site">
+            <a href="#whatwedo">What we do</a>
+            <a href="#services">Services</a>
+            <a href="#tender">Tender writing</a>
+            <a href="#cqc">CQC</a>
+            <a href="#outstanding">Outstanding CQC</a>
+            <a href="#trackrecord">Track record</a>
+            <a href="#team">Meet the team</a>
+            <a href="#partners">Partners</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
       </div>
     </div>
   </header>
@@ -931,7 +961,7 @@
           <span class="kicker" style="margin-bottom:10px;">Tender writing</span>
           <h3>Bid &amp; tender writing that strengthens your case and improves win rates</h3>
           <p>
-            We help you produce clear, compliant, evidence led submissions for local authority, ICB/NHS and framework tenders 
+            We help you produce clear, compliant, evidence led submissions for local authority, ICB/NHS and framework tenders
             written in the right tone, with strong methodology, staffing, governance and quality assurances.
           </p>
 
@@ -1080,51 +1110,43 @@
     </div>
   </section>
 
-  <!-- OUTSTANDING CQC -->
+  <!-- OUTSTANDING CQC (IMAGE REMOVED, TEXT-ONLY IMPROVED) -->
   <section id="outstanding">
     <div class="container">
       <div class="bubble-wrap theme-hero">
         <span class="kicker">Outstanding CQC</span>
         <h2 class="h2">How to achieve an Outstanding CQC rating, and how we can help</h2>
         <p class="lead">
-          Outstanding services don’t just “Meet the regulations”, they show a clear culture of learning, strong leadership,
+          Outstanding services don’t just “meet the regulations” — they demonstrate a clear culture of learning, visible leadership,
           consistent governance, and evidence that people experience truly exceptional care.
         </p>
 
-        <!-- ✅ Small rectangular image LEFT, text RIGHT -->
-        <div class="outstanding-row">
-          <div class="outstanding-thumb" aria-label="Getting Outstanding CQC">
-            <img
-              src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/658d5bdf52d5ee59e366abc9_Getting-Outstanding-CQC.webp"
-              alt="Getting Outstanding CQC"
-              loading="lazy"
-            />
+        <div class="outstanding-wrap" aria-label="Outstanding CQC guidance">
+          <div class="outstanding-card">
+            <h3 class="outstanding-title">What <strong>Outstanding</strong> looks like in practice</h3>
+            <ul class="outstanding-points">
+              <li><strong>Well-led:</strong> visible leadership, clear values, strong governance, and a learning culture.</li>
+              <li><strong>Safe:</strong> proactive risk management, excellent safeguarding practice, and learning from incidents.</li>
+              <li><strong>Effective:</strong> evidence-based care, robust competency, and outcomes that demonstrate impact.</li>
+              <li><strong>Caring:</strong> consistently compassionate, person-centred care with exceptional dignity and respect.</li>
+              <li><strong>Responsive:</strong> adapts quickly to needs, feedback and changing risks — with improvement cycles.</li>
+            </ul>
+            <p class="outstanding-note">
+              <strong>Tip:</strong> “Outstanding” is shown through <strong>real examples</strong> — outcomes, feedback, learning, and improvement.
+            </p>
           </div>
 
-          <div class="outstanding-text">
-            <h3 style="margin:0 0 8px; font-size:22px; font-weight:950;">What Outstanding looks like in practice</h3>
-            <ul class="mini">
-              <li><strong>Well-led:</strong> visible leadership, clear values, strong governance, and a learning culture.</li>
-              <li><strong>Safe:</strong> proactive risk management, excellent safeguarding practice, and clear learning from incidents.</li>
-              <li><strong>Effective:</strong> evidence-based care, robust training/competency, and outcomes that demonstrate impact.</li>
-              <li><strong>Caring:</strong> consistently compassionate, person-centred care with exceptional dignity and respect.</li>
-              <li><strong>Responsive:</strong> services adapt quickly to needs, feedback and changing risks — with clear improvement cycles.</li>
-            </ul>
-
-            <div style="height:10px;"></div>
-
-            <h3 style="margin:0 0 8px; font-size:22px; font-weight:950;">How Cranmer Care Management can help</h3>
-            <ul class="mini">
+          <div class="outstanding-card">
+            <h3 class="outstanding-title">How <strong>Cranmer Care Management</strong> can help</h3>
+            <ul class="outstanding-points">
               <li><strong>Outstanding-readiness review:</strong> gap analysis against the 5 key questions, KLOEs and “Outstanding features”.</li>
-              <li><strong>Evidence packs:</strong> we help you build clear, inspection-friendly evidence that shows outcomes and impact.</li>
-              <li><strong>Governance &amp; assurance:</strong> audit schedules, action logs, learning systems and a strong Well-led framework.</li>
-              <li><strong>Workforce &amp; culture:</strong> training plans, competency frameworks, supervision structure and leadership coaching.</li>
-              <li><strong>Mock inspection:</strong> realistic interviews, record checks and feedback with a practical action plan.</li>
+              <li><strong>Evidence packs:</strong> clear, inspection-friendly evidence that shows outcomes and impact.</li>
+              <li><strong>Governance &amp; assurance:</strong> audit schedules, action logs, learning systems and Well-led framework.</li>
+              <li><strong>Workforce &amp; culture:</strong> training plans, competency frameworks, supervision and leadership coaching.</li>
+              <li><strong>Mock inspection:</strong> interviews, record checks and feedback with a practical action plan.</li>
             </ul>
-
-            <p style="margin:10px 0 0; font-weight:850;">
-              Want to target <strong>Outstanding</strong>? We can create a structured improvement plan with clear milestones,
-              owners, and evidence so your service can confidently demonstrate excellence.
+            <p class="outstanding-note">
+              Want to target <strong>Outstanding</strong>? We can create a structured improvement plan with clear milestones, owners, and evidence.
             </p>
           </div>
         </div>
@@ -1291,9 +1313,8 @@
               </div>
             </div>
 
-            <!-- Address removed -->
-
             <div style="height:10px"></div>
+
             <div class="contact-pill">
               <div class="emoji" aria-hidden="true">🏢</div>
               <div>

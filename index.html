@@ -63,6 +63,7 @@
       padding:10px 0;
     }
 
+    /* Logo in topbar */
     .brand-mini{
       display:flex;
       align-items:center;
@@ -96,7 +97,8 @@
       flex:1 1 auto;
     }
 
-    .contact-chip, .nav-chip{
+    /* Contact chips */
+    .contact-chip{
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -115,7 +117,7 @@
       white-space:nowrap;
       font-size:14px;
     }
-    .contact-chip:before, .nav-chip:before{
+    .contact-chip:before{
       content:"";
       position:absolute;
       inset:-2px;
@@ -124,12 +126,12 @@
       transition: opacity 220ms ease;
       pointer-events:none;
     }
-    .contact-chip:hover, .nav-chip:hover{
+    .contact-chip:hover{
       transform: translateY(-2px);
       filter: brightness(1.04);
       box-shadow: 0 18px 50px rgba(0,0,0,0.22);
     }
-    .contact-chip:hover:before, .nav-chip:hover:before{ opacity:0.65; }
+    .contact-chip:hover:before{ opacity:0.65; }
 
     .contact-chip .ico{
       width:30px; height:30px;
@@ -145,7 +147,7 @@
       50%{ opacity:0.10; }
       100%{ transform: translateX(110%); opacity:0.0; }
     }
-    .contact-chip:after, .nav-chip:after{
+    .contact-chip:after{
       content:"";
       position:absolute;
       top:-40%;
@@ -161,7 +163,9 @@
 
     .sep{ opacity:0.85; padding:0 2px; }
 
-    /* Desktop nav chips area */
+    /* =========================
+       SECTION BUTTONS (PINK)
+    ========================= */
     .topbar-nav{
       display:flex;
       align-items:center;
@@ -169,6 +173,41 @@
       flex-wrap:wrap;
       justify-content:flex-end;
     }
+
+    .nav-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:950;
+      letter-spacing:0.2px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(233,30,99,0.92); /* pink */
+      box-shadow: var(--shadow3);
+      position:relative;
+      overflow:hidden;
+      transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
+      white-space:nowrap;
+      font-size:14px;
+    }
+    .nav-chip:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06), rgba(255,255,255,0.22));
+      opacity:0.0;
+      transition: opacity 220ms ease;
+      pointer-events:none;
+    }
+    .nav-chip:hover{
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+    }
+    .nav-chip:hover:before{ opacity:0.85; }
 
     /* Mobile menu button in topbar */
     .menu-btn{
@@ -237,7 +276,7 @@
 
     @media (max-width: 1020px){
       .brand-mini img{ width:110px; }
-      .nav-chip{ display:none; } /* hide desktop nav chips sooner */
+      .nav-chip{ display:none; } /* hide desktop nav chips on smaller screens */
       .menu-btn{ display:inline-flex; }
     }
     @media (max-width: 640px){
@@ -542,25 +581,31 @@
       opacity:0.98;
     }
 
-    /* Form elements */
-    label.formlabel{ display:block; font-weight:950; margin:10px 0 6px; font-size:15px; }
-    input, textarea{
+    /* =========================
+       ROBERT PHOTO: smaller circle
+    ========================= */
+    .team-row{ display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; }
+    .avatar{
+      width:96px; height:96px;             /* smaller */
+      border-radius:999px;
+      overflow:hidden;
+      border:3px solid rgba(255,255,255,0.42);
+      box-shadow: var(--shadow2);
+      background: rgba(255,255,255,0.12);
+      flex:0 0 auto;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .avatar:hover{ transform: translateY(-3px) scale(1.02); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); }
+    .avatar img{
       width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(11,27,74,0.18);
-      padding:12px 12px;
-      font-size:17px;
-      font-family: inherit;
-      background: #fff;
-      outline:none;
-      color:#0b1b4a !important;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position: 50% 20%;
+      transform: scale(1.06);
+      transition: transform 220ms ease;
     }
-    input::placeholder, textarea::placeholder{ color: rgba(11,27,74,0.55) !important; }
-    input:focus, textarea:focus{
-      border-color: rgba(11,27,74,0.35);
-      box-shadow: 0 0 0 4px rgba(30,58,138,0.14);
-    }
-    textarea{ min-height:120px; resize:vertical; }
+    .avatar:hover img{ transform: scale(1.12); }
 
     footer{
       margin-top:18px;
@@ -592,7 +637,7 @@
 
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
-      .contact-chip:after, .nav-chip:after{ animation:none !important; }
+      .contact-chip:after{ animation:none !important; }
     }
   </style>
 </head>
@@ -620,7 +665,7 @@
         </a>
       </div>
 
-      <!-- Desktop section buttons + mobile menu -->
+      <!-- Desktop section buttons (pink) + mobile menu -->
       <div class="topbar-nav" aria-label="Page sections">
         <a class="nav-chip" href="#whatwedo">What we do</a>
         <a class="nav-chip" href="#services">Services</a>
@@ -791,16 +836,6 @@
             written in the right tone, with strong methodology, staffing, governance and quality assurances.
           </p>
 
-          <div class="meta" aria-label="Tender tags">
-            <span class="tag">✅ Compliance led structure</span>
-            <span class="tag">📌 Clear method statements</span>
-            <span class="tag">🧾 Evidence &amp; KPIs built in</span>
-            <span class="tag">🧠 Mental health &amp; ASC knowledge</span>
-            <span class="tag">💷 Competitive, transparent pricing</span>
-          </div>
-
-          <div style="height:12px"></div>
-
           <div class="grid-2" style="margin-top:6px;">
             <div class="card">
               <h4>Benefits</h4>
@@ -922,7 +957,7 @@
     </div>
   </section>
 
-  <!-- OUTSTANDING CQC (text-only) -->
+  <!-- OUTSTANDING -->
   <section id="outstanding">
     <div class="container">
       <div class="bubble-wrap theme-hero">
@@ -991,7 +1026,7 @@
     </div>
   </section>
 
-  <!-- MEET THE TEAM -->
+  <!-- TEAM -->
   <section id="team">
     <div class="container">
       <div class="bubble-wrap theme-blue">
@@ -1008,7 +1043,7 @@
           </div>
 
           <div style="flex:1 1 320px; min-width:260px;">
-            <span class="role">Managing Director</span>
+            <span style="display:inline-block; font-weight:950; padding:7px 12px; border-radius:999px; margin-bottom:10px; font-size:13px; letter-spacing:0.8px; text-transform:uppercase; color:#fff; background: rgba(11,27,74,0.86); border:1px solid rgba(255,255,255,0.22); box-shadow: var(--shadow3);">Managing Director</span>
 
             <p class="lead" style="margin-bottom:10px;">
               Robert leads Cranmer Care Management Ltd with a focus on helping providers achieve their goals through clear planning,

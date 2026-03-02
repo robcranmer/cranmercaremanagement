@@ -9,7 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="shortcut icon" href="favicon.ico" />
 
-  <meta name="description" content="Cranmer Care Management Ltd: Supporting care providers improve quality, compliance and outcomes across all care settings — including mental health — plus engaging, age-appropriate mental health workshops in primary schools." />
+  <meta name="description" content="Cranmer Care Management Ltd: Supporting care providers improve quality, compliance and outcomes across all care settings — including mental health." />
 
   <style>
     :root{
@@ -17,73 +17,62 @@
       --blue:#1e3a8a;
       --navy:#0b1b4a;
       --ink:#0f172a;
+      --muted:rgba(15,23,42,.72);
 
-      --bgA:#ffffff;
-      --bgB:#f6f7ff;
-      --bgC:#eef1ff;
+      --bg1:#ffffff;
+      --bg2:#f7f8ff;
 
-      --text:#0f172a;
-      --muted: rgba(15,23,42,.76);
-
-      --white: #ffffff;
-      --glass: rgba(255,255,255,.80);
-
-      --stroke: rgba(11,27,74,.14);
-      --strokeSoft: rgba(11,27,74,.10);
-      --strokeWhite: rgba(255,255,255,.18);
+      --r:22px;
+      --r2:28px;
 
       --shadow: 0 18px 54px rgba(15, 23, 42, 0.18);
       --shadow2: 0 12px 34px rgba(15, 23, 42, 0.14);
       --shadow3: 0 10px 26px rgba(15, 23, 42, 0.12);
 
-      --r:22px;
-      --r2:28px;
+      --stroke: rgba(11,27,74,.12);
+
+      --focus: 0 0 0 4px rgba(30,58,138,0.16);
 
       --maxw: 1180px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
-      color: var(--text);
-      line-height:1.6;
-      overflow-x:hidden;
-
-      /* Better background with stronger contrast + softer gradients */
+      color: var(--ink);
       background:
-        radial-gradient(900px 500px at 12% 10%, rgba(233,30,99,0.18), transparent 60%),
-        radial-gradient(900px 520px at 88% 16%, rgba(30,58,138,0.16), transparent 62%),
-        radial-gradient(900px 520px at 55% 110%, rgba(99,102,241,0.12), transparent 60%),
-        linear-gradient(180deg, var(--bgA) 0%, var(--bgB) 50%, var(--bgC) 100%);
+        radial-gradient(900px 480px at 15% 10%, rgba(233,30,99,0.22), transparent 60%),
+        radial-gradient(900px 480px at 85% 20%, rgba(30,58,138,0.20), transparent 60%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+      line-height:1.55;
+      overflow-x:hidden;
     }
-    img{ max-width:100%; display:block; }
-    a{ color:inherit; }
-
+    img{max-width:100%; display:block}
+    a{color:inherit}
     .container{ width:min(var(--maxw), 92vw); margin:0 auto; }
 
     /* Accessibility */
-    :focus-visible{ outline:none; box-shadow: 0 0 0 4px rgba(30,58,138,0.18); border-radius: 14px; }
+    :focus-visible{ outline:none; box-shadow: var(--focus); border-radius: 14px; }
     .skip{
-      position:absolute; left:-9999px; top:10px; z-index:9999;
+      position:absolute; left:-9999px; top:10px;
       background:#fff; color:var(--navy);
       border:1px solid var(--stroke);
-      border-radius:14px;
-      padding:10px 12px;
-      box-shadow: var(--shadow2);
+      padding:10px 12px; border-radius:14px;
+      box-shadow:var(--shadow2);
+      z-index:999;
     }
     .skip:focus{ left:12px; }
 
-    /* ---------- Top bar ---------- */
+    /* Top Bar */
     .topbar{
-      position:sticky; top:0; z-index:200;
+      position:sticky; top:0; z-index:120;
       backdrop-filter: blur(12px);
-      background: rgba(11,27,74,0.92);
+      background: rgba(11, 27, 74, 0.92);
       border-bottom:1px solid rgba(255,255,255,0.12);
     }
     .topbar, .topbar *{ color:#fff; }
-
     .topbar .container{
       display:grid;
       grid-template-columns: auto 1fr auto;
@@ -91,7 +80,6 @@
       gap:12px;
       padding:10px 0;
     }
-
     .brand-mini{
       display:flex; align-items:center;
       text-decoration:none;
@@ -104,20 +92,14 @@
       white-space:nowrap;
     }
     .brand-mini:hover{ transform: translateY(-2px); box-shadow: 0 18px 50px rgba(0,0,0,0.22); filter: brightness(1.03); }
-    .brand-mini img{ width:122px; height:auto; }
+    .brand-mini img{ width:128px; height:auto; }
 
     .topbar-mid{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
+      display:flex; justify-content:center; align-items:center;
+      gap:10px; flex-wrap:wrap;
     }
-
     .chiplink{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+      display:inline-flex; align-items:center; gap:10px;
       padding:8px 12px;
       border-radius:999px;
       text-decoration:none;
@@ -132,36 +114,19 @@
     }
     .chiplink:hover{ transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 18px 50px rgba(0,0,0,0.22); }
     .chiplink .ico{
-      width:30px; height:30px;
-      display:grid; place-items:center;
+      width:30px; height:30px; display:grid; place-items:center;
       border-radius:999px;
       background: rgba(255,255,255,0.16);
       border:1px solid rgba(255,255,255,0.18);
       flex:0 0 auto;
     }
 
-    .topbar-nav{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .nav-pills{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      max-width: 660px;
-    }
+    .topbar-nav{ display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+    .nav-pills{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; max-width: 680px; }
     .nav-pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      display:inline-flex; align-items:center; justify-content:center;
       padding:8px 12px;
-      min-width: 110px;
+      min-width: 112px;
       border-radius:999px;
       text-decoration:none;
       font-weight:900;
@@ -174,18 +139,12 @@
       text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
     .nav-pill:hover{ transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 18px 50px rgba(0,0,0,0.22); }
-    .nav-pill.is-active{
-      background: rgba(30,58,138,0.92);
-      border-color: rgba(255,255,255,0.26);
-      filter: brightness(1.03);
-    }
+    .nav-pill.is-active{ background: rgba(30,58,138,0.92); border-color: rgba(255,255,255,0.26); }
 
     .menu-btn{
       display:none;
-      align-items:center;
-      gap:10px;
-      border:none;
-      cursor:pointer;
+      align-items:center; gap:10px;
+      border:none; cursor:pointer;
       padding:9px 12px;
       border-radius:999px;
       background: rgba(255,255,255,0.12);
@@ -211,16 +170,15 @@
 
     .mobile-nav{
       display:none;
-      position:sticky;
-      top:62px;
-      z-index:190;
-      background: rgba(255,255,255,0.80);
+      position:sticky; top:62px; z-index:110;
+      background: rgba(255,255,255,0.74);
       backdrop-filter: blur(14px);
       border-bottom:1px solid rgba(15,23,42,0.10);
     }
     .mobile-nav .container{ padding:10px 0 14px; }
     .mobile-nav a{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
       text-decoration:none;
       font-weight:900;
       padding:13px 14px;
@@ -230,9 +188,9 @@
       box-shadow: var(--shadow3);
       color: rgba(11,27,74,0.96);
       background:
-        radial-gradient(240px 140px at 10% 20%, rgba(233,30,99,0.18), transparent 62%),
-        radial-gradient(260px 150px at 90% 30%, rgba(30,58,138,0.16), transparent 62%),
-        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.78));
+        radial-gradient(240px 140px at 10% 20%, rgba(233,30,99,0.28), transparent 62%),
+        radial-gradient(260px 150px at 90% 30%, rgba(30,58,138,0.22), transparent 62%),
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72));
       transition: transform 160ms ease, box-shadow 160ms ease;
     }
     .mobile-nav a:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); }
@@ -242,90 +200,80 @@
       .menu-btn{ display:inline-flex; }
     }
     @media (max-width: 720px){
-      .brand-mini img{ width:110px; }
+      .brand-mini img{ width:112px; }
       .chiplink{ padding:7px 10px; font-size:13px; }
       .chiplink .ico{ width:28px; height:28px; }
     }
     body.nav-open .mobile-nav{ display:block; }
 
-    /* Floating buttons */
+    /* Floating actions */
     .float-row{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      z-index:220;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:flex-end;
+      position:fixed; right:16px; bottom:16px; z-index:130;
+      display:flex; flex-direction:column; gap:10px; align-items:flex-end;
     }
     .fab{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
       border-radius:999px;
       padding:12px 16px;
       text-decoration:none;
       font-weight:900;
       box-shadow: var(--shadow);
       transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
       border:1px solid rgba(255,255,255,0.18);
       cursor:pointer;
-      color:#fff;
-      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
-    .fab.primary{
-      background: linear-gradient(135deg, var(--pink), var(--blue));
-    }
+    .fab.primary{ background: linear-gradient(135deg, var(--pink), var(--blue)); color:#fff; }
     .fab.secondary{
-      background: rgba(11, 27, 74, 0.92);
-      width:48px; height:48px;
-      padding:0;
-      opacity:0;
-      transform: translateY(10px);
-      pointer-events:none;
+      background: rgba(11, 27, 74, 0.92); color:#fff;
+      width:48px; height:48px; padding:0;
+      opacity:0; transform: translateY(10px); pointer-events:none;
     }
     .fab:hover{ transform: translateY(-2px); filter:brightness(1.03); }
     .fab.secondary.show{ opacity:1; transform: translateY(0); pointer-events:auto; }
 
-    /* ---------- Sections / wrappers ---------- */
+    /* Sections & themes */
     section{ padding:18px 0; }
-
     .wrap{
       padding:22px;
       border-radius: var(--r2);
       box-shadow: var(--shadow);
-      border:1px solid rgba(255,255,255,0.28);
+      border:1px solid rgba(255,255,255,0.22);
       overflow:hidden;
       position:relative;
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
     .wrap:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.20); }
 
-    /* Themes with guaranteed readable text (no white text on light backgrounds) */
     .theme-hero{
       background:
-        radial-gradient(900px 520px at 12% 18%, rgba(233,30,99,0.34), transparent 62%),
-        radial-gradient(900px 540px at 88% 22%, rgba(30,58,138,0.30), transparent 64%),
-        linear-gradient(135deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78));
+        radial-gradient(900px 520px at 12% 18%, rgba(233,30,99,0.55), transparent 62%),
+        radial-gradient(900px 540px at 88% 22%, rgba(30,58,138,0.55), transparent 64%),
+        radial-gradient(700px 420px at 55% 95%, rgba(99,102,241,0.35), transparent 62%),
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.66));
       color: var(--navy);
     }
-    .theme-dark{
-      background:
-        radial-gradient(900px 520px at 15% 18%, rgba(233,30,99,0.35), transparent 62%),
-        radial-gradient(900px 520px at 85% 22%, rgba(30,58,138,0.35), transparent 64%),
-        linear-gradient(135deg, rgba(11,27,74,0.96), rgba(11,27,74,0.86));
+    .theme-blue{
+      background: linear-gradient(135deg, rgba(30,58,138,0.74), rgba(11,27,74,0.62));
       color:#fff;
-      border-color: rgba(255,255,255,0.18);
     }
-    .theme-light{
+    .theme-pink{
       background:
-        radial-gradient(900px 520px at 15% 18%, rgba(233,30,99,0.16), transparent 62%),
-        radial-gradient(900px 520px at 85% 22%, rgba(30,58,138,0.14), transparent 64%),
-        linear-gradient(135deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78));
+        radial-gradient(900px 520px at 15% 18%, rgba(233,30,99,0.62), transparent 62%),
+        radial-gradient(900px 520px at 85% 22%, rgba(30,58,138,0.40), transparent 64%),
+        linear-gradient(135deg, rgba(140, 0, 60, 0.92), rgba(11, 27, 74, 0.64));
+      color:#fff;
+    }
+    .theme-mix{
+      background:
+        radial-gradient(900px 520px at 15% 18%, rgba(233,30,99,0.22), transparent 62%),
+        radial-gradient(900px 520px at 85% 22%, rgba(30,58,138,0.18), transparent 64%),
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.70));
       color: var(--navy);
     }
+    .theme-blue *, .theme-pink *{ color: rgba(255,255,255,0.98) !important; } /* FIX: force readable text in dark sections */
+    .theme-blue a, .theme-pink a{ color: rgba(255,255,255,0.98) !important; }
+    .theme-blue .muted, .theme-pink .muted{ color: rgba(255,255,255,0.90) !important; }
 
     .kicker{
       display:inline-block;
@@ -335,17 +283,17 @@
       font-weight:900;
       letter-spacing:0.9px;
       text-transform:uppercase;
-      background: rgba(255,255,255,0.90);
-      border:1px solid rgba(11,27,74,0.10);
-      box-shadow: var(--shadow3);
+      background: rgba(255,255,255,0.78);
+      border:1px solid rgba(255,255,255,0.34);
+      box-shadow: var(--shadow2);
       margin-bottom:12px;
       color: var(--navy);
     }
-    .theme-dark .kicker{
-      background: rgba(255,255,255,0.14);
+    .theme-blue .kicker, .theme-pink .kicker{
+      background: rgba(255,255,255,0.16);
       border-color: rgba(255,255,255,0.22);
-      color: rgba(255,255,255,0.96);
-      text-shadow: 0 8px 18px rgba(0,0,0,0.20);
+      color: rgba(255,255,255,0.98) !important;
+      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
 
     /* Typography (headings bold, body normal) */
@@ -353,8 +301,12 @@
     p{ margin:0 0 12px; font-weight:400; }
     .h1{ font-size:48px; line-height:1.05; }
     .h2{ font-size:38px; }
-    .lead{ font-size:19px; max-width: 980px; color: rgba(15,23,42,0.86); }
-    .theme-dark .lead{ color: rgba(255,255,255,0.90); text-shadow: 0 8px 18px rgba(0,0,0,0.18); }
+    .lead{ font-size:19px; max-width: 980px; color: rgba(15,23,42,0.90); }
+    .muted{ color: var(--muted); }
+    .theme-blue .lead, .theme-pink .lead{
+      color: rgba(255,255,255,0.95) !important;
+      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
 
     @media (max-width: 980px){
       .h1{ font-size:40px; }
@@ -367,38 +319,34 @@
     }
 
     /* Layout */
-    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch; }
-    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; align-items:stretch; }
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
     @media (max-width: 980px){ .grid-2,.grid-3{ grid-template-columns:1fr; } }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap:14px;
-      align-items:stretch;
-    }
+    .hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap:14px; align-items:stretch; }
     @media (max-width: 940px){ .hero-grid{ grid-template-columns:1fr; } }
 
-    /* Cards (always readable) */
+    /* Cards */
     .card{
-      background: var(--white);
-      color: var(--navy);
+      background:#fff;
       border:1px solid var(--stroke);
-      border-radius: var(--r);
       box-shadow: var(--shadow2);
+      border-radius: var(--r);
       padding:16px;
       overflow:hidden;
       transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+      color: var(--navy);
+      position:relative;
     }
     .card:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.01); }
-    .card p{ color: rgba(11,27,74,0.86); }
+    .card h4{ font-size:18px; margin:0 0 8px; }
+    .card p{ color: rgba(11,27,74,0.88); margin:0 0 10px; }
     .card ul{ margin:10px 0 0; padding-left:18px; }
-    .card li{ margin:8px 0; color: rgba(11,27,74,0.90); }
+    .card li{ margin:8px 0; color: rgba(11,27,74,0.92); font-weight:400; }
+    .card strong{ font-weight:900; }
 
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-flex; align-items:center; gap:8px;
       padding:7px 10px;
       border-radius:999px;
       font-weight:900;
@@ -406,27 +354,33 @@
       border:1px solid rgba(11,27,74,0.12);
       background: rgba(11,27,74,0.06);
       white-space:nowrap;
+      color: var(--navy);
     }
 
-    /* Chips */
-    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      font-weight:900;
-      font-size:13.5px;
-      border:1px solid rgba(11,27,74,0.10);
-      background: rgba(255,255,255,0.92);
-      box-shadow: var(--shadow3);
-      color: rgba(11,27,74,0.96);
+    /* Image card */
+    .image-card{
+      border-radius: var(--r);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.30);
+      box-shadow: var(--shadow2);
+      background: rgba(255,255,255,0.12);
+      min-height: 330px;
+      transition: transform 180ms ease;
+      position:relative;
     }
-    .theme-dark .chip{
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(255,255,255,0.22);
-      color: rgba(255,255,255,0.96);
-      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    .image-card:hover{ transform: translateY(-2px); }
+    .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; }
+    .image-card .overlay{
+      position:absolute; inset:auto 14px 14px 14px;
+      border-radius: 18px;
+      padding:12px 12px;
+      background: rgba(11,27,74,.82);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(10px);
     }
+    .image-card .overlay b{ font-weight:950; display:block; margin-bottom:2px; }
 
     /* Buttons */
     .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
@@ -434,7 +388,7 @@
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:11px 14px;
       border-radius:16px;
-      border:1px solid rgba(11,27,74,0.14);
+      border:1px solid rgba(11,27,74,0.12);
       text-decoration:none;
       font-weight:900;
       cursor:pointer;
@@ -447,108 +401,248 @@
     .btn:hover{ transform: translateY(-2px); box-shadow: 0 22px 62px rgba(15, 23, 42, 0.18); filter:brightness(1.01); }
     .btn.primary{
       border:none;
-      color:#fff;
+      color:#fff !important;
       background: linear-gradient(135deg, var(--pink), var(--blue));
       text-shadow: 0 8px 18px rgba(0,0,0,0.20);
     }
     .btn.small{ padding:9px 12px; border-radius:14px; font-size:14px; }
-    .theme-dark .btn{
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.20);
-      color:#fff;
-    }
 
-    /* Image cards */
-    .image-card{
-      border-radius: var(--r);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.30);
-      box-shadow: var(--shadow2);
-      background: rgba(255,255,255,0.12);
-      min-height: 330px;
-      position:relative;
-    }
-    .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; }
-    .overlay{
-      position:absolute; left:14px; right:14px; bottom:14px;
-      border-radius: 18px;
-      padding:12px 12px;
-      background: rgba(11,27,74,.78);
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(10px);
-    }
-    .overlay b{ font-weight:950; display:block; margin-bottom:2px; }
-
-    /* TEAM avatar (readable on dark section because inside card) */
-    .avatar{
-      width:110px; height:110px;
+    /* Chips */
+    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
       border-radius:999px;
-      overflow:hidden;
-      border:3px solid rgba(11,27,74,0.10);
-      box-shadow: var(--shadow2);
-      background:#fff;
-      flex:0 0 auto;
-    }
-    .avatar img{ width:100%; height:100%; object-fit:cover; object-position:50% 20%; }
-
-    /* HORBURY: circular image with frame */
-    .circle-frame{
-      width:min(320px, 72vw);
-      aspect-ratio: 1/1;
-      margin: 0 auto;
-      border-radius: 999px;
-      overflow:hidden;
-      border: 6px solid rgba(255,255,255,0.90);
-      box-shadow: 0 26px 80px rgba(15,23,42,0.22);
-      position:relative;
-      background: #fff;
-    }
-    .circle-frame:before{
-      content:"";
-      position:absolute; inset:-12px;
-      border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(233,30,99,0.18), transparent 55%),
-                  radial-gradient(circle at 70% 35%, rgba(30,58,138,0.18), transparent 55%);
-      pointer-events:none;
-      z-index:1;
-    }
-    .circle-frame img{
-      width:100%; height:100%;
-      object-fit:cover;
-      transform: scale(1.03);
-      position:relative;
-      z-index:2;
-    }
-    .circle-caption{
-      margin-top:12px;
-      text-align:center;
       font-weight:900;
-      color: rgba(11,27,74,0.92);
+      font-size:13.5px;
+      border:1px solid rgba(11,27,74,0.10);
+      background: rgba(255,255,255,0.76);
+      box-shadow: var(--shadow3);
+      color: rgba(11,27,74,0.98);
     }
 
-    /* Tender layout cleanup */
-    .tender-grid{
+    /* Tabs */
+    .tabs{
+      margin-top:12px;
+      border-radius: calc(var(--r) + 10px);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      box-shadow: var(--shadow3);
+    }
+    .tabbar{
+      display:flex; flex-wrap:wrap; gap:8px;
+      padding:12px;
+      border-bottom:1px solid rgba(255,255,255,0.18);
+    }
+    .tabbtn{
+      border:none;
+      cursor:pointer;
+      padding:9px 12px;
+      border-radius:999px;
+      font-weight:900;
+      background: rgba(255,255,255,0.86);
+      border:1px solid rgba(255,255,255,0.34);
+      box-shadow: var(--shadow3);
+      color: var(--navy);
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+    .tabbtn:hover{ transform: translateY(-1px); filter:brightness(1.02); }
+    .tabbtn[aria-selected="true"]{
+      background: linear-gradient(135deg, rgba(233,30,99,0.92), rgba(30,58,138,0.92));
+      color:#fff;
+      border-color: rgba(255,255,255,0.18);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.20);
+    }
+    .tabpanel{ display:none; padding:14px; }
+    .tabpanel.active{ display:block; }
+
+    /* Testimonial cards (NEW) */
+    .twrap{
       display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .tcard{
+      background: linear-gradient(135deg, rgba(233,30,99,0.10), rgba(30,58,138,0.10));
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius: calc(var(--r) + 10px);
+      box-shadow: var(--shadow2);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .tcard:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(480px 220px at 10% 20%, rgba(233,30,99,0.20), transparent 55%),
+        radial-gradient(520px 240px at 92% 30%, rgba(30,58,138,0.18), transparent 60%);
+      pointer-events:none;
+    }
+    .tcard > *{ position:relative; }
+    .tgrid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
       gap:14px;
       align-items:stretch;
-      margin-top:14px;
     }
-    @media (max-width: 980px){ .tender-grid{ grid-template-columns:1fr; } }
+    @media (max-width: 980px){ .tgrid{ grid-template-columns:1fr; } }
+    .quote{
+      background:#fff;
+      border:1px solid var(--stroke);
+      border-radius: calc(var(--r) + 6px);
+      box-shadow: var(--shadow3);
+      padding:16px;
+    }
+    .quote p{
+      margin:0;
+      font-size:20px;
+      line-height:1.35;
+      color: rgba(11,27,74,0.96);
+    }
+    .quote p:before{
+      content:"“";
+      font-weight:950;
+      font-size:34px;
+      margin-right:6px;
+      color: rgba(233,30,99,0.92);
+    }
+    .quote p:after{
+      content:"”";
+      font-weight:950;
+      font-size:34px;
+      margin-left:6px;
+      color: rgba(30,58,138,0.92);
+    }
+    .tmeta{
+      background:#fff;
+      border:1px solid var(--stroke);
+      border-radius: calc(var(--r) + 6px);
+      box-shadow: var(--shadow3);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .tmeta .who{ font-weight:950; font-size:18px; color: var(--navy); }
+    .tmeta .where{ font-weight:900; color: rgba(11,27,74,0.86); }
+    .tdots{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top:12px;
+      justify-content:flex-start;
+    }
+    .dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.30);
+      cursor:pointer;
+    }
+    .dot.active{
+      background: rgba(255,255,255,0.92);
+      border-color: rgba(255,255,255,0.92);
+    }
 
-    /* Contact (always readable: form is white card) */
+    /* Resources (NEW visually richer) */
+    .resource-hero{
+      display:flex;
+      gap:14px;
+      align-items:stretch;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .resource-hero .big{
+      flex: 1 1 520px;
+      min-width: 280px;
+      border-radius: calc(var(--r) + 10px);
+      padding:16px;
+      border:1px solid rgba(11,27,74,0.12);
+      box-shadow: var(--shadow2);
+      background:
+        radial-gradient(420px 220px at 12% 10%, rgba(233,30,99,0.14), transparent 60%),
+        radial-gradient(420px 220px at 88% 30%, rgba(30,58,138,0.12), transparent 60%),
+        #fff;
+    }
+    .resource-hero .big p{ color: rgba(11,27,74,0.86); }
+    .resource-hero .mini{
+      flex: 1 1 360px;
+      min-width: 260px;
+      border-radius: calc(var(--r) + 10px);
+      padding:16px;
+      border:1px solid rgba(11,27,74,0.12);
+      box-shadow: var(--shadow2);
+      background:#fff;
+    }
+    .searchrow{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-top:10px;
+    }
+    .searchrow input{
+      flex:1 1 260px;
+      border-radius: 14px;
+      border:1px solid rgba(11,27,74,0.18);
+      padding:12px 12px;
+      font-size:16px;
+      font-family: inherit;
+      background: #fff;
+      outline:none;
+      color: var(--navy);
+    }
+
+    /* Resource cards with icon + meta */
+    .rgrid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:14px; }
+    @media (max-width: 980px){ .rgrid{ grid-template-columns:1fr; } }
+
+    .rcard{
+      background:#fff;
+      border:1px solid rgba(11,27,74,0.12);
+      box-shadow: var(--shadow2);
+      border-radius: calc(var(--r) + 8px);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    }
+    .rcard:hover{ transform: translateY(-3px); box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22); filter:brightness(1.01); }
+    .rhead{ display:flex; align-items:flex-start; gap:12px; }
+    .rico{
+      width:46px; height:46px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(233,30,99,0.18), rgba(30,58,138,0.14));
+      border:1px solid rgba(11,27,74,0.10);
+      font-size:22px;
+      flex:0 0 auto;
+    }
+    .rtitle{ font-weight:950; font-size:18px; color: var(--navy); margin:0; }
+    .rsub{ margin:4px 0 0; color: rgba(11,27,74,0.78); font-weight:600; }
+    .rtags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .rtag{
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:12.5px;
+      border:1px solid rgba(11,27,74,0.12);
+      background: rgba(11,27,74,0.05);
+      color: var(--navy);
+      white-space:nowrap;
+    }
+
+    /* Contact form */
     .contact-wrap{
       display:grid;
-      grid-template-columns: 1fr 1.25fr;
+      grid-template-columns: 1fr 1.2fr;
       gap:14px;
       align-items:stretch;
       margin-top:12px;
     }
     @media (max-width: 980px){ .contact-wrap{ grid-template-columns:1fr; } }
 
-    .contact-card{
+    .contact-card, form.contact-form{
       background:#fff;
       border:1px solid var(--stroke);
       box-shadow: var(--shadow2);
@@ -558,7 +652,7 @@
       overflow:hidden;
       color: var(--navy);
     }
-    .contact-card:before{
+    .contact-card:before, form.contact-form:before{
       content:"";
       position:absolute;
       inset:-2px;
@@ -567,7 +661,7 @@
         radial-gradient(600px 260px at 85% 20%, rgba(30,58,138,0.12), transparent 58%);
       pointer-events:none;
     }
-    .contact-card > *{ position:relative; }
+    .contact-card > *, form.contact-form > *{ position:relative; }
 
     .contact-actions{
       display:grid;
@@ -607,6 +701,7 @@
       letter-spacing:0.8px;
       text-transform:uppercase;
       opacity:0.9;
+      color: rgba(11,27,74,0.90);
     }
     .quick-meta span:nth-child(2){
       font-size:16px;
@@ -614,38 +709,10 @@
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-    }
-
-    form.contact-form{
-      background:#fff;
-      border:1px solid var(--stroke);
-      box-shadow: var(--shadow2);
-      border-radius: calc(var(--r) + 6px);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
       color: var(--navy);
     }
-    form.contact-form:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(600px 260px at 15% 12%, rgba(233,30,99,0.12), transparent 55%),
-        radial-gradient(600px 260px at 88% 18%, rgba(30,58,138,0.12), transparent 58%);
-      pointer-events:none;
-    }
-    form.contact-form > *{ position:relative; }
 
-    .form-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:10px;
-    }
-    @media (max-width: 640px){ .form-grid{ grid-template-columns:1fr; } }
-
-    label.formlabel{ display:block; font-weight:900; margin:0 0 6px; font-size:14px; letter-spacing:0.2px; }
+    label.formlabel{ display:block; font-weight:900; margin:0 0 6px; font-size:14px; letter-spacing:0.2px; color: var(--navy); }
     input, textarea, select{
       width:100%;
       border-radius: 14px;
@@ -660,7 +727,7 @@
     input::placeholder, textarea::placeholder{ color: rgba(11,27,74,0.55); }
     input:focus, textarea:focus, select:focus{
       border-color: rgba(11,27,74,0.35);
-      box-shadow: 0 0 0 4px rgba(30,58,138,0.14);
+      box-shadow: var(--focus);
     }
     textarea{ min-height:128px; resize:vertical; }
 
@@ -681,7 +748,42 @@
     }
     .submit:hover{ transform: translateY(-2px); filter:brightness(1.03); }
 
-    /* Footer */
+    /* Toast */
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform: translateX(-50%) translateY(20px);
+      opacity:0;
+      pointer-events:none;
+      z-index:200;
+      background: rgba(11,27,74,.92);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding:12px 14px;
+      min-width: min(560px, 92vw);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      backdrop-filter: blur(10px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+    .toast.show{ opacity:1; transform: translateX(-50%) translateY(0); }
+    .toast b{ font-weight:950; }
+    .toast .tbtn{
+      border:none;
+      background: rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.20);
+      color:#fff;
+      font-weight:900;
+      border-radius: 14px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+
     footer{
       margin-top:18px;
       background: rgba(11, 27, 74, 0.92);
@@ -702,6 +804,10 @@
     footer a{ text-decoration:none; font-weight:950; border-bottom:2px solid rgba(255,255,255,0.35); }
     footer a:hover{ border-bottom-color: rgba(255,255,255,0.90); }
 
+    /* Reveal */
+    .reveal{ opacity:0; transform: translateY(12px); }
+    .reveal.in{ opacity:1; transform:none; transition: opacity 420ms ease, transform 420ms ease; }
+
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
     }
@@ -711,13 +817,11 @@
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Floating actions -->
   <div class="float-row" aria-label="Quick actions">
     <a class="fab primary" href="#contact" aria-label="Go to Contact section">Contact us</a>
     <button class="fab secondary" id="toTop" type="button" aria-label="Return to top" title="Return to top">↑</button>
   </div>
 
-  <!-- TOP BAR -->
   <header class="topbar" role="banner">
     <div class="container">
       <a class="brand-mini" href="#top" aria-label="Back to top">
@@ -759,7 +863,6 @@
     </div>
   </header>
 
-  <!-- Mobile menu -->
   <div class="mobile-nav" id="mobileNav" aria-label="Mobile menu">
     <div class="container">
       <a href="#whatwedo">What we do <span class="chev">›</span></a>
@@ -781,7 +884,7 @@
     <!-- HERO -->
     <section aria-label="Hero">
       <div class="container">
-        <div class="wrap theme-hero">
+        <div class="wrap theme-hero reveal">
           <div class="hero-grid">
             <div>
               <span class="kicker">Est 2024 • Supporting &amp; assisting providers</span>
@@ -796,11 +899,9 @@
                 <span class="chip">✅ Quality improvement</span>
                 <span class="chip">📋 Mock inspections</span>
                 <span class="chip">🧠 Mental health expertise</span>
-                <span class="chip">🏫 Primary school workshops</span>
+                <span class="chip">🔎 CQC evidence packs</span>
                 <span class="chip">🧩 Service set-up</span>
                 <span class="chip">📝 Tender writing</span>
-                <span class="chip">👥 Workforce &amp; HR</span>
-                <span class="chip">🔧 Turnaround support</span>
               </div>
 
               <div class="btnrow" aria-label="Primary actions">
@@ -826,10 +927,10 @@
       </div>
     </section>
 
-    <!-- WHAT WE DO -->
+    <!-- WHAT WE DO (shortened for focus) -->
     <section id="whatwedo" aria-label="What we do">
       <div class="container">
-        <div class="wrap theme-dark">
+        <div class="wrap theme-blue reveal">
           <span class="kicker">What we do</span>
           <h2 class="h2">Practical support that makes services better</h2>
           <p class="lead">
@@ -842,9 +943,9 @@
               <h4>Quality &amp; compliance</h4>
               <p>Audits, policies, training, evidence packs and inspection readiness aligned to the CQC approach.</p>
               <ul>
-                <li>Clear “what good looks like” benchmarks</li>
                 <li>Evidence mapping and improvement tracking</li>
-                <li>Practical fixes your team can maintain</li>
+                <li>Quality and risk assurance</li>
+                <li>Practical fixes teams can maintain</li>
               </ul>
             </div>
 
@@ -854,7 +955,7 @@
               <ul>
                 <li>Incident learning &amp; trend reporting</li>
                 <li>Risk registers and action logs</li>
-                <li>Provider-level dashboards (lightweight, usable)</li>
+                <li>Provider-level dashboards</li>
               </ul>
             </div>
 
@@ -864,18 +965,19 @@
               <ul>
                 <li>Onboarding, supervisions and competency</li>
                 <li>Safer staffing and rota resilience</li>
-                <li>Coaching for leaders and seniors</li>
+                <li>Coaching for leaders</li>
               </ul>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- SERVICES + TENDER -->
+    <!-- SERVICES (shortened) -->
     <section id="services" aria-label="Services">
       <div class="container">
-        <div class="wrap theme-light">
+        <div class="wrap theme-pink reveal">
           <span class="kicker">Services</span>
           <h2 class="h2">How we can support and assist</h2>
           <p class="lead">
@@ -886,314 +988,388 @@
           <div class="grid-3">
             <div class="card">
               <h4>Mock inspection</h4>
-              <p>A realistic CQC-style review with a clear report: what’s working, what needs to change, and how.</p>
+              <p>A realistic CQC-style review with a clear report and practical next steps.</p>
               <ul>
                 <li>Findings against the 5 key questions</li>
-                <li>Leadership and Well-led focus</li>
-                <li>Practical actions + “ready” checklist</li>
+                <li>Leadership and governance focus</li>
+                <li>Action plan + evidence tracker</li>
               </ul>
+              <a class="btn small" href="#cqc">See the CQC approach</a>
             </div>
 
             <div class="card">
               <h4>Post-inspection action planning</h4>
-              <p>Rapid support after inspection to turn feedback into time-bound actions with ownership.</p>
+              <p>Rapid support after inspection to convert feedback into time-bound actions.</p>
               <ul>
-                <li>Risk-led prioritisation</li>
-                <li>Action log + evidence requirements</li>
-                <li>Support drafting responses</li>
+                <li>Risk-led priorities</li>
+                <li>Owner / deadline / evidence for each action</li>
+                <li>Support with provider responses</li>
               </ul>
+              <a class="btn small" href="#contact">Discuss your timeline</a>
             </div>
 
             <div class="card">
               <h4>Turnaround support</h4>
               <p>Hands-on support where services need rapid improvement and stability.</p>
               <ul>
-                <li>Immediate risk assessment + first-week plan</li>
-                <li>Quality, staffing, medicines and governance</li>
-                <li>Weekly tracking and coaching</li>
+                <li>Immediate risk assessment</li>
+                <li>First-week plan and tracking</li>
+                <li>Coaching for leaders</li>
               </ul>
-            </div>
-
-            <div class="card">
-              <h4>Action planning</h4>
-              <p>Simple plans your team can deliver across care and mental health services.</p>
-              <ul>
-                <li>Owners, deadlines, evidence for each action</li>
-                <li>Progress tracking that stays on track</li>
-                <li>Built around your service reality</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h4>Service set-up</h4>
-              <p>Supporting new services to set up properly, from policies to readiness and early governance.</p>
-              <ul>
-                <li>Policy suite and evidence folders</li>
-                <li>Training matrix and competency</li>
-                <li>Governance rhythm from day one</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h4>Recruitment &amp; HR</h4>
-              <p>Hiring, onboarding, HR basics, supervision and retention support.</p>
-              <ul>
-                <li>Safer recruitment alignment</li>
-                <li>Onboarding that builds confidence fast</li>
-                <li>Supervision &amp; performance frameworks</li>
-              </ul>
+              <a class="btn small" href="#contact">Book a call</a>
             </div>
           </div>
 
-          <!-- Tender writing (clean, aligned, not messy) -->
           <div id="tender" class="card" style="margin-top:14px">
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap">
-              <div>
-                <span class="badge">Tender writing</span>
-                <h3 style="margin-top:10px">Bid &amp; tender writing that improves clarity and win rates</h3>
-                <p style="margin-bottom:0">
-                  We assist you to produce clear, compliant, evidence-led submissions for local authority, ICB/NHS and framework tenders —
-                  written in the right tone, with strong methodology, staffing, governance and quality assurance.
-                </p>
-              </div>
-              <a class="btn primary" href="#contact" style="align-self:center">Discuss a bid</a>
-            </div>
-
-            <div class="tender-grid">
-              <div class="card" style="box-shadow:none; margin:0">
-                <h4>What makes bids score well</h4>
-                <ul>
-                  <li><strong>Mapped answers:</strong> aligned to the question and evaluation criteria</li>
-                  <li><strong>Golden Thread:</strong> consistent story from outcomes → method → staffing → governance</li>
-                  <li><strong>Credibility:</strong> evidence libraries, policies, audits and training referenced properly</li>
-                  <li><strong>Efficiency:</strong> templates + reusable content to save time</li>
-                </ul>
-              </div>
-              <div class="card" style="box-shadow:none; margin:0">
-                <h4>How we can support</h4>
-                <ul>
-                  <li>Review &amp; rewrite for scoring improvement</li>
-                  <li>Full bid build (from scratch)</li>
-                  <li>Method statements, staffing models, governance</li>
-                  <li>Evidence library and compliant appendices</li>
-                </ul>
-                <p style="margin-top:10px"><strong>Pricing:</strong> fixed-fee packages or day rate options — always transparent.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SCHOOLS -->
-    <section id="schools" aria-label="Schools workshops">
-      <div class="container">
-        <div class="wrap theme-light">
-          <span class="kicker">Schools workshops</span>
-          <h2 class="h2">Primary School Mental Health Workshops</h2>
-          <p class="lead">
-            Exciting, engaging and age-appropriate sessions designed to support children to understand emotions, build resilience,
-            and develop positive mental health knowledge in a safe, supportive environment.
-          </p>
-
-          <div class="grid-2">
-            <div class="card">
-              <h4>What pupils will learn</h4>
-              <ul>
-                <li>Understanding emotions &amp; feelings</li>
-                <li>Building confidence &amp; resilience</li>
-                <li>Managing worries &amp; anxiety (child-friendly)</li>
-                <li>Kindness, empathy &amp; friendships</li>
-                <li>Positive self-talk &amp; growth mindset</li>
-                <li>Coping strategies &amp; calming techniques</li>
-              </ul>
-              <a class="btn primary" href="#contact">Enquire about dates</a>
-            </div>
-
-            <div class="card">
-              <h4>How this supports your school</h4>
-              <ul>
-                <li>Supports wellbeing and emotional development</li>
-                <li>Enhances PSHE and mental health curriculum</li>
-                <li>Creates a safe space for children to talk and learn</li>
-                <li>Encourages positive behaviour and resilience</li>
-                <li>Supports a whole-school wellbeing culture</li>
-              </ul>
-              <p style="margin-top:10px"><strong>Target audience:</strong> KS1 &amp; KS2 — interactive and inclusive.</p>
-            </div>
+            <span class="badge">Tender writing</span>
+            <h3 style="margin-top:10px">Bid &amp; tender writing that strengthens your case and improves win rates</h3>
+            <p>
+              We assist you to produce clear, compliant, evidence-led submissions with strong methodology, staffing, governance and quality assurances.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CQC -->
+    <!-- CQC (MORE INFO ON KLOE / 5 KEY QUESTIONS) -->
     <section id="cqc" aria-label="CQC">
       <div class="container">
-        <div class="wrap theme-dark">
+        <div class="wrap theme-blue reveal">
           <span class="kicker">CQC</span>
-          <h2 class="h2">CQC readiness aligned to the 5 key lines of enquiry</h2>
+          <h2 class="h2">CQC readiness aligned to the 5 key questions</h2>
           <p class="lead">
-            We use a clear, evidence-led approach aligned to the CQC’s five key questions. You’ll know what to evidence,
-            what to improve, and how to demonstrate learning and assurance.
+            We support providers to prepare for inspection using a clear, evidence-led structure based on the CQC’s <strong>five key questions</strong>.
+            Below are practical examples of what we focus on and how we support you to evidence it.
           </p>
 
-          <div class="grid-3">
-            <div class="card"><span class="badge">Safe</span><p>Risk, safeguarding, medicines, incident learning, staffing and prevention.</p></div>
-            <div class="card"><span class="badge">Effective</span><p>Outcomes, training, competency, care planning, audits and improvement cycles.</p></div>
-            <div class="card"><span class="badge">Caring</span><p>Person-centred care, dignity, respect, involvement and compassion.</p></div>
-            <div class="card"><span class="badge">Responsive</span><p>Access, personalised support, complaints handling and adapting to needs.</p></div>
-            <div class="card"><span class="badge">Well-led</span><p>Leadership, governance, oversight, openness, learning culture and sustainability.</p></div>
-            <div class="card">
-              <h4>Useful link</h4>
-              <p>Access official guidance and standards.</p>
-              <a class="btn small" href="https://www.cqc.org.uk/" target="_blank" rel="noopener">Visit CQC</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESOURCES -->
-    <section id="resources" aria-label="Resources">
-      <div class="container">
-        <div class="wrap theme-light">
-          <span class="kicker">Resources</span>
-          <h2 class="h2">Useful links and guidance</h2>
-          <p class="lead">Trusted guidance and tools for providers and schools.</p>
-
-          <div class="grid-3">
-            <div class="card"><span class="badge">CQC</span><h4 style="margin-top:10px">Care Quality Commission</h4><p>Standards, guidance and updates.</p><a class="btn small" href="https://www.cqc.org.uk/" target="_blank" rel="noopener">Open</a></div>
-            <div class="card"><span class="badge">CQC</span><h4 style="margin-top:10px">CQC Key Questions</h4><p>Safe, Effective, Caring, Responsive, Well-led.</p><a class="btn small" href="https://www.cqc.org.uk/what-we-do/how-we-do-our-job/key-lines-enquiry" target="_blank" rel="noopener">Open</a></div>
-            <div class="card"><span class="badge">Safeguarding</span><h4 style="margin-top:10px">NSPCC</h4><p>Child safeguarding guidance and resources.</p><a class="btn small" href="https://www.nspcc.org.uk/" target="_blank" rel="noopener">Open</a></div>
-            <div class="card"><span class="badge">NHS</span><h4 style="margin-top:10px">NHS England</h4><p>National guidance and updates.</p><a class="btn small" href="https://www.england.nhs.uk/" target="_blank" rel="noopener">Open</a></div>
-            <div class="card"><span class="badge">Schools</span><h4 style="margin-top:10px">Mind</h4><p>Information and resources on mental health.</p><a class="btn small" href="https://www.mind.org.uk/" target="_blank" rel="noopener">Open</a></div>
-            <div class="card"><span class="badge">Schools</span><h4 style="margin-top:10px">YoungMinds</h4><p>Support for children and young people.</p><a class="btn small" href="https://www.youngminds.org.uk/" target="_blank" rel="noopener">Open</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUTSTANDING -->
-    <section id="outstanding" aria-label="Outstanding">
-      <div class="container">
-        <div class="wrap theme-light">
-          <span class="kicker">Outstanding</span>
-          <h2 class="h2">What “Outstanding” looks like in real life</h2>
-          <p class="lead">
-            Outstanding isn’t just paperwork — it’s culture, leadership, learning and outcomes. We support you to build evidence that
-            shows your service is safe, effective, caring, responsive and well-led.
-          </p>
-
+          <!-- Big KLOE explainer cards -->
           <div class="grid-2">
             <div class="card">
-              <h4>Visible quality</h4>
-              <p>Systems people can feel — not just files.</p>
+              <span class="badge">Safe</span>
+              <h3 style="margin-top:10px">How you prevent harm and manage risk</h3>
+              <p class="muted">
+                We support you to show strong risk management, safer staffing, safeguarding practice, and consistent learning from incidents.
+              </p>
               <ul>
-                <li>Clear leadership oversight</li>
-                <li>Staff confident with standards</li>
-                <li>Learning demonstrated and shared</li>
+                <li><strong>Safeguarding:</strong> clear processes, training, escalation and robust records</li>
+                <li><strong>Medicines:</strong> audits, competency, MAR accuracy and oversight</li>
+                <li><strong>Risk:</strong> risk assessments reviewed, personalised and actioned</li>
+                <li><strong>Incidents:</strong> learning shared and improvements tracked</li>
               </ul>
-            </div>
-            <div class="card">
-              <h4>Strong evidence</h4>
-              <p>Organised, current evidence linked to outcomes.</p>
-              <ul>
-                <li>Audit cycles showing improvements</li>
-                <li>Feedback acted on and documented</li>
-                <li>Action plans delivered and reviewed</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRACK RECORD -->
-    <section id="trackrecord" aria-label="Track record">
-      <div class="container">
-        <div class="wrap theme-light">
-          <span class="kicker">Track record</span>
-          <h2 class="h2">Experience supporting providers across Yorkshire and Northern England</h2>
-          <p class="lead">
-            Nearly 20 years of care management experience with strong CQC knowledge, and a mental health background.
-            Including work connected with <strong>Bradford City Football Club</strong>.
-          </p>
-
-          <div class="grid-2">
-            <div class="card">
-              <h4>Worked alongside</h4>
-              <ul>
-                <li><a href="https://vitalityliving.uk/" target="_blank" rel="noopener"><strong>Vitality Living Ltd</strong></a></li>
-                <li><a href="https://www.bdct.nhs.uk/" target="_blank" rel="noopener"><strong>Bradford District Care NHS Foundation Trust</strong></a></li>
-                <li><a href="https://www.bradfordcityafc.com/" target="_blank" rel="noopener"><strong>Bradford City Football Club</strong></a></li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>What you can expect</h4>
-              <p>Clear actions, good structure, supportive delivery — improvements that stick.</p>
-              <ul>
-                <li>Risk-led priorities</li>
-                <li>Documentation that reflects practice</li>
-                <li>Confidence building for leaders and staff</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM (fixed readability) -->
-    <section id="team" aria-label="Meet the team">
-      <div class="container">
-        <div class="wrap theme-dark">
-          <span class="kicker">Meet the team</span>
-          <h2 class="h2">Robert Cranmer</h2>
-          <p class="lead">
-            Managing Director • Mental health nursing background • Nearly 20 years of care management and CQC knowledge.
-          </p>
-
-          <div class="grid-2">
-            <div class="card">
-              <div style="display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap">
-                <div class="avatar" aria-label="Robert Cranmer photo">
-                  <img src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/robert-cranmer.jpg" alt="Robert Cranmer" loading="lazy" />
-                </div>
-                <div style="flex:1 1 280px; min-width:240px">
-                  <span class="badge">Managing Director</span>
-                  <h3 style="margin-top:10px">Supporting quality, governance and inspection confidence</h3>
-                  <p>
-                    Robert leads Cranmer Care Management Ltd with a strong <strong>mental health nursing</strong> background and
-                    almost <strong>20 years</strong> of care management experience. He supports providers to improve quality,
-                    strengthen governance, and feel confident for inspection — focusing on practical changes teams can maintain.
-                  </p>
-                  <p style="margin:0">
-                    He has also delivered wellbeing-focused work connected with <strong>Bradford City Football Club</strong>,
-                    reflecting a commitment to community and mental health awareness.
-                  </p>
-                </div>
+              <div class="btnrow">
+                <a class="btn small" href="#resources">Open adult safeguarding resources</a>
+                <a class="btn small" href="#contact">Ask for a Safe audit</a>
               </div>
             </div>
 
             <div class="card">
-              <h3>Qualifications</h3>
+              <span class="badge">Effective</span>
+              <h3 style="margin-top:10px">How you achieve good outcomes</h3>
+              <p class="muted">
+                We support you to evidence effective care planning, staff competence, outcome measurement, and quality improvement cycles.
+              </p>
               <ul>
-                <li>Mental Health Nursing (BSc)</li>
-                <li>Diploma of Higher Education in Health and Social Care</li>
-                <li>Level 5 Leadership &amp; Management (Health and Social Care)</li>
-                <li>Level 7 Strategic Management &amp; Leadership</li>
-                <li>CIPD Level 5 Associate Diploma in People Management</li>
+                <li><strong>Care planning:</strong> needs-led, personalised and reviewed</li>
+                <li><strong>Training:</strong> matrix, competency checks, supervision quality</li>
+                <li><strong>Audits:</strong> clear cycles with actions and re-audits</li>
+                <li><strong>Outcomes:</strong> evidence of progress and quality impact</li>
               </ul>
+              <div class="btnrow">
+                <a class="btn small" href="#resources">Quality &amp; governance links</a>
+                <a class="btn small" href="#contact">Request an evidence review</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <span class="badge">Caring</span>
+              <h3 style="margin-top:10px">How you deliver person-centred, compassionate care</h3>
+              <p class="muted">
+                We support you to evidence dignity, respect, involvement, and a culture where people feel safe and heard.
+              </p>
+              <ul>
+                <li><strong>Person-centred care:</strong> lived experience reflected in plans</li>
+                <li><strong>Feedback:</strong> collected, acted on, and shared with learning</li>
+                <li><strong>Culture:</strong> values-led practice across teams</li>
+                <li><strong>Communication:</strong> accessible info and involvement</li>
+              </ul>
+              <div class="btnrow">
+                <a class="btn small" href="#contact">Improve feedback systems</a>
+                <a class="btn small" href="#outstanding">What “Outstanding” looks like</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <span class="badge">Responsive</span>
+              <h3 style="margin-top:10px">How you adapt to people’s needs</h3>
+              <p class="muted">
+                We support you to show flexible care delivery, strong complaints handling, and good outcomes when needs change.
+              </p>
+              <ul>
+                <li><strong>Access:</strong> timely support and clear pathways</li>
+                <li><strong>Changes in needs:</strong> reviews completed and acted on</li>
+                <li><strong>Complaints:</strong> handled well with learning and improvement</li>
+                <li><strong>Capacity &amp; consent:</strong> MCA aligned practice where relevant</li>
+              </ul>
+              <div class="btnrow">
+                <a class="btn small" href="#contact">Review complaints handling</a>
+                <a class="btn small" href="#resources">MCA resources</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <span class="badge">Well-led</span>
+              <h3 style="margin-top:10px">How leadership and governance drive quality</h3>
+              <p class="muted">
+                We support you to build governance that’s simple, consistent, and evidence-led — demonstrating oversight and continuous improvement.
+              </p>
+              <ul>
+                <li><strong>Governance rhythm:</strong> monthly pack, KPIs, actions tracked</li>
+                <li><strong>Audits and learning:</strong> visible improvements and accountability</li>
+                <li><strong>Leadership:</strong> clear roles, supervision quality, culture</li>
+                <li><strong>Openness:</strong> learning culture and transparent communication</li>
+              </ul>
+              <div class="btnrow">
+                <a class="btn small" href="#contact">Build a governance pack</a>
+                <a class="btn small" href="#resources">Governance resources</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>What you receive</h3>
+              <p class="muted">A practical pack that makes evidence easy to maintain.</p>
+              <ul>
+                <li><strong>Findings report</strong> aligned to the 5 key questions</li>
+                <li><strong>Action plan</strong> with owners, deadlines and evidence required</li>
+                <li><strong>Evidence map</strong> and tracker folder structure</li>
+                <li><strong>Governance templates</strong> (lightweight + usable)</li>
+              </ul>
+              <div class="btnrow">
+                <a class="btn primary" href="#contact">Get started</a>
+                <a class="btn" href="https://www.cqc.org.uk/" target="_blank" rel="noopener">Visit CQC</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES (ADULT-FOCUSED + MORE VISUAL + SEARCH + FILTER) -->
+    <section id="resources" aria-label="Resources">
+      <div class="container">
+        <div class="wrap theme-mix reveal">
+          <span class="kicker">Resources</span>
+          <h2 class="h2">Adult care resources for providers</h2>
+          <p class="lead">
+            Quick access to trusted, adult-focused resources for quality, safeguarding, mental health, MCA/DoLS, and governance.
+          </p>
+
+          <div class="resource-hero">
+            <div class="big">
+              <h3>Use these to strengthen your evidence</h3>
+              <p>
+                These links are useful for governance packs, audits, training signposting, and keeping your team aligned to best practice.
+                Use the search and filters below to find what you need quickly.
+              </p>
+              <div class="chips" aria-label="Resource highlights">
+                <span class="chip">🛡️ Safeguarding adults</span>
+                <span class="chip">🧠 Mental health services</span>
+                <span class="chip">⚖️ MCA / DoLS</span>
+                <span class="chip">📋 Quality &amp; governance</span>
+              </div>
+            </div>
+
+            <div class="mini">
+              <h3 style="margin-bottom:6px">Find a resource</h3>
+              <p class="muted" style="margin:0">Search by keyword (e.g. “MCA”, “medicines”, “safeguarding”, “KLOE”).</p>
+
+              <div class="searchrow" aria-label="Resource search and filters">
+                <input id="resourceSearch" type="search" placeholder="Search resources…" aria-label="Search resources" />
+                <button class="btn primary" type="button" id="clearSearch">Clear</button>
+              </div>
+
+              <div class="btnrow" style="margin-top:10px" role="group" aria-label="Resource filters">
+                <button class="btn small" type="button" data-filter="all">All</button>
+                <button class="btn small" type="button" data-filter="cqc">CQC</button>
+                <button class="btn small" type="button" data-filter="safeguarding">Safeguarding</button>
+                <button class="btn small" type="button" data-filter="mca">MCA / DoLS</button>
+                <button class="btn small" type="button" data-filter="quality">Governance</button>
+                <button class="btn small" type="button" data-filter="mh">Mental health</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="rgrid" id="resourceGrid">
+            <!-- CQC -->
+            <article class="rcard resource" data-cat="cqc" data-keywords="cqc inspection key questions kloe safe effective caring responsive well-led">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">🔎</div>
+                <div>
+                  <p class="rtitle">Care Quality Commission (CQC)</p>
+                  <p class="rsub">Standards, guidance and updates for adult social care.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">Inspection</span><span class="rtag">Evidence</span><span class="rtag">KLOE</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.cqc.org.uk/" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <article class="rcard resource" data-cat="cqc" data-keywords="key questions lines of enquiry kloe safe effective caring responsive well-led">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">📌</div>
+                <div>
+                  <p class="rtitle">CQC Key Lines of Enquiry</p>
+                  <p class="rsub">How the five key questions are assessed.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">KLOE</span><span class="rtag">Framework</span><span class="rtag">Guidance</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.cqc.org.uk/what-we-do/how-we-do-our-job/key-lines-enquiry" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <!-- Safeguarding -->
+            <article class="rcard resource" data-cat="safeguarding" data-keywords="safeguarding adults abuse neglect reporting local authority">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">🛡️</div>
+                <div>
+                  <p class="rtitle">Safeguarding Adults (Gov.UK)</p>
+                  <p class="rsub">Adult safeguarding overview and related guidance.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">Adults</span><span class="rtag">Reporting</span><span class="rtag">Risk</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.gov.uk/guidance/safeguarding-vulnerable-adults" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <article class="rcard resource" data-cat="safeguarding" data-keywords="safeguarding adults board guidance care act">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">🏛️</div>
+                <div>
+                  <p class="rtitle">Care Act 2014: Statutory Guidance</p>
+                  <p class="rsub">Key safeguarding responsibilities and principles.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">Care Act</span><span class="rtag">Principles</span><span class="rtag">Duties</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.gov.uk/government/publications/care-act-statutory-guidance/care-and-support-statutory-guidance" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <!-- MCA / DoLS -->
+            <article class="rcard resource" data-cat="mca" data-keywords="mental capacity act mca best interests consent capacity">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">⚖️</div>
+                <div>
+                  <p class="rtitle">Mental Capacity Act (MCA) Code of Practice</p>
+                  <p class="rsub">Capacity, consent, and best interests in practice.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">Consent</span><span class="rtag">Best interests</span><span class="rtag">Capacity</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.gov.uk/government/publications/mental-capacity-act-code-of-practice" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <article class="rcard resource" data-cat="mca" data-keywords="dols deprivation of liberty safeguards guidance">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">🔐</div>
+                <div>
+                  <p class="rtitle">Deprivation of Liberty Safeguards (DoLS)</p>
+                  <p class="rsub">Guidance and key principles for providers.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">DoLS</span><span class="rtag">Rights</span><span class="rtag">Law</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.scie.org.uk/mca/dols" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <!-- Governance / Quality -->
+            <article class="rcard resource" data-cat="quality" data-keywords="quality governance audit improvement clinical governance">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">📋</div>
+                <div>
+                  <p class="rtitle">SCIE: Quality &amp; Improvement</p>
+                  <p class="rsub">Practice guidance and improvement resources.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">Audits</span><span class="rtag">Improvement</span><span class="rtag">Practice</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.scie.org.uk/" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <!-- Mental health (adult) -->
+            <article class="rcard resource" data-cat="mh" data-keywords="adult mental health guidance crisis support depression anxiety">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">🧠</div>
+                <div>
+                  <p class="rtitle">Mind: Adult Mental Health</p>
+                  <p class="rsub">Information and resources for adult mental health support.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">Adults</span><span class="rtag">Wellbeing</span><span class="rtag">Support</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.mind.org.uk/" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+            <article class="rcard resource" data-cat="mh" data-keywords="nhs mental health services adult">
+              <div class="rhead">
+                <div class="rico" aria-hidden="true">🏥</div>
+                <div>
+                  <p class="rtitle">NHS: Mental Health</p>
+                  <p class="rsub">NHS guidance and signposting for adult mental health.</p>
+                </div>
+              </div>
+              <div class="rtags">
+                <span class="rtag">NHS</span><span class="rtag">Services</span><span class="rtag">Guidance</span>
+              </div>
+              <div class="btnrow">
+                <a class="btn small" href="https://www.nhs.uk/mental-health/" target="_blank" rel="noopener">Open</a>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <h3>Want a resource pack built for your service?</h3>
+            <p class="muted">
+              We can create a tailored set of links and templates aligned to your service type (e.g. supported living, residential, mental health),
+              plus a simple monthly governance pack.
+            </p>
+            <div class="btnrow">
+              <a class="btn primary" href="#contact">Request a tailored pack</a>
+              <a class="btn" href="#cqc">Back to CQC section</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PARTNERS (Horbury image in circle + nicer) -->
+    <!-- PARTNERS -->
     <section id="partners" aria-label="Partners and sponsorships">
       <div class="container">
-        <div class="wrap theme-light">
+        <div class="wrap theme-mix reveal">
           <span class="kicker">Partners</span>
           <h2 class="h2">Partnerships &amp; sponsorships</h2>
           <p class="lead">
@@ -1205,71 +1381,81 @@
               <span class="badge">Horbury Town Football Club</span>
               <h3 style="margin-top:10px">Proud partners &amp; sponsors</h3>
               <p>
-                Cranmer Care Management Ltd is proud to support <strong>Horbury Town Football Club</strong>,
-                showing our commitment to supporting locally-run organisations and community sport.
+                Cranmer Care Management Ltd is proud to be involved with <strong>Horbury Town Football Club</strong>,
+                demonstrating our commitment to supporting locally-run organisations and community sport.
               </p>
               <ul>
                 <li>Visible local commitment</li>
                 <li>Backing grassroots development</li>
                 <li>Supporting strong, connected communities</li>
               </ul>
-              <a class="btn primary" href="#contact">Talk partnerships</a>
+              <div class="btnrow">
+                <a class="btn primary" href="#contact">Talk partnerships</a>
+                <a class="btn" href="#resources">Community resources</a>
+              </div>
             </div>
 
-            <div>
-              <div class="circle-frame" aria-label="Horbury Town image in circle">
-                <img
-                  src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/5762ACA7-92AA-4012-9C6E-2A148440EABD.jpeg"
-                  alt="Cranmer Care Management Ltd partnership and sponsorship with Horbury Town Football Club"
-                  loading="lazy"
-                />
+            <div class="image-card" aria-label="Horbury Town Football Club partnership image">
+              <img
+                src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/5762ACA7-92AA-4012-9C6E-2A148440EABD.jpeg"
+                alt="Cranmer Care Management Ltd partnership and sponsorship with Horbury Town Football Club"
+                loading="lazy"
+              />
+              <div class="overlay">
+                <b>Supporting locally run organisations</b>
+                Partnership &amp; sponsorship with Horbury Town Football Club.
               </div>
-              <div class="circle-caption">Supporting locally run organisations • Horbury Town FC</div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS (simple + readable) -->
+    <!-- TESTIMONIALS (VISUALLY BETTER) -->
     <section id="testimonials" aria-label="Testimonials">
       <div class="container">
-        <div class="wrap theme-dark">
+        <div class="wrap theme-blue reveal">
           <span class="kicker">Testimonials</span>
           <h2 class="h2">What clients say</h2>
-          <p class="lead">Replace the sample quotes with your real feedback (the buttons will cycle them).</p>
+          <p class="lead">
+            Replace the sample testimonials below with your real feedback — the slider and dots will update automatically.
+          </p>
 
-          <div class="card">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
-              <div>
-                <h3 style="margin:0 0 6px">Client feedback</h3>
-                <p style="margin:0; color:rgba(11,27,74,0.78)">Use the arrows to browse.</p>
+          <div class="tcard">
+            <div class="tgrid">
+              <div class="quote" aria-label="Testimonial quote">
+                <p id="quoteText">Robert supported our service to get inspection-ready with clear actions and confidence across the team.</p>
               </div>
-              <div class="btnrow" style="margin:0">
-                <button class="btn small" type="button" id="prevTest">← Prev</button>
-                <button class="btn small" type="button" id="nextTest">Next →</button>
+              <div class="tmeta" aria-label="Testimonial details">
+                <div>
+                  <div class="badge" style="margin-bottom:10px">Verified feedback</div>
+                  <div class="who" id="quoteWho">Registered Manager</div>
+                  <div class="where" id="quoteWhere">Yorkshire</div>
+                </div>
+
+                <div class="btnrow" style="margin:0">
+                  <button class="btn small" type="button" id="prevTest">← Prev</button>
+                  <button class="btn small" type="button" id="nextTest">Next →</button>
+                </div>
               </div>
             </div>
 
-            <div style="height:10px"></div>
+            <div class="tdots" id="dots" aria-label="Testimonial selector"></div>
 
-            <blockquote style="margin:0; padding:14px; border-radius:18px; border:1px dashed rgba(11,27,74,.18); background: rgba(11,27,74,.04)">
-              <p id="quoteText" style="margin:0 0 10px; font-size:18px">
-                “Robert supported our service to get inspection-ready with clear actions and confidence across the team.”
-              </p>
-              <footer style="font-weight:900; color: var(--navy)">
-                <span id="quoteWho">Registered Manager</span> • <span id="quoteWhere">Yorkshire</span>
-              </footer>
-            </blockquote>
+            <p class="muted" style="margin-top:12px">
+              Tip: Add 5–10 testimonials for a stronger look (mix roles and service types).
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- CONTACT (fixed readability) -->
+    <!-- CONTACT -->
     <section id="contact" aria-label="Contact">
       <div class="container">
-        <div class="wrap theme-dark">
+        <div class="wrap theme-blue reveal">
           <span class="kicker">Contact</span>
           <h2 class="h2">Let’s talk</h2>
           <p class="lead">Tell us what you need support with — we’ll respond with clear next steps.</p>
@@ -1278,8 +1464,8 @@
             <div class="contact-card" aria-label="Quick contact">
               <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap">
                 <div>
-                  <h3 style="margin:0 0 6px">Quick contact</h3>
-                  <p style="margin:0"><strong>Fast response</strong>, friendly support, practical next steps.</p>
+                  <h3 style="margin:0 0 6px; color: var(--navy)">Quick contact</h3>
+                  <p style="margin:0; color: rgba(11,27,74,0.90)"><strong>Fast response</strong>, friendly support, practical next steps.</p>
                 </div>
                 <div class="badge">✅ Reply ASAP</div>
               </div>
@@ -1293,7 +1479,7 @@
                       <span>support@cranmercare.co.uk</span>
                     </div>
                   </div>
-                  <span aria-hidden="true">↗</span>
+                  <span style="font-weight:950; opacity:0.8" aria-hidden="true">↗</span>
                 </a>
 
                 <a class="quick-btn" href="tel:+441274449277">
@@ -1304,13 +1490,11 @@
                       <span>01274 449277</span>
                     </div>
                   </div>
-                  <span aria-hidden="true">↗</span>
+                  <span style="font-weight:950; opacity:0.8" aria-hidden="true">↗</span>
                 </a>
               </div>
 
-              <div style="height:10px"></div>
-
-              <div class="contact-actions" aria-label="Company details">
+              <div class="contact-actions" aria-label="Company details" style="margin-top:10px">
                 <div class="quick-btn" role="group" aria-label="Company number">
                   <div class="quick-left">
                     <div class="quick-ico" aria-hidden="true">🏢</div>
@@ -1319,7 +1503,7 @@
                       <span>15610739</span>
                     </div>
                   </div>
-                  <span aria-hidden="true">•</span>
+                  <span style="font-weight:950; opacity:0.8" aria-hidden="true">•</span>
                 </div>
 
                 <div class="quick-btn" role="group" aria-label="Availability">
@@ -1330,7 +1514,7 @@
                       <span>On-site or remote</span>
                     </div>
                   </div>
-                  <span aria-hidden="true">•</span>
+                  <span style="font-weight:950; opacity:0.8" aria-hidden="true">•</span>
                 </div>
               </div>
             </div>
@@ -1338,13 +1522,13 @@
             <form class="contact-form" id="contactForm" aria-label="Contact form" novalidate>
               <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap">
                 <div>
-                  <h3 style="margin:0 0 6px">Send a message</h3>
-                  <p style="margin:0; color:rgba(11,27,74,0.78)">This opens your email app with a prepared message (and copies it where supported).</p>
+                  <h3 style="margin:0 0 6px; color: var(--navy)">Send a message</h3>
+                  <p style="margin:0; color: rgba(11,27,74,0.84)">Opens your email client with a ready-to-send message (and copies it too).</p>
                 </div>
                 <div class="badge">🔒 No spam</div>
               </div>
 
-              <div class="form-grid">
+              <div class="grid-2" style="margin-top:12px; gap:12px">
                 <div>
                   <label class="formlabel" for="name">Your name</label>
                   <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
@@ -1370,7 +1554,6 @@
                     <option>Service set-up</option>
                     <option>Recruitment / HR</option>
                     <option>Tender writing</option>
-                    <option>Schools mental health workshop</option>
                     <option>Partnership / sponsorship</option>
                     <option>Other</option>
                   </select>
@@ -1383,14 +1566,15 @@
               </div>
 
               <button class="submit" type="submit">Send message</button>
-              <p style="margin:10px 0 0; color:rgba(11,27,74,0.82); font-weight:600">
-                If your device doesn’t open an email app automatically, email us at <strong>support@cranmercare.co.uk</strong>.
+              <p style="margin:10px 0 0; color: rgba(11,27,74,0.84); font-weight:600">
+                Or email us directly: <strong>support@cranmercare.co.uk</strong>
               </p>
             </form>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer role="contentinfo">
@@ -1402,36 +1586,37 @@
     </div>
   </footer>
 
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div>
+      <b id="toastTitle">Done</b>
+      <div id="toastMsg" style="opacity:.92; font-weight:700; margin-top:2px">Message prepared.</div>
+    </div>
+    <button class="tbtn" type="button" id="toastClose" aria-label="Close notification">Close</button>
+  </div>
+
   <script>
     const $ = (sel, root=document) => root.querySelector(sel);
     const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-    // Year
+    // Footer year
     $("#year").textContent = new Date().getFullYear();
 
     // Mobile nav toggle
     const menuBtn = $("#menuBtn");
     const mobileNav = $("#mobileNav");
 
-    function closeNav(){
-      document.body.classList.remove("nav-open");
-      menuBtn?.setAttribute("aria-expanded", "false");
-    }
-    function openNav(){
-      document.body.classList.add("nav-open");
-      menuBtn?.setAttribute("aria-expanded", "true");
-    }
+    function closeNav(){ document.body.classList.remove("nav-open"); menuBtn?.setAttribute("aria-expanded","false"); }
+    function openNav(){ document.body.classList.add("nav-open"); menuBtn?.setAttribute("aria-expanded","true"); }
 
     menuBtn?.addEventListener("click", () => {
       const isOpen = document.body.classList.contains("nav-open");
       isOpen ? closeNav() : openNav();
     });
-
     mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
     window.addEventListener("resize", () => { if (window.innerWidth > 1120) closeNav(); });
 
-    // To top
+    // To top button
     const toTop = $("#toTop");
     function onScroll(){
       const y = window.scrollY || document.documentElement.scrollTop;
@@ -1442,13 +1627,22 @@
     onScroll();
     toTop.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
 
+    // Reveal on scroll
+    const revealEls = $$(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting){
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.10 });
+    revealEls.forEach(el => io.observe(el));
+
     // Active section highlight (desktop pills)
     const navLinks = $$(".nav-pills .nav-pill");
-    const sections = navLinks
-      .map(a => a.getAttribute("href"))
-      .filter(Boolean)
-      .map(id => document.querySelector(id))
-      .filter(Boolean);
+    const sectionIds = navLinks.map(a => a.getAttribute("href")).filter(Boolean);
+    const sections = sectionIds.map(id => document.querySelector(id)).filter(Boolean);
 
     const navIO = new IntersectionObserver((entries) => {
       entries.forEach(en => {
@@ -1458,37 +1652,65 @@
         }
       });
     }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.01 });
-
     sections.forEach(s => navIO.observe(s));
 
-    // Testimonials
+    // Testimonials (better UI + dots)
     const testimonials = [
-      { text: "“Robert supported our service to get inspection-ready with clear actions and confidence across the team.”", who: "Registered Manager", where: "Yorkshire" },
-      { text: "“Clear governance and supportive coaching that helped staff stay focused and deliver improvements.”", who: "Operations Lead", where: "Northern England" },
-      { text: "“Strong CQC knowledge and a calm approach that made the action plan achievable.”", who: "Provider Director", where: "UK" }
+      { text: "Robert supported our service to get inspection-ready with clear actions and confidence across the team.", who: "Registered Manager", where: "Yorkshire" },
+      { text: "Clear governance, practical improvements, and a supportive approach that kept staff focused and calm.", who: "Operations Lead", where: "Northern England" },
+      { text: "Excellent CQC knowledge — the evidence tracker and action plan made it easy to see progress week to week.", who: "Provider Director", where: "UK" },
+      { text: "A very practical approach: policies, audits and training were aligned to what staff actually do day to day.", who: "Quality Lead", where: "Yorkshire" }
     ];
     let tIndex = 0;
     const quoteText = $("#quoteText");
     const quoteWho = $("#quoteWho");
     const quoteWhere = $("#quoteWhere");
+    const dots = $("#dots");
+
+    function renderDots(){
+      dots.innerHTML = "";
+      testimonials.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.type = "button";
+        d.className = "dot" + (i === tIndex ? " active" : "");
+        d.setAttribute("aria-label", "Show testimonial " + (i+1));
+        d.addEventListener("click", () => { tIndex = i; renderTestimonial(); });
+        dots.appendChild(d);
+      });
+    }
 
     function renderTestimonial(){
       const t = testimonials[tIndex];
       quoteText.textContent = t.text;
       quoteWho.textContent = t.who;
       quoteWhere.textContent = t.where;
+      renderDots();
     }
     $("#prevTest")?.addEventListener("click", () => { tIndex = (tIndex - 1 + testimonials.length) % testimonials.length; renderTestimonial(); });
     $("#nextTest")?.addEventListener("click", () => { tIndex = (tIndex + 1) % testimonials.length; renderTestimonial(); });
     renderTestimonial();
 
+    // Toast
+    const toast = $("#toast");
+    const toastTitle = $("#toastTitle");
+    const toastMsg = $("#toastMsg");
+    const toastClose = $("#toastClose");
+    let toastTimer = null;
+
+    function showToast(title, msg){
+      toastTitle.textContent = title;
+      toastMsg.textContent = msg;
+      toast.classList.add("show");
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 5200);
+    }
+    toastClose.addEventListener("click", () => toast.classList.remove("show"));
+
     // Contact form (mailto builder + copy)
     const form = $("#contactForm");
     const emailTo = "support@cranmercare.co.uk";
 
-    function isEmail(v){
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
-    }
+    function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
     function val(id){ return String($(id)?.value || "").trim(); }
 
     form.addEventListener("submit", async (e) => {
@@ -1500,14 +1722,20 @@
       const topic = val("#topic");
       const message = val("#message");
 
-      const missing = [];
-      if (!name) missing.push("name");
-      if (!email || !isEmail(email)) missing.push("valid email");
-      if (!topic) missing.push("topic");
-      if (!message) missing.push("message");
+      const errs = [];
+      if (!name) errs.push("Your name");
+      if (!email || !isEmail(email)) errs.push("A valid email");
+      if (!topic) errs.push("A topic");
+      if (!message) errs.push("Your message");
 
-      if (missing.length){
-        alert("Please complete: " + missing.join(", ") + ".");
+      if (errs.length){
+        showToast("Please check the form", "Missing: " + errs.join(", ") + ".");
+        const order = ["#name","#email","#topic","#message"];
+        for (const id of order){
+          const el = $(id);
+          if (el && !String(el.value || "").trim()){ el.focus(); break; }
+          if (id === "#email" && el && !isEmail(el.value)) { el.focus(); break; }
+        }
         return;
       }
 
@@ -1526,8 +1754,46 @@ ${message}
 
       const mailto = `mailto:${encodeURIComponent(emailTo)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
+
+      showToast("Message prepared", "Copied (where supported) and your email app should open now.");
       form.reset();
     });
+
+    // Resources search + filter
+    const resourceSearch = $("#resourceSearch");
+    const clearSearch = $("#clearSearch");
+    const resourceCards = $$(".resource");
+    const filterButtons = $$('[data-filter]');
+    let activeFilter = "all";
+
+    function applyResourceFilters(){
+      const q = String(resourceSearch.value || "").trim().toLowerCase();
+      resourceCards.forEach(card => {
+        const cat = card.getAttribute("data-cat");
+        const keywords = (card.getAttribute("data-keywords") || "") + " " + card.textContent;
+        const matchesFilter = (activeFilter === "all") || (cat === activeFilter);
+        const matchesQuery = !q || keywords.toLowerCase().includes(q);
+        card.style.display = (matchesFilter && matchesQuery) ? "" : "none";
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.getAttribute("data-filter") || "all";
+        filterButtons.forEach(b => b.classList.remove("primary"));
+        btn.classList.add("primary");
+        applyResourceFilters();
+      });
+    });
+
+    resourceSearch.addEventListener("input", applyResourceFilters);
+    clearSearch.addEventListener("click", () => {
+      resourceSearch.value = "";
+      applyResourceFilters();
+      resourceSearch.focus();
+    });
+
+    applyResourceFilters();
   </script>
 </body>
 </html>

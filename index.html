@@ -30,7 +30,6 @@
       --shadow3: 0 10px 26px rgba(15, 23, 42, 0.12);
 
       --stroke: rgba(11,27,74,.12);
-
       --focus: 0 0 0 4px rgba(30,58,138,0.16);
 
       --maxw: 1180px;
@@ -186,7 +185,11 @@
       margin-top:10px;
       border:1px solid rgba(255,255,255,0.28);
       box-shadow: var(--shadow3);
-      color: rgba(11,27,74,0.96);
+
+      /* READABILITY FIX: strong contrast on the light mobile menu cards */
+      color: var(--navy) !important;
+      text-shadow: none !important;
+
       background:
         radial-gradient(240px 140px at 10% 20%, rgba(233,30,99,0.28), transparent 62%),
         radial-gradient(260px 150px at 90% 30%, rgba(30,58,138,0.22), transparent 62%),
@@ -271,10 +274,52 @@
         linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.70));
       color: var(--navy);
     }
-    .theme-blue *, .theme-pink *{ color: rgba(255,255,255,0.98) !important; } /* FIX: force readable text in dark sections */
-    .theme-blue a, .theme-pink a{ color: rgba(255,255,255,0.98) !important; }
-    .theme-blue .muted, .theme-pink .muted{ color: rgba(255,255,255,0.90) !important; }
 
+    /* ===========================
+       READABILITY FIX (GLOBAL)
+       - ensures text always contrasts against its section background
+       - removes "force everything white" (which was making cards / light areas unreadable)
+       =========================== */
+
+    /* Dark section defaults: keep headings/body readable */
+    .theme-blue, .theme-pink{ color:#fff; }
+    .theme-blue h1,.theme-blue h2,.theme-blue h3,.theme-blue h4,
+    .theme-pink h1,.theme-pink h2,.theme-pink h3,.theme-pink h4,
+    .theme-blue p,.theme-blue li,.theme-blue span,
+    .theme-pink p,.theme-pink li,.theme-pink span{
+      color: rgba(255,255,255,0.96);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+    .theme-blue a, .theme-pink a{ color: rgba(255,255,255,0.98); }
+
+    /* BUT: white cards inside dark sections should stay dark text on white */
+    .theme-blue .card,
+    .theme-blue .quote,
+    .theme-blue .tmeta,
+    .theme-blue .contact-card,
+    .theme-blue form.contact-form,
+    .theme-blue .rcard,
+    .theme-pink .card,
+    .theme-pink .quote,
+    .theme-pink .tmeta,
+    .theme-pink .contact-card,
+    .theme-pink form.contact-form,
+    .theme-pink .rcard{
+      background:#fff;
+      color: var(--navy);
+      text-shadow:none;
+    }
+    .theme-blue .card *, .theme-blue .quote *, .theme-blue .tmeta *, .theme-blue .contact-card *, .theme-blue form.contact-form *,
+    .theme-pink .card *, .theme-pink .quote *, .theme-pink .tmeta *, .theme-pink .contact-card *, .theme-pink form.contact-form *{
+      color: var(--navy) !important;
+      text-shadow:none !important;
+    }
+    .theme-blue .card p, .theme-blue .contact-card p, .theme-blue form.contact-form p,
+    .theme-pink .card p, .theme-pink .contact-card p, .theme-pink form.contact-form p{
+      color: rgba(11,27,74,0.88) !important;
+    }
+
+    /* Kicker */
     .kicker{
       display:inline-block;
       padding:7px 12px;
@@ -303,10 +348,13 @@
     .h2{ font-size:38px; }
     .lead{ font-size:19px; max-width: 980px; color: rgba(15,23,42,0.90); }
     .muted{ color: var(--muted); }
+
     .theme-blue .lead, .theme-pink .lead{
-      color: rgba(255,255,255,0.95) !important;
+      color: rgba(255,255,255,0.95);
       text-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
+    /* Lead text when it sits inside white cards (override) */
+    .theme-blue .card .lead, .theme-pink .card .lead{ color: rgba(11,27,74,0.90) !important; text-shadow:none !important; }
 
     @media (max-width: 980px){
       .h1{ font-size:40px; }
@@ -457,7 +505,7 @@
     .tabpanel{ display:none; padding:14px; }
     .tabpanel.active{ display:block; }
 
-    /* Testimonial cards (NEW) */
+    /* Testimonial cards */
     .twrap{
       display:grid;
       grid-template-columns: 1fr;
@@ -547,7 +595,7 @@
       border-color: rgba(255,255,255,0.92);
     }
 
-    /* Resources (NEW visually richer) */
+    /* Resources */
     .resource-hero{
       display:flex;
       gap:14px;
@@ -593,7 +641,6 @@
       color: var(--navy);
     }
 
-    /* Resource cards with icon + meta */
     .rgrid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:14px; }
     @media (max-width: 980px){ .rgrid{ grid-template-columns:1fr; } }
 
@@ -927,7 +974,7 @@
       </div>
     </section>
 
-    <!-- WHAT WE DO (shortened for focus) -->
+    <!-- WHAT WE DO -->
     <section id="whatwedo" aria-label="What we do">
       <div class="container">
         <div class="wrap theme-blue reveal">
@@ -974,7 +1021,7 @@
       </div>
     </section>
 
-    <!-- SERVICES (shortened) -->
+    <!-- SERVICES -->
     <section id="services" aria-label="Services">
       <div class="container">
         <div class="wrap theme-pink reveal">
@@ -1031,7 +1078,7 @@
       </div>
     </section>
 
-    <!-- CQC (MORE INFO ON KLOE / 5 KEY QUESTIONS) -->
+    <!-- CQC -->
     <section id="cqc" aria-label="CQC">
       <div class="container">
         <div class="wrap theme-blue reveal">
@@ -1042,7 +1089,6 @@
             Below are practical examples of what we focus on and how we support you to evidence it.
           </p>
 
-          <!-- Big KLOE explainer cards -->
           <div class="grid-2">
             <div class="card">
               <span class="badge">Safe</span>
@@ -1154,7 +1200,7 @@
       </div>
     </section>
 
-    <!-- RESOURCES (ADULT-FOCUSED + MORE VISUAL + SEARCH + FILTER) -->
+    <!-- RESOURCES -->
     <section id="resources" aria-label="Resources">
       <div class="container">
         <div class="wrap theme-mix reveal">
@@ -1200,7 +1246,6 @@
           </div>
 
           <div class="rgrid" id="resourceGrid">
-            <!-- CQC -->
             <article class="rcard resource" data-cat="cqc" data-keywords="cqc inspection key questions kloe safe effective caring responsive well-led">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">🔎</div>
@@ -1233,7 +1278,6 @@
               </div>
             </article>
 
-            <!-- Safeguarding -->
             <article class="rcard resource" data-cat="safeguarding" data-keywords="safeguarding adults abuse neglect reporting local authority">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">🛡️</div>
@@ -1266,7 +1310,6 @@
               </div>
             </article>
 
-            <!-- MCA / DoLS -->
             <article class="rcard resource" data-cat="mca" data-keywords="mental capacity act mca best interests consent capacity">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">⚖️</div>
@@ -1299,7 +1342,6 @@
               </div>
             </article>
 
-            <!-- Governance / Quality -->
             <article class="rcard resource" data-cat="quality" data-keywords="quality governance audit improvement clinical governance">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">📋</div>
@@ -1316,7 +1358,6 @@
               </div>
             </article>
 
-            <!-- Mental health (adult) -->
             <article class="rcard resource" data-cat="mh" data-keywords="adult mental health guidance crisis support depression anxiety">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">🧠</div>
@@ -1348,7 +1389,6 @@
                 <a class="btn small" href="https://www.nhs.uk/mental-health/" target="_blank" rel="noopener">Open</a>
               </div>
             </article>
-
           </div>
 
           <div class="card" style="margin-top:14px">
@@ -1412,7 +1452,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (VISUALLY BETTER) -->
+    <!-- TESTIMONIALS -->
     <section id="testimonials" aria-label="Testimonials">
       <div class="container">
         <div class="wrap theme-blue reveal">
@@ -1654,7 +1694,7 @@
     }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.01 });
     sections.forEach(s => navIO.observe(s));
 
-    // Testimonials (better UI + dots)
+    // Testimonials
     const testimonials = [
       { text: "Robert supported our service to get inspection-ready with clear actions and confidence across the team.", who: "Registered Manager", where: "Yorkshire" },
       { text: "Clear governance, practical improvements, and a supportive approach that kept staff focused and calm.", who: "Operations Lead", where: "Northern England" },

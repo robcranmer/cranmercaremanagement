@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="shortcut icon" href="favicon.ico" />
 
-  <meta name="description" content="Cranmer Care Management Ltd: Supporting care providers improve quality, compliance and outcomes across all care settings — including mental health." />
+  <meta
+    name="description"
+    content="Cranmer Care Management Ltd: Supporting care providers improve quality, compliance and outcomes across all care settings — including mental health."
+  />
 
   <style>
     :root{
@@ -186,7 +190,7 @@
       border:1px solid rgba(255,255,255,0.28);
       box-shadow: var(--shadow3);
 
-      /* READABILITY FIX: strong contrast on the light mobile menu cards */
+      /* readability */
       color: var(--navy) !important;
       text-shadow: none !important;
 
@@ -275,13 +279,7 @@
       color: var(--navy);
     }
 
-    /* ===========================
-       READABILITY FIX (GLOBAL)
-       - ensures text always contrasts against its section background
-       - removes "force everything white" (which was making cards / light areas unreadable)
-       =========================== */
-
-    /* Dark section defaults: keep headings/body readable */
+    /* READABILITY FIXES */
     .theme-blue, .theme-pink{ color:#fff; }
     .theme-blue h1,.theme-blue h2,.theme-blue h3,.theme-blue h4,
     .theme-pink h1,.theme-pink h2,.theme-pink h3,.theme-pink h4,
@@ -292,7 +290,7 @@
     }
     .theme-blue a, .theme-pink a{ color: rgba(255,255,255,0.98); }
 
-    /* BUT: white cards inside dark sections should stay dark text on white */
+    /* White cards inside dark sections should remain dark text */
     .theme-blue .card,
     .theme-blue .quote,
     .theme-blue .tmeta,
@@ -319,7 +317,6 @@
       color: rgba(11,27,74,0.88) !important;
     }
 
-    /* Kicker */
     .kicker{
       display:inline-block;
       padding:7px 12px;
@@ -341,7 +338,7 @@
       text-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
 
-    /* Typography (headings bold, body normal) */
+    /* Typography */
     h1,h2,h3,h4{ margin:0 0 10px; font-weight:950; letter-spacing:.2px; }
     p{ margin:0 0 12px; font-weight:400; }
     .h1{ font-size:48px; line-height:1.05; }
@@ -353,8 +350,10 @@
       color: rgba(255,255,255,0.95);
       text-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
-    /* Lead text when it sits inside white cards (override) */
-    .theme-blue .card .lead, .theme-pink .card .lead{ color: rgba(11,27,74,0.90) !important; text-shadow:none !important; }
+    .theme-blue .card .lead, .theme-pink .card .lead{
+      color: rgba(11,27,74,0.90) !important;
+      text-shadow:none !important;
+    }
 
     @media (max-width: 980px){
       .h1{ font-size:40px; }
@@ -417,7 +416,13 @@
       position:relative;
     }
     .image-card:hover{ transform: translateY(-2px); }
-    .image-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; }
+    .image-card img{
+      width:100%;
+      height:100%;
+      min-height:330px;
+      object-fit:cover;
+      object-position:center;
+    }
     .image-card .overlay{
       position:absolute; inset:auto 14px 14px 14px;
       border-radius: 18px;
@@ -469,133 +474,7 @@
       color: rgba(11,27,74,0.98);
     }
 
-    /* Tabs */
-    .tabs{
-      margin-top:12px;
-      border-radius: calc(var(--r) + 10px);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      box-shadow: var(--shadow3);
-    }
-    .tabbar{
-      display:flex; flex-wrap:wrap; gap:8px;
-      padding:12px;
-      border-bottom:1px solid rgba(255,255,255,0.18);
-    }
-    .tabbtn{
-      border:none;
-      cursor:pointer;
-      padding:9px 12px;
-      border-radius:999px;
-      font-weight:900;
-      background: rgba(255,255,255,0.86);
-      border:1px solid rgba(255,255,255,0.34);
-      box-shadow: var(--shadow3);
-      color: var(--navy);
-      transition: transform 160ms ease, filter 160ms ease;
-    }
-    .tabbtn:hover{ transform: translateY(-1px); filter:brightness(1.02); }
-    .tabbtn[aria-selected="true"]{
-      background: linear-gradient(135deg, rgba(233,30,99,0.92), rgba(30,58,138,0.92));
-      color:#fff;
-      border-color: rgba(255,255,255,0.18);
-      text-shadow: 0 8px 18px rgba(0,0,0,0.20);
-    }
-    .tabpanel{ display:none; padding:14px; }
-    .tabpanel.active{ display:block; }
-
-    /* Testimonial cards */
-    .twrap{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top:12px;
-    }
-    .tcard{
-      background: linear-gradient(135deg, rgba(233,30,99,0.10), rgba(30,58,138,0.10));
-      border:1px solid rgba(255,255,255,0.18);
-      border-radius: calc(var(--r) + 10px);
-      box-shadow: var(--shadow2);
-      padding:16px;
-      position:relative;
-      overflow:hidden;
-    }
-    .tcard:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(480px 220px at 10% 20%, rgba(233,30,99,0.20), transparent 55%),
-        radial-gradient(520px 240px at 92% 30%, rgba(30,58,138,0.18), transparent 60%);
-      pointer-events:none;
-    }
-    .tcard > *{ position:relative; }
-    .tgrid{
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){ .tgrid{ grid-template-columns:1fr; } }
-    .quote{
-      background:#fff;
-      border:1px solid var(--stroke);
-      border-radius: calc(var(--r) + 6px);
-      box-shadow: var(--shadow3);
-      padding:16px;
-    }
-    .quote p{
-      margin:0;
-      font-size:20px;
-      line-height:1.35;
-      color: rgba(11,27,74,0.96);
-    }
-    .quote p:before{
-      content:"“";
-      font-weight:950;
-      font-size:34px;
-      margin-right:6px;
-      color: rgba(233,30,99,0.92);
-    }
-    .quote p:after{
-      content:"”";
-      font-weight:950;
-      font-size:34px;
-      margin-left:6px;
-      color: rgba(30,58,138,0.92);
-    }
-    .tmeta{
-      background:#fff;
-      border:1px solid var(--stroke);
-      border-radius: calc(var(--r) + 6px);
-      box-shadow: var(--shadow3);
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .tmeta .who{ font-weight:950; font-size:18px; color: var(--navy); }
-    .tmeta .where{ font-weight:900; color: rgba(11,27,74,0.86); }
-    .tdots{
-      display:flex; gap:8px; flex-wrap:wrap;
-      margin-top:12px;
-      justify-content:flex-start;
-    }
-    .dot{
-      width:10px; height:10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.30);
-      cursor:pointer;
-    }
-    .dot.active{
-      background: rgba(255,255,255,0.92);
-      border-color: rgba(255,255,255,0.92);
-    }
-
-    /* Resources */
+    /* Resource hero */
     .resource-hero{
       display:flex;
       gap:14px;
@@ -641,6 +520,7 @@
       color: var(--navy);
     }
 
+    /* Resource cards */
     .rgrid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:14px; }
     @media (max-width: 980px){ .rgrid{ grid-template-columns:1fr; } }
 
@@ -958,10 +838,11 @@
               </div>
             </div>
 
-            <div class="image-card" aria-label="Care image">
+            <!-- HERO IMAGE UPDATED (replaces old Robert Cranmer image) -->
+            <div class="image-card" aria-label="Cranmer Care Management image">
               <img
-                src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/care.jpg.webp"
-                alt="Care and support"
+                src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/WhatsApp%20Image%202026-03-05%20at%2018.35.45.jpeg"
+                alt="Cranmer Care Management Ltd"
                 loading="eager"
               />
               <div class="overlay" aria-label="Overlay note">
@@ -969,6 +850,7 @@
                 Evidence packs, action plans, audits, training, governance — built around your service.
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -1246,6 +1128,7 @@
           </div>
 
           <div class="rgrid" id="resourceGrid">
+            <!-- CQC -->
             <article class="rcard resource" data-cat="cqc" data-keywords="cqc inspection key questions kloe safe effective caring responsive well-led">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">🔎</div>
@@ -1278,6 +1161,7 @@
               </div>
             </article>
 
+            <!-- Safeguarding -->
             <article class="rcard resource" data-cat="safeguarding" data-keywords="safeguarding adults abuse neglect reporting local authority">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">🛡️</div>
@@ -1310,6 +1194,7 @@
               </div>
             </article>
 
+            <!-- MCA / DoLS -->
             <article class="rcard resource" data-cat="mca" data-keywords="mental capacity act mca best interests consent capacity">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">⚖️</div>
@@ -1342,6 +1227,7 @@
               </div>
             </article>
 
+            <!-- Governance / Quality -->
             <article class="rcard resource" data-cat="quality" data-keywords="quality governance audit improvement clinical governance">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">📋</div>
@@ -1358,6 +1244,7 @@
               </div>
             </article>
 
+            <!-- Mental health -->
             <article class="rcard resource" data-cat="mh" data-keywords="adult mental health guidance crisis support depression anxiety">
               <div class="rhead">
                 <div class="rico" aria-hidden="true">🧠</div>
@@ -1406,52 +1293,6 @@
       </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section id="partners" aria-label="Partners and sponsorships">
-      <div class="container">
-        <div class="wrap theme-mix reveal">
-          <span class="kicker">Partners</span>
-          <h2 class="h2">Partnerships &amp; sponsorships</h2>
-          <p class="lead">
-            We’re committed to supporting locally run organisations — because strong communities support better outcomes.
-          </p>
-
-          <div class="grid-2">
-            <div class="card">
-              <span class="badge">Horbury Town Football Club</span>
-              <h3 style="margin-top:10px">Proud partners &amp; sponsors</h3>
-              <p>
-                Cranmer Care Management Ltd is proud to be involved with <strong>Horbury Town Football Club</strong>,
-                demonstrating our commitment to supporting locally-run organisations and community sport.
-              </p>
-              <ul>
-                <li>Visible local commitment</li>
-                <li>Backing grassroots development</li>
-                <li>Supporting strong, connected communities</li>
-              </ul>
-              <div class="btnrow">
-                <a class="btn primary" href="#contact">Talk partnerships</a>
-                <a class="btn" href="#resources">Community resources</a>
-              </div>
-            </div>
-
-            <div class="image-card" aria-label="Horbury Town Football Club partnership image">
-              <img
-                src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/5762ACA7-92AA-4012-9C6E-2A148440EABD.jpeg"
-                alt="Cranmer Care Management Ltd partnership and sponsorship with Horbury Town Football Club"
-                loading="lazy"
-              />
-              <div class="overlay">
-                <b>Supporting locally run organisations</b>
-                Partnership &amp; sponsorship with Horbury Town Football Club.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- TESTIMONIALS -->
     <section id="testimonials" aria-label="Testimonials">
       <div class="container">
@@ -1459,7 +1300,7 @@
           <span class="kicker">Testimonials</span>
           <h2 class="h2">What clients say</h2>
           <p class="lead">
-            Replace the sample testimonials below with your real feedback — the slider and dots will update automatically.
+            
           </p>
 
           <div class="tcard">
@@ -1484,7 +1325,7 @@
             <div class="tdots" id="dots" aria-label="Testimonial selector"></div>
 
             <p class="muted" style="margin-top:12px">
-              Tip: Add 5–10 testimonials for a stronger look (mix roles and service types).
+             
             </p>
           </div>
 
@@ -1645,13 +1486,20 @@
     const menuBtn = $("#menuBtn");
     const mobileNav = $("#mobileNav");
 
-    function closeNav(){ document.body.classList.remove("nav-open"); menuBtn?.setAttribute("aria-expanded","false"); }
-    function openNav(){ document.body.classList.add("nav-open"); menuBtn?.setAttribute("aria-expanded","true"); }
+    function closeNav(){
+      document.body.classList.remove("nav-open");
+      menuBtn?.setAttribute("aria-expanded","false");
+    }
+    function openNav(){
+      document.body.classList.add("nav-open");
+      menuBtn?.setAttribute("aria-expanded","true");
+    }
 
     menuBtn?.addEventListener("click", () => {
       const isOpen = document.body.classList.contains("nav-open");
       isOpen ? closeNav() : openNav();
     });
+
     mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
     window.addEventListener("resize", () => { if (window.innerWidth > 1120) closeNav(); });
@@ -1694,7 +1542,7 @@
     }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.01 });
     sections.forEach(s => navIO.observe(s));
 
-    // Testimonials
+    // Testimonials (dots)
     const testimonials = [
       { text: "Robert supported our service to get inspection-ready with clear actions and confidence across the team.", who: "Registered Manager", where: "Yorkshire" },
       { text: "Clear governance, practical improvements, and a supportive approach that kept staff focused and calm.", who: "Operations Lead", where: "Northern England" },
@@ -1708,6 +1556,7 @@
     const dots = $("#dots");
 
     function renderDots(){
+      if (!dots) return;
       dots.innerHTML = "";
       testimonials.forEach((_, i) => {
         const d = document.createElement("button");
@@ -1721,13 +1570,19 @@
 
     function renderTestimonial(){
       const t = testimonials[tIndex];
-      quoteText.textContent = t.text;
-      quoteWho.textContent = t.who;
-      quoteWhere.textContent = t.where;
+      if (quoteText) quoteText.textContent = t.text;
+      if (quoteWho) quoteWho.textContent = t.who;
+      if (quoteWhere) quoteWhere.textContent = t.where;
       renderDots();
     }
-    $("#prevTest")?.addEventListener("click", () => { tIndex = (tIndex - 1 + testimonials.length) % testimonials.length; renderTestimonial(); });
-    $("#nextTest")?.addEventListener("click", () => { tIndex = (tIndex + 1) % testimonials.length; renderTestimonial(); });
+    $("#prevTest")?.addEventListener("click", () => {
+      tIndex = (tIndex - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial();
+    });
+    $("#nextTest")?.addEventListener("click", () => {
+      tIndex = (tIndex + 1) % testimonials.length;
+      renderTestimonial();
+    });
     renderTestimonial();
 
     // Toast
@@ -1738,13 +1593,14 @@
     let toastTimer = null;
 
     function showToast(title, msg){
+      if (!toast) return;
       toastTitle.textContent = title;
       toastMsg.textContent = msg;
       toast.classList.add("show");
       if (toastTimer) clearTimeout(toastTimer);
       toastTimer = setTimeout(() => toast.classList.remove("show"), 5200);
     }
-    toastClose.addEventListener("click", () => toast.classList.remove("show"));
+    toastClose?.addEventListener("click", () => toast?.classList.remove("show"));
 
     // Contact form (mailto builder + copy)
     const form = $("#contactForm");
@@ -1753,7 +1609,7 @@
     function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
     function val(id){ return String($(id)?.value || "").trim(); }
 
-    form.addEventListener("submit", async (e) => {
+    form?.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = val("#name");
@@ -1807,7 +1663,7 @@ ${message}
     let activeFilter = "all";
 
     function applyResourceFilters(){
-      const q = String(resourceSearch.value || "").trim().toLowerCase();
+      const q = String(resourceSearch?.value || "").trim().toLowerCase();
       resourceCards.forEach(card => {
         const cat = card.getAttribute("data-cat");
         const keywords = (card.getAttribute("data-keywords") || "") + " " + card.textContent;
@@ -1826,14 +1682,15 @@ ${message}
       });
     });
 
-    resourceSearch.addEventListener("input", applyResourceFilters);
-    clearSearch.addEventListener("click", () => {
-      resourceSearch.value = "";
+    resourceSearch?.addEventListener("input", applyResourceFilters);
+    clearSearch?.addEventListener("click", () => {
+      if (resourceSearch) resourceSearch.value = "";
       applyResourceFilters();
-      resourceSearch.focus();
+      resourceSearch?.focus();
     });
 
     applyResourceFilters();
   </script>
 </body>
 </html>
+```

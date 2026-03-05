@@ -14,7 +14,6 @@
     content="Cranmer Care Management Ltd: Supporting care providers improve quality, compliance and outcomes across all care settings — including mental health."
   />
 
-}
   <style>
     :root{
       --pink:#e91e63;
@@ -356,22 +355,49 @@
         radial-gradient(240px 170px at 90% 20%, rgba(30,58,138,0.14), transparent 60%);
       pointer-events:none;
     }
+
+    /* IMPORTANT: Fix Robert photo crop on desktop + mobile */
     .avatar img{
       width:100%;
-      height:210px;
+      height:220px;
+      object-fit:cover;
+      object-position: center 10%; /* shows more of the top of the head */
+    }
+    @media (max-width: 640px){
+      .avatar img{
+        height:300px;
+        object-position: center 8%;
+      }
+    }
+
+    /* Partners image card */
+    .image-card{
+      border-radius: calc(var(--r) + 6px);
+      overflow:hidden;
+      border:1px solid rgba(11,27,74,0.12);
+      box-shadow: var(--shadow2);
+      background:#fff;
+      position:relative;
+      min-height: 320px;
+    }
+    .image-card img{
+      width:100%;
+      height:100%;
+      min-height:320px;
       object-fit:cover;
       object-position:center;
     }
-    @media (max-width: 640px){
-      .avatar img{ height:260px; }
+    .image-card .overlay{
+      position:absolute; inset:auto 14px 14px 14px;
+      border-radius: 16px;
+      padding:12px 12px;
+      background: rgba(11,27,74,.84);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(10px);
     }
-    .roleline{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      margin:6px 0 10px;
-    }
+    .image-card .overlay b{ font-weight:950; display:block; margin-bottom:2px; }
 
     /* Contact */
     .contact-grid{
@@ -453,6 +479,7 @@
         <a href="#services">Services</a>
         <a href="#cqc">CQC</a>
         <a href="#team">Meet the team</a>
+        <a href="#partners">Partners</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -468,6 +495,7 @@
       <a href="#services">Services <span aria-hidden="true">›</span></a>
       <a href="#cqc">CQC <span aria-hidden="true">›</span></a>
       <a href="#team">Meet the team <span aria-hidden="true">›</span></a>
+      <a href="#partners">Partners <span aria-hidden="true">›</span></a>
       <a href="#contact">Contact <span aria-hidden="true">›</span></a>
     </div>
   </div>
@@ -491,12 +519,13 @@
             <span class="chip">🧠 Mental health expertise</span>
             <span class="chip">🧩 Service set-up support</span>
             <span class="chip">📝 Tender writing</span>
+            <span class="chip">🤝 Local support</span>
           </div>
 
           <div class="btnrow" aria-label="Primary actions">
             <a class="btn primary" href="#contact">Start a conversation</a>
             <a class="btn" href="#services">Explore services</a>
-            <a class="btn" href="#team">Meet the team</a>
+            <a class="btn" href="#partners">Local partnerships</a>
           </div>
         </div>
       </div>
@@ -554,9 +583,9 @@
           </div>
 
           <div class="card" style="margin-top:12px">
-            <h3>How we work</h3>
+            <h3>Local support</h3>
             <p class="muted" style="margin:0">
-              Clear baseline review → priorities agreed → improvement plan with owners and deadlines → evidence and governance embedded → re-check and refine.
+              We’re committed to supporting local services and community organisations — because strong communities support better outcomes.
             </p>
           </div>
         </div>
@@ -706,7 +735,7 @@
               </div>
 
               <div>
-                <div class="roleline">
+                <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:0 0 10px">
                   <h3 style="margin:0">Robert Cranmer</h3>
                   <span class="badge">Managing Director</span>
                   <span class="badge">Adult Social Care &amp; Mental Health</span>
@@ -747,6 +776,52 @@
                   <a class="btn primary" href="#contact">Contact Robert</a>
                   <a class="btn" href="mailto:support@cranmercare.co.uk">Email now</a>
                 </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners" aria-label="Partners and sponsorships">
+      <div class="container">
+        <div class="wrap section-grad">
+          <span class="kicker"><span class="spark" aria-hidden="true">🤝</span> Partners</span>
+          <h2 class="h2">Partnerships &amp; sponsorships</h2>
+          <p class="lead">
+            We’re committed to supporting locally run organisations — because strong communities support better outcomes.
+          </p>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="badge">Horbury Town Football Club</div>
+              <h3 style="margin-top:10px">Proud partners &amp; sponsors</h3>
+              <p class="muted">
+                Cranmer Care Management Ltd is proud to be involved with <strong>Horbury Town Football Club</strong>, demonstrating
+                our commitment to local support, grassroots sport and community wellbeing.
+              </p>
+              <ul>
+                <li>Visible local commitment</li>
+                <li>Backing grassroots development</li>
+                <li>Supporting strong, connected communities</li>
+              </ul>
+              <div class="btnrow">
+                <a class="btn primary" href="#contact">Talk partnerships</a>
+                <a class="btn" href="#whatwedo">Back to what we do</a>
+              </div>
+            </div>
+
+            <div class="image-card" aria-label="Horbury Town Football Club sponsorship image">
+              <img
+                src="https://raw.githubusercontent.com/robcranmer/cranmercaremanagement/refs/heads/main/5762ACA7-92AA-4012-9C6E-2A148440EABD.jpeg"
+                alt="Cranmer Care Management Ltd matchday tracksuit sponsorship with Horbury Town Football Club"
+                loading="lazy"
+              />
+              <div class="overlay">
+                <b>Local support in action</b>
+                Sponsorship of Horbury Town FC matchday tracksuits.
               </div>
             </div>
           </div>
@@ -799,6 +874,7 @@
                     <option>Turnaround support</option>
                     <option>Evidence packs / governance</option>
                     <option>Tender writing</option>
+                    <option>Partnership / sponsorship</option>
                     <option>Other</option>
                   </select>
                 </div>

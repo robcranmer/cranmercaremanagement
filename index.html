@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cranmer Care Management Ltd</title>
+  <title>Cranmer Care Management Ltd | Primary Care & Clinical Governance</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -11,7 +11,7 @@
 
   <meta
     name="description"
-    content="Cranmer Care Management Ltd: Supporting care providers improve quality, compliance and outcomes across all care settings — including mental health."
+    content="Cranmer Care Management Ltd: Primary care and clinical governance support for GP practices, PCNs and care providers, including quality improvement, compliance, CQC readiness and governance assurance."
   />
 
   <style>
@@ -56,7 +56,6 @@
 
     :focus-visible{ outline:none; box-shadow: var(--focus); border-radius: 12px; }
 
-    /* Top bar */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
@@ -135,7 +134,6 @@
     }
     .nav a:hover{ transform: translateY(-1px); filter:brightness(1.06); }
 
-    /* Mobile menu */
     .menu-btn{
       display:none;
       border:none;
@@ -187,7 +185,6 @@
     }
     .mobile-nav a:hover{ transform: translateY(-1px); }
 
-    /* Sections */
     section{ padding:18px 0; }
     .wrap{
       padding:22px;
@@ -248,7 +245,6 @@
       .wrap{ padding:16px; }
     }
 
-    /* Highlight pills */
     .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
     .chip{
       display:inline-flex; align-items:center; gap:8px;
@@ -262,7 +258,6 @@
       color: rgba(11,27,74,0.98);
     }
 
-    /* Grids & cards */
     .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:12px; }
     .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px; }
     @media (max-width: 980px){
@@ -304,7 +299,6 @@
       color: var(--navy);
     }
 
-    /* Buttons */
     .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -328,7 +322,6 @@
     }
     .btn:hover{ transform: translateY(-1px); filter:brightness(1.03); box-shadow: 0 18px 54px rgba(15,23,42,0.18); }
 
-    /* Meet the team */
     .team{
       display:grid;
       grid-template-columns: 170px 1fr;
@@ -356,12 +349,11 @@
       pointer-events:none;
     }
 
-    /* IMPORTANT: Fix Robert photo crop on desktop + mobile */
     .avatar img{
       width:100%;
       height:220px;
       object-fit:cover;
-      object-position: center 10%; /* shows more of the top of the head */
+      object-position: center 10%;
     }
     @media (max-width: 640px){
       .avatar img{
@@ -370,7 +362,6 @@
       }
     }
 
-    /* Partners image card */
     .image-card{
       border-radius: calc(var(--r) + 6px);
       overflow:hidden;
@@ -399,7 +390,6 @@
     }
     .image-card .overlay b{ font-weight:950; display:block; margin-bottom:2px; }
 
-    /* Contact */
     .contact-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -433,7 +423,6 @@
       box-shadow: var(--focus);
     }
 
-    /* Footer */
     footer{
       margin-top:18px;
       background: rgba(11, 27, 74, 0.92);
@@ -468,18 +457,19 @@
           <span class="ico" aria-hidden="true">📧</span>
           <span>support@cranmercare.co.uk</span>
         </a>
-        <a class="chiplink" href="tel:+441274449277" aria-label="Call 01274 449277">
+        <a class="chiplink" href="tel:+447793487157" aria-label="Call 07793487157">
           <span class="ico" aria-hidden="true">📞</span>
-          <span>01274 449277</span>
+          <span>07793487157</span>
         </a>
       </div>
 
       <nav class="nav" aria-label="Page sections">
-        <a href="#whatwedo">What we do</a>
+        <a href="#primarycare">Primary Care</a>
+        <a href="#governance">Governance</a>
         <a href="#services">Services</a>
+        <a href="#caresettings">Care Settings</a>
         <a href="#cqc">CQC</a>
         <a href="#team">Meet the team</a>
-        <a href="#partners">Partners</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -491,148 +481,195 @@
 
   <div class="mobile-nav" id="mobileNav" aria-label="Mobile menu">
     <div class="container">
-      <a href="#whatwedo">What we do <span aria-hidden="true">›</span></a>
+      <a href="#primarycare">Primary Care <span aria-hidden="true">›</span></a>
+      <a href="#governance">Clinical Governance <span aria-hidden="true">›</span></a>
       <a href="#services">Services <span aria-hidden="true">›</span></a>
+      <a href="#caresettings">Care Settings <span aria-hidden="true">›</span></a>
       <a href="#cqc">CQC <span aria-hidden="true">›</span></a>
       <a href="#team">Meet the team <span aria-hidden="true">›</span></a>
-      <a href="#partners">Partners <span aria-hidden="true">›</span></a>
       <a href="#contact">Contact <span aria-hidden="true">›</span></a>
     </div>
   </div>
 
   <main id="main">
-    <!-- HERO (no personal photo) -->
     <section aria-label="Hero">
       <div class="container">
         <div class="wrap hero">
-          <span class="kicker"><span class="spark" aria-hidden="true">✨</span> Est 2024 • Supporting &amp; assisting providers</span>
+          <span class="kicker"><span class="spark" aria-hidden="true">✨</span> Est 2024 • Primary Care &amp; Clinical Governance</span>
           <h1 class="h1">Cranmer Care Management Ltd</h1>
           <p class="lead">
-            Practical support for care providers to improve quality, strengthen compliance, and feel confident for inspection across
-            older people’s care, dementia, learning disabilities, supported living and mental health services.
+            Practical, hands-on support for GP practices, Primary Care Networks, supported living services and residential care providers to strengthen clinical governance,
+            improve quality, evidence compliance, and prepare confidently for inspection or assurance reviews.
           </p>
 
           <div class="chips" aria-label="Highlights">
+            <span class="chip">🏥 Primary care support</span>
+            <span class="chip">📋 Clinical governance</span>
             <span class="chip">✅ Quality improvement</span>
-            <span class="chip">📋 Mock inspections</span>
-            <span class="chip">🔎 Evidence packs</span>
-            <span class="chip">🧠 Mental health expertise</span>
-            <span class="chip">🧩 Service set-up support</span>
-            <span class="chip">📝 Tender writing</span>
-            <span class="chip">🤝 Local support</span>
+            <span class="chip">🔎 CQC readiness</span>
+            <span class="chip">🏡 Residential care</span>
+            <span class="chip">🧩 Supported living</span>
+            <span class="chip">🧾 Evidence packs</span>
+            <span class="chip">⚠️ Risk &amp; incident oversight</span>
+            <span class="chip">🤝 Practical leadership support</span>
           </div>
 
           <div class="btnrow" aria-label="Primary actions">
             <a class="btn primary" href="#contact">Start a conversation</a>
-            <a class="btn" href="#services">Explore services</a>
-            <a class="btn" href="#partners">Local partnerships</a>
+            <a class="btn" href="#governance">Clinical governance support</a>
+            <a class="btn" href="#caresettings">Care settings supported</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT WE DO -->
-    <section id="whatwedo" aria-label="What we do">
+    <section id="primarycare" aria-label="Primary Care">
       <div class="container">
         <div class="wrap section-grad">
-          <span class="kicker"><span class="spark" aria-hidden="true">🧭</span> What we do</span>
-          <h2 class="h2">Practical support that makes services better</h2>
+          <span class="kicker"><span class="spark" aria-hidden="true">🏥</span> Primary Care</span>
+          <h2 class="h2">Support for GP practices, PCNs and community-facing services</h2>
           <p class="lead">
-            We help providers get organised, improve day-to-day standards, and build confidence across teams with clear systems and structured governance.
+            We help primary care teams create clear systems, reduce avoidable risk, strengthen oversight and evidence the quality of care being delivered.
           </p>
 
           <div class="grid-3">
             <div class="card">
-              <div class="badge">Quality &amp; compliance</div>
-              <h3 style="margin-top:10px">Inspection readiness that’s easy to maintain</h3>
+              <div class="badge">Practice readiness</div>
+              <h3 style="margin-top:10px">Organised, inspection-ready services</h3>
               <p class="muted">
-                Audits, policies, training, evidence mapping and improvement plans aligned to how services run in reality.
+                Practical support to prepare for CQC inspection, local assurance visits, contract monitoring and internal governance reviews.
               </p>
               <ul>
-                <li>Evidence mapping and improvement tracking</li>
-                <li>Quality and risk assurance</li>
-                <li>Practical fixes teams can sustain</li>
+                <li>Evidence mapping and folder structures</li>
+                <li>Practice-level action planning</li>
+                <li>Clear tracking of risks, actions and learning</li>
               </ul>
             </div>
 
             <div class="card">
-              <div class="badge">Clinical governance</div>
-              <h3 style="margin-top:10px">Oversight that reduces risk</h3>
+              <div class="badge">PCN governance</div>
+              <h3 style="margin-top:10px">Governance across services and roles</h3>
               <p class="muted">
-                Simple governance that gives leaders clear visibility and helps teams keep on top of priorities.
+                Support to strengthen governance for multidisciplinary working, ARRS roles, enhanced access and community-based pathways.
               </p>
               <ul>
-                <li>Incident learning &amp; trend reporting</li>
+                <li>Role clarity and accountability</li>
+                <li>Clinical supervision arrangements</li>
+                <li>Governance meeting rhythm and reporting</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge">Quality improvement</div>
+              <h3 style="margin-top:10px">Improvement that is realistic</h3>
+              <p class="muted">
+                Simple, measurable quality improvement plans that work around the pressures of busy clinical and operational teams.
+              </p>
+              <ul>
+                <li>Audit cycles and improvement logs</li>
+                <li>Patient safety and experience themes</li>
+                <li>Clear owners, deadlines and evidence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="governance" aria-label="Clinical Governance">
+      <div class="container">
+        <div class="wrap section-grad">
+          <span class="kicker"><span class="spark" aria-hidden="true">📋</span> Clinical Governance</span>
+          <h2 class="h2">Clear oversight, safer practice and stronger assurance</h2>
+          <p class="lead">
+            Effective clinical governance should be visible, simple to follow and useful to staff. We help providers build governance systems that identify risk, evidence learning and support safer care.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="badge">Risk &amp; safety</div>
+              <h3 style="margin-top:10px">Know your risks and act early</h3>
+              <p class="muted">Support with risk registers, significant event reviews, safeguarding oversight and escalation routes.</p>
+              <ul>
                 <li>Risk registers and action logs</li>
-                <li>Provider-level dashboards</li>
+                <li>Incident, complaint and safeguarding themes</li>
+                <li>Learning reviews and improvement tracking</li>
               </ul>
             </div>
 
             <div class="card">
-              <div class="badge">Workforce support</div>
-              <h3 style="margin-top:10px">Stability, capability and confidence</h3>
-              <p class="muted">
-                Support to strengthen recruitment, onboarding, supervision and leadership development.
-              </p>
+              <div class="badge">Clinical oversight</div>
+              <h3 style="margin-top:10px">Governance that leaders can use</h3>
+              <p class="muted">A practical governance framework with meeting structures, reports, dashboards and accountable owners.</p>
               <ul>
-                <li>Onboarding, supervisions and competency</li>
-                <li>Safer staffing and rota resilience</li>
-                <li>Coaching for leaders</li>
+                <li>Governance meeting templates</li>
+                <li>Monthly reporting dashboards</li>
+                <li>Audit schedules and assurance cycles</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge">Workforce assurance</div>
+              <h3 style="margin-top:10px">Competent, supported teams</h3>
+              <p class="muted">Support to evidence that staff have the training, supervision and competence needed for safe practice.</p>
+              <ul>
+                <li>Training matrix reviews</li>
+                <li>Clinical supervision arrangements</li>
+                <li>Competency and role assurance</li>
               </ul>
             </div>
           </div>
 
           <div class="card" style="margin-top:12px">
-            <h3>Local support</h3>
+            <h3>Governance should reduce pressure, not add paperwork</h3>
             <p class="muted" style="margin:0">
-              We’re committed to supporting local services and community organisations — because strong communities support better outcomes.
+              The aim is to create a proportionate system that helps leaders see what is working, what needs attention, and what evidence is required to demonstrate safe, effective and well-led care.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="services" aria-label="Services">
       <div class="container">
         <div class="wrap section-grad">
           <span class="kicker"><span class="spark" aria-hidden="true">🛠️</span> Services</span>
           <h2 class="h2">How we can support and assist</h2>
           <p class="lead">
-            One-off support or a structured improvement programme. On-site or remote across England and the wider UK.
+            One-off reviews, targeted support or structured improvement programmes for primary care, supported living, residential care and wider regulated services. Available on-site or remotely across England and the wider UK.
           </p>
 
           <div class="grid-3">
             <div class="card">
-              <div class="badge">Mock inspection</div>
-              <h3 style="margin-top:10px">A realistic CQC-style review</h3>
-              <p class="muted">A clear report and practical next steps focused on the five key questions.</p>
+              <div class="badge">Governance review</div>
+              <h3 style="margin-top:10px">A clear view of strengths and gaps</h3>
+              <p class="muted">A practical review of your governance arrangements with clear findings and next steps.</p>
               <ul>
-                <li>Findings against Safe, Effective, Caring, Responsive, Well-led</li>
-                <li>Leadership and governance focus</li>
-                <li>Action plan + evidence tracker</li>
+                <li>Clinical governance framework review</li>
+                <li>Risk, audit and assurance checks</li>
+                <li>Report with prioritised recommendations</li>
               </ul>
             </div>
 
             <div class="card">
-              <div class="badge">Post-inspection support</div>
-              <h3 style="margin-top:10px">Turn feedback into action</h3>
-              <p class="muted">Rapid support to prioritise risk and track evidence to completion.</p>
+              <div class="badge">Mock inspection</div>
+              <h3 style="margin-top:10px">A realistic CQC-style review</h3>
+              <p class="muted">A structured review aligned to the five key questions, with a practical action plan and evidence tracker.</p>
+              <ul>
+                <li>Safe, Effective, Caring, Responsive, Well-led</li>
+                <li>Leadership and governance focus</li>
+                <li>Action plan with owners and evidence required</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge">Post-review support</div>
+              <h3 style="margin-top:10px">Turn findings into completed action</h3>
+              <p class="muted">Support to prioritise, implement and evidence improvements after inspection, audit or governance review.</p>
               <ul>
                 <li>Risk-led priorities</li>
                 <li>Owner / deadline / evidence per action</li>
-                <li>Support with provider response structure</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <div class="badge">Turnaround</div>
-              <h3 style="margin-top:10px">Hands-on improvement</h3>
-              <p class="muted">Where services need stability, pace, and clear oversight.</p>
-              <ul>
-                <li>Immediate risk assessment</li>
-                <li>First-week plan and tracking</li>
-                <li>Coaching for leaders</li>
+                <li>Board, partner or commissioner-ready updates</li>
               </ul>
             </div>
           </div>
@@ -642,7 +679,7 @@
               <div class="badge">Evidence &amp; documentation</div>
               <h3 style="margin-top:10px">Evidence packs and folder structures</h3>
               <p class="muted">
-                Build a simple evidence system so “being ready” is part of daily work, not a last-minute rush.
+                Build a simple evidence system so readiness becomes part of daily work, not a last-minute rush.
               </p>
               <ul>
                 <li>Evidence map aligned to service type</li>
@@ -655,12 +692,12 @@
               <div class="badge">Tender writing</div>
               <h3 style="margin-top:10px">Bid &amp; tender support</h3>
               <p class="muted">
-                Clear, compliant, evidence-led submissions with strong methodology, staffing, governance and quality assurances.
+                Clear, compliant, evidence-led submissions with strong methodology, staffing, governance and quality assurance content.
               </p>
               <ul>
                 <li>Method statements and mobilisation plans</li>
                 <li>Quality assurance and governance narrative</li>
-                <li>Policies, workforce and outcomes evidence</li>
+                <li>Workforce, outcomes and safeguarding evidence</li>
               </ul>
             </div>
           </div>
@@ -673,14 +710,71 @@
       </div>
     </section>
 
-    <!-- CQC -->
+    <section id="caresettings" aria-label="Care settings supported">
+      <div class="container">
+        <div class="wrap section-grad">
+          <span class="kicker"><span class="spark" aria-hidden="true">🏡</span> Care Settings</span>
+          <h2 class="h2">Primary care, supported living and residential care</h2>
+          <p class="lead">
+            The website keeps a clear focus on Primary Care and Clinical Governance while continuing to reflect the wider support available to regulated care providers.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="badge">Primary Care</div>
+              <h3 style="margin-top:10px">GP practices and PCNs</h3>
+              <p class="muted">
+                Governance reviews, evidence mapping, assurance preparation and practical support for practice and network-level oversight.
+              </p>
+              <ul>
+                <li>Clinical governance frameworks</li>
+                <li>Risk, audit and incident oversight</li>
+                <li>CQC and assurance readiness</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge">Residential Care</div>
+              <h3 style="margin-top:10px">Older people, dementia and care home services</h3>
+              <p class="muted">
+                Practical quality, compliance and governance support for residential care services, including evidence packs and improvement planning.
+              </p>
+              <ul>
+                <li>Safe, Effective, Caring, Responsive and Well-led evidence</li>
+                <li>Medicines, safeguarding and care plan oversight</li>
+                <li>Manager and senior team coaching</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge">Supported Living</div>
+              <h3 style="margin-top:10px">Community support and complex needs</h3>
+              <p class="muted">
+                Support for supported living, mental health and learning disability services where governance needs to be clear, proportionate and easy to evidence.
+              </p>
+              <ul>
+                <li>Person-centred risk and support planning</li>
+                <li>Staff competency and supervision evidence</li>
+                <li>Incident learning and outcomes tracking</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="btnrow">
+            <a class="btn primary" href="#contact">Discuss your service</a>
+            <a class="btn" href="#services">View services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="cqc" aria-label="CQC">
       <div class="container">
         <div class="wrap section-grad">
           <span class="kicker"><span class="spark" aria-hidden="true">🔎</span> CQC</span>
-          <h2 class="h2">Inspection confidence, built on the five key questions</h2>
+          <h2 class="h2">Inspection confidence, built on good governance</h2>
           <p class="lead">
-            We help you evidence practice and improvements against Safe, Effective, Caring, Responsive and Well-led — with practical tools staff can follow.
+            We help you evidence practice and improvements against Safe, Effective, Caring, Responsive and Well-led — with a particular focus on Well-led governance, clinical oversight and risk management.
           </p>
 
           <div class="grid-2">
@@ -688,9 +782,10 @@
               <h3>What you receive</h3>
               <ul>
                 <li><strong>Findings report</strong> aligned to the five key questions</li>
+                <li><strong>Clinical governance review</strong> covering oversight, risk and learning</li>
                 <li><strong>Action plan</strong> with owners, deadlines and evidence required</li>
                 <li><strong>Evidence map</strong> and folder structure</li>
-                <li><strong>Governance templates</strong> (simple + usable)</li>
+                <li><strong>Governance templates</strong> that are simple and usable</li>
               </ul>
               <div class="btnrow">
                 <a class="btn" href="https://www.cqc.org.uk/" target="_blank" rel="noopener">Visit CQC</a>
@@ -702,13 +797,14 @@
               <h3>Common focus areas</h3>
               <ul>
                 <li>Safeguarding, risk, incidents and learning</li>
+                <li>Clinical governance and accountability</li>
                 <li>Medicines management and oversight</li>
-                <li>Care planning, reviews and outcomes</li>
-                <li>Complaints handling and responsiveness</li>
-                <li>Well-led governance, audits and accountability</li>
+                <li>Access, responsiveness and patient experience</li>
+                <li>Workforce, supervision and competency</li>
+                <li>Well-led governance, audits and assurance</li>
               </ul>
               <p class="muted" style="margin:10px 0 0">
-                We tailor the approach to your service type (residential, supported living, mental health, learning disabilities and more).
+                We tailor the approach to your setting, including GP practices, PCNs, residential care, supported living, mental health and learning disability services.
               </p>
             </div>
           </div>
@@ -716,13 +812,12 @@
       </div>
     </section>
 
-    <!-- MEET THE TEAM -->
     <section id="team" aria-label="Meet the team">
       <div class="container">
         <div class="wrap section-grad">
           <span class="kicker"><span class="spark" aria-hidden="true">👋</span> Meet the team</span>
           <h2 class="h2">People-first, practical support</h2>
-          <p class="lead">Experienced, calm leadership and straightforward improvement plans that teams can stick to.</p>
+          <p class="lead">Experienced, calm leadership and straightforward improvement plans that clinical and operational teams can stick to.</p>
 
           <div class="card">
             <div class="team">
@@ -738,12 +833,12 @@
                 <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:0 0 10px">
                   <h3 style="margin:0">Robert Cranmer</h3>
                   <span class="badge">Managing Director</span>
-                  <span class="badge">Adult Social Care &amp; Mental Health</span>
+                  <span class="badge">Primary Care &amp; Clinical Governance</span>
                 </div>
 
                 <p class="muted">
-                  Robert leads Cranmer Care Management Ltd, supporting providers to strengthen quality, compliance, and governance.
-                  The focus is always on practical systems: clear priorities, measurable actions, and evidence that stays up to date.
+                  Robert leads Cranmer Care Management Ltd, supporting providers, practices and services to strengthen quality, compliance and governance.
+                  The focus is always on practical systems: clear priorities, measurable actions, accountable ownership and evidence that stays up to date.
                 </p>
 
                 <div class="grid-2" style="margin-top:12px">
@@ -752,18 +847,18 @@
                     <ul>
                       <li>Direct, supportive leadership</li>
                       <li>Clear action plans with ownership</li>
-                      <li>Simple evidence structures</li>
-                      <li>Coaching for managers and seniors</li>
+                      <li>Simple governance and evidence structures</li>
+                      <li>Coaching for managers, partners and senior teams</li>
                     </ul>
                   </div>
 
                   <div class="card" style="box-shadow:none; background:rgba(11,27,74,0.04)">
                     <h3 style="margin-top:0">Service types supported</h3>
                     <ul>
-                      <li>Residential care (older people, dementia)</li>
+                      <li>GP practices and Primary Care Networks</li>
+                      <li>Residential care and dementia services</li>
                       <li>Supported living and community support</li>
-                      <li>Learning disabilities services</li>
-                      <li>Mental health services</li>
+                      <li>Mental health and learning disability services</li>
                     </ul>
                   </div>
                 </div>
@@ -784,7 +879,6 @@
       </div>
     </section>
 
-    <!-- PARTNERS -->
     <section id="partners" aria-label="Partners and sponsorships">
       <div class="container">
         <div class="wrap section-grad">
@@ -809,7 +903,7 @@
               </ul>
               <div class="btnrow">
                 <a class="btn primary" href="#contact">Talk partnerships</a>
-                <a class="btn" href="#whatwedo">Back to what we do</a>
+                <a class="btn" href="#primarycare">Back to primary care support</a>
               </div>
             </div>
 
@@ -830,7 +924,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" aria-label="Contact">
       <div class="container">
         <div class="wrap section-grad">
@@ -843,7 +936,7 @@
               <div class="badge">Quick contact</div>
               <h3 style="margin-top:10px">Reach us directly</h3>
               <p style="margin-bottom:8px"><strong>Email:</strong> <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></p>
-              <p style="margin:0"><strong>Telephone:</strong> <a href="tel:+441274449277">01274 449277</a></p>
+              <p style="margin:0"><strong>Telephone:</strong> <a href="tel:+447793487157">07793487157</a></p>
               <p class="muted" style="margin-top:10px; margin-bottom:0">
                 Prefer a quick call? Send your availability and we’ll come back with options.
               </p>
@@ -869,10 +962,13 @@
                   <label for="topic">Topic</label>
                   <select id="topic" name="topic" required>
                     <option value="">Select…</option>
-                    <option>Mock inspection / CQC readiness</option>
-                    <option>Post-inspection action plan</option>
-                    <option>Turnaround support</option>
-                    <option>Evidence packs / governance</option>
+                    <option>Primary care support</option>
+                    <option>Residential care support</option>
+                    <option>Supported living support</option>
+                    <option>Clinical governance review</option>
+                    <option>CQC readiness / mock inspection</option>
+                    <option>Risk, audit and assurance</option>
+                    <option>Evidence packs / governance templates</option>
                     <option>Tender writing</option>
                     <option>Partnership / sponsorship</option>
                     <option>Other</option>
@@ -906,17 +1002,15 @@
       <span>© <span id="year"></span> Cranmer Care Management Ltd</span>
       <span>• Company No: 15610739</span>
       <span>• 📧 <a href="mailto:support@cranmercare.co.uk">support@cranmercare.co.uk</a></span>
-      <span>• 📞 <a href="tel:+441274449277">01274 449277</a></span>
+      <span>• 📞 <a href="tel:+447793487157">07793487157</a></span>
     </div>
   </footer>
 
   <script>
     const $ = (sel, root=document) => root.querySelector(sel);
 
-    // Year
     $("#year").textContent = new Date().getFullYear();
 
-    // Mobile nav
     const menuBtn = $("#menuBtn");
     const mobileNav = $("#mobileNav");
 
@@ -938,7 +1032,6 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
     window.addEventListener("resize", () => { if (window.innerWidth > 1040) closeNav(); });
 
-    // Contact form -> mailto
     const form = $("#contactForm");
     const clearBtn = $("#clearBtn");
     const emailTo = "support@cranmercare.co.uk";
